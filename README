@@ -1,0 +1,9 @@
+Multimodal Space Shooter
+------------------------
+
+Space shooter using a multimodal user interface
+The game uses this two modalities:
+  - Gesture (using a Kinect)
+  - Voice
+
+Developped for the course "Multimodal Interfaces"
