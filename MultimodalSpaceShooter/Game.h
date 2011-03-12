@@ -6,6 +6,7 @@
 #include "PhysicsEngine.h"
 #include "EventManager.h"
 #include "SceneManager.h"
+#include "ImageManager.h"
 
 //////////////////////////////////////////////////
 /// Game skeleton that manages the game loop
@@ -25,11 +26,13 @@ class Game
         PhysicsEngine   myPhysicsEngine;
         EventManager    myEventManager;
         SceneManager    mySceneManager;
+        ImageManager    myImageManager;
 
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();
         friend EventManager& eventManager();
         friend SceneManager& sceneManager();
+        friend ImageManager& imageManager();
 };
 
 #endif // GAME_H

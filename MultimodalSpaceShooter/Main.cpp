@@ -6,9 +6,16 @@
 //////////////////////////////////////////////////
 int main()
 {
-    // Create and start the game
-    Game& game = Game::instance();
-    game.run();
+    try
+    {
+        // Create and start the game
+        Game& game = Game::instance();
+        game.run();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << "Error in game: " << e.what();
+    }
 
     return EXIT_SUCCESS;
 }

@@ -9,9 +9,10 @@ Game& Game::instance()
     return game;
 }
 
-Game::Game(/*const std::string& world*/)
-: myWindow(sf::VideoMode(800, 600, 32), "Multimodal Space Shooter"),
-  myEventManager(myWindow.GetInput())
+Game::Game(/*const std::string& world*/) :
+myWindow(sf::VideoMode(800, 600, 32), "Multimodal Space Shooter"),
+myEventManager(myWindow.GetInput()),
+myImageManager("./images/")
 {
     // Create some entities
     // TODO: this is just a test!

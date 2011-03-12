@@ -20,3 +20,8 @@ SceneManager& sceneManager()
 {
     return Game::instance().mySceneManager;
 }
+
+ImageManager& imageManager()
+{
+    return Game::instance().myImageManager;
+}
