@@ -23,6 +23,11 @@ void Missile::update(float frameTime)
         destroy();
 }
 
+sf::FloatRect Missile::getBoundingRect() const
+{
+    return sf::FloatRect(myShape.GetPosition(), sf::Vector2f(0, 10));
+}
+
 void Missile::draw(sf::RenderTarget& window) const
 {
     window.Draw(myShape);

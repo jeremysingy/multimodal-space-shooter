@@ -11,6 +11,7 @@ class Missile : public Entity
         ~Missile();
 
         virtual void update(float frameTime);
+        virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
 
     private:

@@ -3,7 +3,7 @@
 #include "Managers.h"
 #include <SFML/Graphics.hpp>
 
-const float Spaceship::SPEED = 150.f;
+const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship()
 {
@@ -12,7 +12,6 @@ Spaceship::Spaceship()
     mySprite.SetImage(*imageManager().get("spaceship.png"));
     mySprite.Move(400, 500);
 }
-
 
 Spaceship::~Spaceship()
 {
@@ -34,6 +33,11 @@ void Spaceship::update(float frameTime)
         mySprite.Move(-SPEED * frameTime, 0);
     if(eventManager().getInput().IsKeyDown(sf::Key::Right))
         mySprite.Move( SPEED * frameTime, 0);
+}
+
+sf::FloatRect Spaceship::getBoundingRect() const
+{
+    return sf::FloatRect(mySprite.GetPosition(), mySprite.GetSize());
 }
 
 void Spaceship::draw(sf::RenderTarget& window) const

@@ -11,3 +11,8 @@ PhysicsObject::~PhysicsObject()
 {
     physicsEngine().removeObject(this);
 }
+
+void PhysicsObject::onCollision(const sf::FloatRect& area)
+{
+
+}

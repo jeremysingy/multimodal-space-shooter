@@ -13,6 +13,7 @@ class Spaceship : public Entity, public EventListener
 
         virtual void onEvent(const sf::Event& event);
         virtual void update(float frameTime);
+        virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
 
     private:

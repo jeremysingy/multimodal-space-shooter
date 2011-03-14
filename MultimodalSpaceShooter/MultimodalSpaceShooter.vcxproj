@@ -40,14 +40,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\SFML-2.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SFML-2.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SFML_INCLUDE);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SFML_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\SFML-2.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SFML-2.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SFML_INCLUDE);$(IncludePath)</IncludePath>
+    <LibraryPath>$(SFML_LIB);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
