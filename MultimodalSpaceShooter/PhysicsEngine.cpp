@@ -1,5 +1,6 @@
 #include "PhysicsEngine.h"
 #include "PhysicsObject.h"
+#include <iostream>
 
 PhysicsEngine::PhysicsEngine()
 {
@@ -15,7 +16,6 @@ PhysicsEngine::~PhysicsEngine()
 void PhysicsEngine::addObject(PhysicsObject* object)
 {
     myObjects.insert(object);
-    //myObjects.push_back(object);
 }
 
 void PhysicsEngine::removeObject(PhysicsObject* object)
@@ -34,21 +34,24 @@ void PhysicsEngine::updateScene(float frameTime)
         (*i)->update(frameTime);
 
         // Check for collisions
-        /*for(it j = i; j != myObjects.end(); ++j)
+        for(it j = myObjects.begin(); j != myObjects.end(); ++j)
         {
-            sf::FloatRect collisionArea;
-
-            if(isCollide(*i, *j, collisionArea))
+            if(*i != *j)
             {
-                (*i)->onCollision(collisionArea);
-                (*j)->onCollision(collisionArea);
+                sf::FloatRect collisionArea;
+
+                // TODO: handle a better way...
+                if(isCollide(*i, *j, collisionArea))
+                {
+                    (*i)->onCollision(collisionArea);
+                    //(*j)->onCollision(collisionArea);
+                }
             }
-        }*/
+        }
     }
 }
 
 bool PhysicsEngine::isCollide(const PhysicsObject* object1, const PhysicsObject* object2, sf::FloatRect& collisionArea)
 {
-    //return object1->getBoundingRect().Intersects(object2->getBoundingRect(), collisionArea);
-    return false;
+    return object1->getBoundingRect().Intersects(object2->getBoundingRect(), collisionArea);
 }

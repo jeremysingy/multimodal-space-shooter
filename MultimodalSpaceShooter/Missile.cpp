@@ -19,13 +19,13 @@ void Missile::update(float frameTime)
 {
     myShape.Move(0, -SPEED * frameTime);
 
-    if(myShape.GetPosition().y <= 20)
+    if(myShape.GetPosition().y <= 10)
         destroy();
 }
 
 sf::FloatRect Missile::getBoundingRect() const
 {
-    return sf::FloatRect(myShape.GetPosition(), sf::Vector2f(0, 10));
+    return sf::FloatRect(myShape.GetPosition(), sf::Vector2f(1, 10));
 }
 
 void Missile::draw(sf::RenderTarget& window) const

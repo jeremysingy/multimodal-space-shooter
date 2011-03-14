@@ -1,7 +1,9 @@
 #include "Game.h"
 #include "Spaceship.h"
 #include "Planet.h"
+
 #include <iostream>
+#include "AnimatedSprite.h"
 
 Game& Game::instance()
 {
@@ -14,6 +16,10 @@ myWindow(sf::VideoMode(800, 600, 32), "Multimodal Space Shooter"),
 myEventManager(myWindow.GetInput()),
 myImageManager("./images/")
 {
+    // Preload images
+    myImageManager.load("spaceship.png");
+    myImageManager.load("explosion.png");
+
     // Create some entities
     // TODO: this is just a test!
     std::shared_ptr<Entity> spaceship(new Spaceship);
@@ -22,7 +28,7 @@ myImageManager("./images/")
     std::shared_ptr<Entity> planet1(new Planet(sf::Vector2f(100, 200)));
     mySceneManager.addEntity(planet1);
 
-    std::shared_ptr<Entity> planet2(new Planet(sf::Vector2f(300, 10)));
+    std::shared_ptr<Entity> planet2(new Planet(sf::Vector2f(300, 15)));
     mySceneManager.addEntity(planet2);
 
     std::shared_ptr<Entity> planet3(new Planet(sf::Vector2f(700, 120)));

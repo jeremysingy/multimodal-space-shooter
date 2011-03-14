@@ -2,7 +2,7 @@
 #define PLANET_H
 
 #include "Entity.h"
-#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics.hpp>
 
 class Planet : public Entity
 {

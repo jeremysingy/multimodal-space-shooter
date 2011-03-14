@@ -8,11 +8,11 @@ class Missile : public Entity
 {
     public:
         Missile(const sf::Vector2f& initialPos);
-        ~Missile();
+        virtual ~Missile();
 
         virtual void update(float frameTime);
-        virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
+        virtual sf::FloatRect getBoundingRect() const;
 
     private:
         sf::Shape myShape;

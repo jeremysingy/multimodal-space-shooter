@@ -14,5 +14,5 @@ PhysicsObject::~PhysicsObject()
 
 void PhysicsObject::onCollision(const sf::FloatRect& area)
 {
-
+    
 }

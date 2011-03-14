@@ -5,11 +5,10 @@
 
 const float Spaceship::SPEED = 200.f;
 
-Spaceship::Spaceship()
+Spaceship::Spaceship() :
+mySprite(*imageManager().get("spaceship.png"))
 {
-    /*static sf::Image image;
-    image.LoadFromFile("images/spaceship.png");*/
-    mySprite.SetImage(*imageManager().get("spaceship.png"));
+    //mySprite.SetImage(*imageManager().get("spaceship.png"));
     mySprite.Move(400, 500);
 }
 

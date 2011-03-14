@@ -2,7 +2,6 @@
 #define PHYSICSENGINE_H
 
 #include <set>
-//#include <vector>
 #include <SFML/Graphics/Rect.hpp>
 
 class PhysicsObject;
