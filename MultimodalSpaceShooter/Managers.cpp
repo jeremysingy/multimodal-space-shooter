@@ -13,7 +13,7 @@ PhysicsEngine& physicsEngine()
 
 AudioEngine& audioEngine()
 {
-	return Game::instance().myAudioEngine;
+    return Game::instance().myAudioEngine;
 }
 
 EventManager& eventManager()
@@ -33,5 +33,5 @@ ImageManager& imageManager()
 
 SoundManager& soundManager()
 {
-	return Game::instance().mySoundManager;
+    return Game::instance().mySoundManager;
 }

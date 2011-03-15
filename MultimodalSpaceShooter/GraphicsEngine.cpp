@@ -6,9 +6,9 @@
 #include <sstream>
 #include <iomanip>
 
-GraphicsEngine::GraphicsEngine() 
-: myFrameCount(0),
-  myFpsText("", sf::Font::GetDefaultFont(), 16)
+GraphicsEngine::GraphicsEngine() :
+myFrameCount(0),
+myFpsText("", sf::Font::GetDefaultFont(), 16)
 {
 
 }

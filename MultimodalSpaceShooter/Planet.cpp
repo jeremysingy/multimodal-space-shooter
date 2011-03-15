@@ -2,8 +2,8 @@
 #include "Explosion.h"
 #include "Managers.h"
 
-Planet::Planet(const sf::Vector2f& position)
-: mySprite(sf::Shape::Circle(0, 0, 40, sf::Color::Color(255, 128, 0, 255)))
+Planet::Planet(const sf::Vector2f& position) :
+mySprite(sf::Shape::Circle(0, 0, 40, sf::Color::Color(255, 128, 0, 255)))
 {
     mySprite.SetOrigin(-40, -40);
     mySprite.SetPosition(position);
@@ -26,7 +26,6 @@ void Planet::onCollision(const sf::FloatRect& area)
 
     std::shared_ptr<Explosion> explosion(new Explosion(mySprite.GetPosition() - decal));
     sceneManager().addEntity(explosion);
-	audioEngine().playSound("boum.wav", 100.f);
 
     destroy();
 }

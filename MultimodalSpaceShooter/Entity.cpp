@@ -1,7 +1,7 @@
 #include "Entity.h"
 
-Entity::Entity()
-: myIsDestroyed(false)
+Entity::Entity() :
+myIsDestroyed(false)
 {
     
 }

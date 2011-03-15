@@ -4,8 +4,8 @@
 #include "EventListener.h"
 #include "Spaceship.h"
 
-EventManager::EventManager(const sf::Input& input)
-: myInput(input)
+EventManager::EventManager(const sf::Input& input) :
+myInput(input)
 {
     
 }

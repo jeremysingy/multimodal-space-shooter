@@ -8,7 +8,6 @@ const float Spaceship::SPEED = 200.f;
 Spaceship::Spaceship() :
 mySprite(*imageManager().get("spaceship.png"))
 {
-    //mySprite.SetImage(*imageManager().get("spaceship.png"));
     mySprite.Move(400, 500);
 }
 
@@ -50,6 +49,6 @@ void Spaceship::fireMissile()
 
     std::shared_ptr<Missile> missile(new Missile(position));
     sceneManager().addEntity(missile);
-	
-	audioEngine().playSound("piou.wav", 10.f);
+
+    audioEngine().playSound("piou.wav", 10.f);
 }

@@ -26,19 +26,19 @@ class Game
 
         GraphicsEngine  myGraphicsEngine;
         PhysicsEngine   myPhysicsEngine;
-		AudioEngine		myAudioEngine;
+        AudioEngine		myAudioEngine;
         EventManager    myEventManager;
         SceneManager    mySceneManager;
         ImageManager    myImageManager;
-		SoundManager	mySoundManager;
+        SoundManager	mySoundManager;
 
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();
-		friend AudioEngine& audioEngine();
+        friend AudioEngine& audioEngine();
         friend EventManager& eventManager();
         friend SceneManager& sceneManager();
         friend ImageManager& imageManager();
-		friend SoundManager& soundManager();
+        friend SoundManager& soundManager();
 };
 
 #endif // GAME_H

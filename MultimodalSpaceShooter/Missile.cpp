@@ -3,8 +3,8 @@
 
 const float Missile::SPEED = 500.f;
 
-Missile::Missile(const sf::Vector2f& initialPos)
-: myShape(sf::Shape::Line(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 10.f), 1.f, sf::Color::Red))
+Missile::Missile(const sf::Vector2f& initialPos) :
+myShape(sf::Shape::Line(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 10.f), 1.f, sf::Color::Red))
 {
     myShape.SetPosition(initialPos);
 }

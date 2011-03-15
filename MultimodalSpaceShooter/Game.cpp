@@ -48,7 +48,7 @@ void Game::run()
 
         // Destroy dead entities
         mySceneManager.checkDestroyedEntities();
-        
+
         // Clear screen
         myWindow.Clear();
 
