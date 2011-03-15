@@ -14,7 +14,8 @@ Game& Game::instance()
 Game::Game(/*const std::string& world*/) :
 myWindow(sf::VideoMode(800, 600, 32), "Multimodal Space Shooter"),
 myEventManager(myWindow.GetInput()),
-myImageManager("./images/")
+myImageManager("./images/"),
+mySoundManager("./sounds/")
 {
     // Preload images
     myImageManager.load("spaceship.png");

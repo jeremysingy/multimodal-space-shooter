@@ -26,6 +26,7 @@ void Planet::onCollision(const sf::FloatRect& area)
 
     std::shared_ptr<Explosion> explosion(new Explosion(mySprite.GetPosition() - decal));
     sceneManager().addEntity(explosion);
+	audioEngine().playSound("boum.wav", 100.f);
 
     destroy();
 }
