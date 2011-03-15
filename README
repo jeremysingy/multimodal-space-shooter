@@ -7,3 +7,5 @@ The game uses this two modalities:
   - Voice
 
 Developped for the course "Multimodal Interfaces"
+
+The game uses the SFML library: http://www.sfml-dev.org/
