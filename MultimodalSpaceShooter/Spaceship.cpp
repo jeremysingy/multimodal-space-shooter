@@ -50,4 +50,6 @@ void Spaceship::fireMissile()
 
     std::shared_ptr<Missile> missile(new Missile(position));
     sceneManager().addEntity(missile);
+	
+	audioEngine().playSound("piou.wav", 10.f);
 }

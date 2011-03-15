@@ -11,6 +11,11 @@ PhysicsEngine& physicsEngine()
     return Game::instance().myPhysicsEngine;
 }
 
+AudioEngine& audioEngine()
+{
+	return Game::instance().myAudioEngine;
+}
+
 EventManager& eventManager()
 {
     return Game::instance().myEventManager;
@@ -24,4 +29,9 @@ SceneManager& sceneManager()
 ImageManager& imageManager()
 {
     return Game::instance().myImageManager;
+}
+
+SoundManager& soundManager()
+{
+	return Game::instance().mySoundManager;
 }
