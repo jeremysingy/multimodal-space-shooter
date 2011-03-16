@@ -12,7 +12,7 @@ int main()
         Game& game = Game::instance();
         game.run();
     }
-    catch(std::exception& e)
+    catch(const std::exception& e)
     {
         std::cerr << "Error in game: " << e.what();
     }
