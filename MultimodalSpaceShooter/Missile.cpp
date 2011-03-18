@@ -19,7 +19,7 @@ void Missile::update(float frameTime)
 {
     myShape.Move(0, -SPEED * frameTime);
 
-    if(myShape.GetPosition().y <= 10)
+    if(myShape.GetPosition().y <= 0)
         destroy();
 }
 
