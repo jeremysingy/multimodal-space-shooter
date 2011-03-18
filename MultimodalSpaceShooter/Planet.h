@@ -16,7 +16,9 @@ class Planet : public Entity
         virtual void draw(sf::RenderTarget& window) const;
 
     private:
-        sf::Shape mySprite;
+        sf::Sprite mySprite;
+
+        static const float SPEED;
 };
 
 #endif // PLANET_H

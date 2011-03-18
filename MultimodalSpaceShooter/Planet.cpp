@@ -2,10 +2,11 @@
 #include "Explosion.h"
 #include "Managers.h"
 
+const float Planet::SPEED = 10.f;
+
 Planet::Planet(const sf::Vector2f& position) :
-mySprite(sf::Shape::Circle(0, 0, 40, sf::Color::Color(255, 128, 0, 255)))
+mySprite(*imageManager().get("planete1.png"))
 {
-    mySprite.SetOrigin(-40, -40);
     mySprite.SetPosition(position);
 }
 
@@ -17,7 +18,7 @@ Planet::~Planet()
 
 void Planet::update(float frameTime)
 {
-
+    mySprite.Move(0, SPEED * frameTime);
 }
 
 void Planet::onCollision(const sf::FloatRect& area)
