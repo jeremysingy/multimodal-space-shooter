@@ -45,7 +45,7 @@ void Spaceship::draw(sf::RenderTarget& window) const
 
 void Spaceship::fireMissile()
 {
-    sf::Vector2f position(mySprite.GetPosition().x + mySprite.GetSize().x / 2, mySprite.GetPosition().y);
+    sf::Vector2f position(mySprite.GetPosition().x + mySprite.GetSize().x / 2, mySprite.GetPosition().y-20);
 
     std::shared_ptr<Missile> missile(new Missile(position));
     sceneManager().addEntity(missile);

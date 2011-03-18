@@ -15,6 +15,11 @@ Missile::~Missile()
 
 }
 
+void Missile::onCollision(const sf::FloatRect& area)
+{
+    destroy();
+}
+
 void Missile::update(float frameTime)
 {
     myShape.Move(0, -SPEED * frameTime);

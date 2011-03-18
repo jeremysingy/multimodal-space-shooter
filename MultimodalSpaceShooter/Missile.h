@@ -12,10 +12,12 @@ class Missile : public Entity
 
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;
+        virtual void onCollision(const sf::FloatRect& area);
         virtual sf::FloatRect getBoundingRect() const;
 
     private:
         sf::Shape myShape;
+
 
         static const float SPEED;
 };

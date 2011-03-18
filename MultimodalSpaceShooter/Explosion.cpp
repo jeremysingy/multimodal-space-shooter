@@ -5,7 +5,7 @@ Explosion::Explosion(const sf::Vector2f& initialPos) :
 mySprite(*imageManager().get("explosion.png"), 320, 240, 0.05f)
 {
     mySprite.SetPosition(initialPos);
-    audioEngine().playSound("boum.wav", 100.f);
+    audioEngine().playSound("boum.wav");
 }
 
 Explosion::~Explosion()
