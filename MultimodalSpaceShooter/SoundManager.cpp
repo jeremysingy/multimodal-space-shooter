@@ -3,7 +3,12 @@
 SoundManager::SoundManager(const std::string& resourcePath) :
 ResourceManager(resourcePath)
 {
+    
+}
 
+SoundManager::~SoundManager()
+{
+    
 }
 
 std::shared_ptr<sf::SoundBuffer> SoundManager::load(const std::string& name)

@@ -18,6 +18,7 @@ class PhysicsEngine
         ~PhysicsEngine();
 
         bool isCollide(const PhysicsObject* object1, const PhysicsObject* object2, sf::FloatRect& collisionArea);
+        void manageCollisions();
 
         std::set<PhysicsObject*> myObjects;
         //std::vector<PhysicsObject*> myObjects;

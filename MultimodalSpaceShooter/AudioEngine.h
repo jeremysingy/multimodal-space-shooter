@@ -8,9 +8,10 @@
 class AudioEngine
 {
     public:
-        void playSound(const std::string& name, float volume=75.f);
+        void playSound(const std::string& name, float volume = 100.f);
 
     private:
+
         AudioEngine();
         ~AudioEngine();
 

@@ -1,6 +1,5 @@
 #include "PhysicsEngine.h"
 #include "PhysicsObject.h"
-#include <iostream>
 
 PhysicsEngine::PhysicsEngine()
 {
@@ -32,8 +31,18 @@ void PhysicsEngine::updateScene(float frameTime)
     for(it i = myObjects.begin(); i != myObjects.end(); ++i)
     {
         (*i)->update(frameTime);
+    }
 
-        // Check for collisions
+    // Check for possible collisions
+    manageCollisions();
+}
+
+void PhysicsEngine::manageCollisions()
+{
+    typedef std::set<PhysicsObject*>::iterator it;
+
+    for(it i = myObjects.begin(); i != myObjects.end(); ++i)
+    {
         for(it j = myObjects.begin(); j != myObjects.end(); ++j)
         {
             if(*i != *j)
@@ -42,10 +51,7 @@ void PhysicsEngine::updateScene(float frameTime)
 
                 // TODO: handle a better way...
                 if(isCollide(*i, *j, collisionArea))
-                {
                     (*i)->onCollision(collisionArea);
-                    //(*j)->onCollision(collisionArea);
-                }
             }
         }
     }

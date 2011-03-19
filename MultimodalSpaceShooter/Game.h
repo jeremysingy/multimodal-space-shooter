@@ -24,13 +24,13 @@ class Game
 
         sf::RenderWindow myWindow;
 
+        SoundManager	mySoundManager;
         GraphicsEngine  myGraphicsEngine;
         PhysicsEngine   myPhysicsEngine;
         AudioEngine		myAudioEngine;
         EventManager    myEventManager;
         SceneManager    mySceneManager;
         ImageManager    myImageManager;
-        SoundManager	mySoundManager;
 
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();

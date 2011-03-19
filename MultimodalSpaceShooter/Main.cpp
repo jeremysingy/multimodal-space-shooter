@@ -1,6 +1,32 @@
 #include <iostream>
 #include "Game.h"
 
+#include <SFML/Audio.hpp>
+
+/*class Test
+{
+public:
+    SoundManager sm;
+    std::vector<sf::Sound> mySounds;
+
+    void Test::playSound(const std::string& name, float volume)
+    {
+        std::shared_ptr<sf::SoundBuffer> buffer = sm.get(name);//soundManager().get(name);
+
+        //std::shared_ptr<sf::SoundBuffer> buffer(new sf::SoundBuffer);
+        //buffer->LoadFromFile(name);
+
+        sf::Sound sound(*buffer);
+        sound.SetVolume(volume);
+
+        mySounds.push_back(sound);
+        mySounds.back().Play();
+
+        std::cout << "test" << std::endl;
+    }
+};*/
+
+
 //////////////////////////////////////////////////
 /// Entry point of the application
 //////////////////////////////////////////////////
@@ -31,6 +57,9 @@ int main()
             std::cout << "couple (" << *i << " ; " << *j << ")" << std::endl;
 
     }*/
+
+    //Test test;
+    //test.playSound("sounds/boum.wav", 100.f);
 
     return EXIT_SUCCESS;
 }

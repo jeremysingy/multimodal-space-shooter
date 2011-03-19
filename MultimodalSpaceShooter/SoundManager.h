@@ -11,6 +11,7 @@ class SoundManager : public ResourceManager<sf::SoundBuffer>
         
     private:
         SoundManager(const std::string& resourcePath = "./");
+        ~SoundManager();
 
         friend class Game;
 };
