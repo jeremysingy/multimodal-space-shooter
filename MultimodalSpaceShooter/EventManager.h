@@ -14,12 +14,12 @@ class EventManager
     public:
         void addListener(EventListener* listener);
         void removeListener(EventListener* listener);
+        void update(sf::Window& window);
         const sf::Input& getInput() const;
  
     private:
         EventManager(const sf::Input& input);
         ~EventManager();
-        void update(sf::Window& window);
 
         std::set<EventListener*> myListeners;
         const sf::Input& myInput;

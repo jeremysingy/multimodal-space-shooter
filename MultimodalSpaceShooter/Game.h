@@ -6,6 +6,7 @@
 #include "PhysicsEngine.h"
 #include "AudioEngine.h"
 #include "EventManager.h"
+#include "MultimodalManager.h"
 #include "SceneManager.h"
 #include "ImageManager.h"
 #include "SoundManager.h"
@@ -24,18 +25,21 @@ class Game
 
         sf::RenderWindow myWindow;
 
-        SoundManager	mySoundManager;
-        GraphicsEngine  myGraphicsEngine;
-        PhysicsEngine   myPhysicsEngine;
-        AudioEngine		myAudioEngine;
-        EventManager    myEventManager;
-        SceneManager    mySceneManager;
-        ImageManager    myImageManager;
+        SoundManager	  mySoundManager;
+        GraphicsEngine    myGraphicsEngine;
+        PhysicsEngine     myPhysicsEngine;
+        AudioEngine		  myAudioEngine;
+        EventManager      myEventManager;
+        MultimodalManager myMultimodalManager;
+        SceneManager      mySceneManager;
+        ImageManager      myImageManager;
 
+        // Declare managers as friends of the game main class
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();
         friend AudioEngine& audioEngine();
         friend EventManager& eventManager();
+        friend MultimodalManager& multimodalManager();
         friend SceneManager& sceneManager();
         friend ImageManager& imageManager();
         friend SoundManager& soundManager();

@@ -21,6 +21,11 @@ EventManager& eventManager()
     return Game::instance().myEventManager;
 }
 
+MultimodalManager& multimodalManager()
+{
+    return Game::instance().myMultimodalManager;
+}
+
 SceneManager& sceneManager()
 {
     return Game::instance().mySceneManager;

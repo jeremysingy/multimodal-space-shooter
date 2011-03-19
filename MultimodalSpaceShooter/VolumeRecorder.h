@@ -3,23 +3,19 @@
 
 #include <SFML/Audio.hpp>
 
-class VolumeRecorder : public sf::SoundRecorder 
-{ 
-    public: 
-
-        float   getVolume() const {return myVolume;} 
-        int     getLevel()  const {return myLevel;}  
-
-    private:
-        VolumeRecorder() : myVolume(0), myLevel(0) {} 
+class VolumeRecorder : public sf::SoundRecorder
+{
+    public:
+        VolumeRecorder();
         ~VolumeRecorder();
 
-        bool    OnProcessSamples(const sf::Int16* Samples, std::size_t SamplesCount); 
+        float getVolume() const;
+        int getLevel()  const;
+
+        bool OnProcessSamples(const sf::Int16* samples, std::size_t samplesCount);
 
         float myVolume; 
         int   myLevel;
-
-        friend class Game;
 };
 
 #endif // VOLUMERECORDER_H

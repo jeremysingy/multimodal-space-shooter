@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\entities">
+      <UniqueIdentifier>{b5d02f47-9771-47e7-91c5-502fa219abb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\loaders">
+      <UniqueIdentifier>{94f6ca0e-9590-48a0-989f-f805063404b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\managers">
+      <UniqueIdentifier>{cf0ec571-2c49-44cc-8791-a72a6c91a912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entities">
+      <UniqueIdentifier>{a3ec3d08-f9c6-429c-aff2-9ffa79f9c1c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\managers">
+      <UniqueIdentifier>{d49d54f4-7b80-4621-a9ab-eb0ae88f47ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\loaders">
+      <UniqueIdentifier>{69161e93-c02e-4de9-9381-217840268087}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -21,126 +39,150 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Spaceship.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Planet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsEngine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Managers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Missile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AnimatedSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Explosion.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AudioEngine.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsEngine.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsObject.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\loaders</Filter>
     </ClCompile>
-    <ClCompile Include="AudioEngine.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>Source Files\loaders</Filter>
     </ClCompile>
     <ClCompile Include="VolumeRecorder.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Missile.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Spaceship.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="EventListener.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MultimodalManager.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MultimodalListener.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GestureManager.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="NiCallbacksWrapper.cpp">
+      <Filter>Source Files\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EventManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Spaceship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Managers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Planet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Missile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AnimatedSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Explosion.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GraphicsEngine.h">
+      <Filter>Header Files\managers</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GraphicsObject.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="AudioEngine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Header Files\loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>Header Files\loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Missile.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Spaceship.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers.h">
+      <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="VolumeRecorder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultimodalManager.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultimodalListener.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="GestureManager.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="NiCallbacksWrapper.h">
+      <Filter>Header Files\managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ResourceManager.inl">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\loaders</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -12,9 +12,6 @@ class EventListener
         virtual ~EventListener();
 
         virtual void onEvent(const sf::Event& event);
-        /*virtual void onKeyPressed(int code);
-        virtual void onButtonPressed(int code);
-        virtual void onResize(int width, int height);*/
 
     protected:
         EventListener();
