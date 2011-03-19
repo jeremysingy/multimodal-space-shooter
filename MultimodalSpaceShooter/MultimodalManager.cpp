@@ -2,13 +2,16 @@
 
 MultimodalManager::MultimodalManager()
 {
-
+    if(sf::SoundRecorder::IsAvailable())
+    {
+        myVolumeRecorder.Start(11025);
+    }
 }
 
 
 MultimodalManager::~MultimodalManager()
 {
-
+    myVolumeRecorder.Stop();
 }
 
 void MultimodalManager::addListener(MultimodalListener* listener) 
@@ -41,3 +44,9 @@ const sf::Vector2f& MultimodalManager::getRightHandPosition() const
 {
     return myGestureManager.getRightHandPosition();
 }
+
+float MultimodalManager::getMicroVolume() const
+{
+    return myVolumeRecorder.getVolume();
+}
+

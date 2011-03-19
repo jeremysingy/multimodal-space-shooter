@@ -17,12 +17,16 @@ class GraphicsEngine
         GraphicsEngine();
         ~GraphicsEngine();
         
-        void updateFpsAverage();
+        void drawFps(sf::RenderTarget& window);
+        void drawVolumeIndicator(sf::RenderTarget& window);
 
         int                       myFrameCount;
         sf::Clock                 myClock;
         sf::Text                  myFpsText;
         std::set<GraphicsObject*> myObjects;
+
+        sf::Shape myVolumeViewer;
+        sf::Shape myVolumeOutline;
 
         friend class Game;
 };

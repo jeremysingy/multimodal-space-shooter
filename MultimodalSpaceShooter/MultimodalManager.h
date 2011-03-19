@@ -21,6 +21,7 @@ class MultimodalManager
         const sf::Vector2f& getBodyPosition() const;
         const sf::Vector2f& getLeftHandPosition() const;
         const sf::Vector2f& getRightHandPosition() const;
+        float getMicroVolume() const;
 
     private:
         std::set<MultimodalListener*> myListeners;

@@ -2,6 +2,7 @@
 #include "GraphicsObject.h"
 #include "Spaceship.h"
 #include "Planet.h"
+#include "Managers.h"
 
 #include <sstream>
 #include <iomanip>
@@ -10,7 +11,11 @@ GraphicsEngine::GraphicsEngine() :
 myFrameCount(0),
 myFpsText("", sf::Font::GetDefaultFont(), 16)
 {
+    myVolumeViewer = sf::Shape::Rectangle(sf::FloatRect(0, 0, 1, 5), sf::Color::Red);
+    myVolumeViewer.SetPosition(680, 5);
 
+    myVolumeOutline = sf::Shape::Rectangle(sf::FloatRect(0, 0, 100, 5), sf::Color(0, 0, 0, 0), 1.f, sf::Color::Red);
+    myVolumeOutline.SetPosition(680, 5);
 }
 
 
@@ -37,12 +42,12 @@ void GraphicsEngine::drawScene(sf::RenderTarget& window)
         (*i)->draw(window);
     }
 
-    // Print current fps
-    updateFpsAverage();
-    window.Draw(myFpsText);
+    // Print current fps and volume indicator
+    drawFps(window);
+    drawVolumeIndicator(window);
 }
 
-void GraphicsEngine::updateFpsAverage()
+void GraphicsEngine::drawFps(sf::RenderTarget& window)
 {
     float crtTime = myClock.GetElapsedTime();
 
@@ -59,4 +64,18 @@ void GraphicsEngine::updateFpsAverage()
     }
 
     ++myFrameCount;
+
+    window.Draw(myFpsText);
+}
+
+void GraphicsEngine::drawVolumeIndicator(sf::RenderTarget& window)
+{
+    float volume = multimodalManager().getMicroVolume();
+    if(volume > 100.f)
+        volume = 100.f;
+
+    myVolumeViewer.SetScaleX(volume);
+
+    window.Draw(myVolumeOutline);
+    window.Draw(myVolumeViewer);
 }
