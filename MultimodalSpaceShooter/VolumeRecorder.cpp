@@ -1,7 +1,7 @@
 #include "VolumeRecorder.h"
 #include <iostream>
 
-VolumeRecorder::VolumeRecorder() : myVolume(0), myLevel(0)
+VolumeRecorder::VolumeRecorder() : myVolume(0), myLevel(Low)
 {
 
 }
@@ -16,15 +16,20 @@ float VolumeRecorder::getVolume() const
     return myVolume;
 }
 
-int VolumeRecorder::getLevel() const
+VolumeRecorder::SoundLevel VolumeRecorder::getLevel() const
 {
     return myLevel;
 }
 
+bool VolumeRecorder::hasVaried() const
+{
+    return varied;
+}
+
 bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCount)
 {
-    //myVolume = 0;
-    float volume = 0;
+    float       volume = 0;
+    SoundLevel  tmpLevel = Low;
 
     for(std::size_t i = 0; i < samplesCount; ++i)
         volume += samples[i] * samples[i];
@@ -33,12 +38,22 @@ bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCo
 
     myVolume = volume / 250.f;
 
-    if(myVolume < 1.0)
-        myLevel = 0;
-    if(myVolume >= 1.0 && myVolume < 2.0)
-        myLevel = 1;
-    if(myVolume >= 2.0)
-        myLevel = 2;
+    if(myVolume < Medium)
+        tmpLevel = Low;
+    if(myVolume >= Medium && myVolume < High)
+        tmpLevel = Medium;
+    if(myVolume >= High)
+        tmpLevel = High;
+
+    if(tmpLevel >= Medium && myOldLevel == Low){
+        varied = true;
+    }
+    else{
+        varied = false;
+    }
+
+    myOldLevel = myLevel;
+    myLevel    = tmpLevel;
 
     return true;
 }
