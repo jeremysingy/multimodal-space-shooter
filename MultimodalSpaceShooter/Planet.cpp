@@ -26,7 +26,7 @@ void Planet::onCollision(const sf::FloatRect& area)
     sf::Vector2f decal(320 / 2 - 80 / 2, 240 / 2 - 80 / 2);
 
     std::shared_ptr<Explosion> explosion(new Explosion(mySprite.GetPosition() - decal));
-    sceneManager().addEntity(explosion);
+    entityManager().addEntity(explosion);
 
     destroy();
 }

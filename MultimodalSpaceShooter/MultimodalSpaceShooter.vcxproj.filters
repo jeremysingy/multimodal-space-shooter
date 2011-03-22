@@ -31,6 +31,12 @@
     <Filter Include="Source Files\loaders">
       <UniqueIdentifier>{69161e93-c02e-4de9-9381-217840268087}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\scenes">
+      <UniqueIdentifier>{c81106f9-9b47-4465-a990-c5a7b162c6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scenes">
+      <UniqueIdentifier>{3608c8f1-e310-4651-b0c9-bb69b2db1e89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -55,9 +61,6 @@
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsObject.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
@@ -104,6 +107,21 @@
     </ClCompile>
     <ClCompile Include="NiCallbacksWrapper.cpp">
       <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="IScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +182,6 @@
     <ClInclude Include="VolumeRecorder.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
     <ClInclude Include="MultimodalManager.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
@@ -178,6 +193,21 @@
     </ClInclude>
     <ClInclude Include="NiCallbacksWrapper.h">
       <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

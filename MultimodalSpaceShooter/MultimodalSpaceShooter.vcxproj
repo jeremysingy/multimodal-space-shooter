@@ -91,6 +91,7 @@
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="AudioEngine.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Explosion.cpp" />
@@ -99,6 +100,9 @@
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="GraphicsObject.cpp" />
     <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="InGameScene.cpp" />
+    <ClCompile Include="IntroScene.cpp" />
+    <ClCompile Include="IScene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Managers.cpp" />
     <ClCompile Include="Missile.cpp" />
@@ -117,6 +121,7 @@
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="AudioEngine.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityManager.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Explosion.h" />
@@ -125,6 +130,9 @@
     <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="GraphicsObject.h" />
     <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="InGameScene.h" />
+    <ClInclude Include="IntroScene.h" />
+    <ClInclude Include="IScene.h" />
     <ClInclude Include="Managers.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="MultimodalListener.h" />
