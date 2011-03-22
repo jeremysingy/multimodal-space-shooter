@@ -1,29 +1,31 @@
 #include "SceneManager.h"
 #include "Entity.h"
+#include "IntroScene.h"
+#include "InGameScene.h"
 #include <algorithm>
 
 SceneManager::SceneManager()
 {
+    ScenePtr introScene(new IntroScene);
+    ScenePtr inGameScene(new InGameScene);
 
+    myScenes[SceneIntro]  = introScene;
+    myScenes[SceneInGame] = inGameScene;
+
+    myCrtScene = introScene;
 }
 
-
-SceneManager::~SceneManager()
+void SceneManager::changeCurrentScene(SceneType newScene)
 {
-
+    myCrtScene = myScenes[newScene];
 }
 
-void SceneManager::addEntity(std::shared_ptr<Entity> entity)
+void SceneManager::updateScene(float frameTime)
 {
-    myEntities.push_back(entity);
+    myCrtScene->update(frameTime);
 }
 
-/*void SceneManager::removeEntity(std::shared_ptr<Entity> entity)
+void SceneManager::drawScene(sf::RenderTarget& window)
 {
-    myEntities.erase(entity);
-}*/
-
-void SceneManager::checkDestroyedEntities()
-{
-    myEntities.erase(std::remove_if(myEntities.begin(), myEntities.end(), CheckDestroyed()), myEntities.end());
+    myCrtScene->draw(window);
 }

@@ -7,6 +7,7 @@
 #include "EventManager.h"
 #include "MultimodalManager.h"
 #include "SceneManager.h"
+#include "EntityManager.h"
 #include "ImageManager.h"
 #include "SoundManager.h"
 
@@ -16,6 +17,7 @@ AudioEngine& audioEngine();
 EventManager& eventManager();
 MultimodalManager& multimodalManager();
 SceneManager& sceneManager();
+EntityManager& entityManager();
 ImageManager& imageManager();
 SoundManager& soundManager();
 

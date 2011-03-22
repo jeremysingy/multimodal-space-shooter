@@ -31,6 +31,11 @@ SceneManager& sceneManager()
     return Game::instance().mySceneManager;
 }
 
+EntityManager& entityManager()
+{
+    return Game::instance().myEntityManager;
+}
+
 ImageManager& imageManager()
 {
     return Game::instance().myImageManager;

@@ -8,6 +8,7 @@
 #include "EventManager.h"
 #include "MultimodalManager.h"
 #include "SceneManager.h"
+#include "EntityManager.h"
 #include "ImageManager.h"
 #include "SoundManager.h"
 
@@ -25,24 +26,32 @@ class Game
 
         sf::RenderWindow myWindow;
 
+        ImageManager      myImageManager;
         SoundManager	  mySoundManager;
+
         GraphicsEngine    myGraphicsEngine;
         PhysicsEngine     myPhysicsEngine;
         AudioEngine		  myAudioEngine;
+
         EventManager      myEventManager;
         MultimodalManager myMultimodalManager;
+
+        EntityManager     myEntityManager;
         SceneManager      mySceneManager;
-        ImageManager      myImageManager;
 
         // Declare managers as friends of the game main class
+        friend ImageManager& imageManager();
+        friend SoundManager& soundManager();
+
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();
         friend AudioEngine& audioEngine();
+
         friend EventManager& eventManager();
         friend MultimodalManager& multimodalManager();
+
+        friend EntityManager& entityManager();
         friend SceneManager& sceneManager();
-        friend ImageManager& imageManager();
-        friend SoundManager& soundManager();
 };
 
 #endif // GAME_H

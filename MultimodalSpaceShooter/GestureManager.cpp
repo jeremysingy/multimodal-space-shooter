@@ -23,6 +23,7 @@ GestureManager::~GestureManager()
 
 bool GestureManager::initOpenNI()
 {
+    std::cout << "test";
     XnStatus nRetVal = XN_STATUS_OK;
     xn::EnumerationErrors errors;
 

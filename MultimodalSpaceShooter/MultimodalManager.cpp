@@ -27,7 +27,7 @@ void MultimodalManager::removeListener(MultimodalListener* listener)
 
 void MultimodalManager::update()
 {
-    // TODO
+    //myGestureManager.update();
 }
 
 const sf::Vector2f& MultimodalManager::getBodyPosition() const

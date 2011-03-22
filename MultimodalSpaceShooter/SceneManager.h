@@ -5,31 +5,32 @@
 #include <memory>
 
 #include "Entity.h"
+#include "IScene.h"
 
-//////////////////////////////////////////////////
-/// Functor to get destroyed entities
-//////////////////////////////////////////////////
-struct CheckDestroyed 
-{ 
-    bool operator()(const std::shared_ptr<Entity>& entity) const 
-    { 
-        return entity->isDestroyed(); 
-    } 
-}; 
-
+#include <map>
 
 class SceneManager
 {
     public:
         SceneManager();
-        ~SceneManager();
 
-        void addEntity(std::shared_ptr<Entity> entity);
-        //void removeEntity(std::shared_ptr<Entity> entity);
-        void checkDestroyedEntities();
+        enum SceneType
+        {
+            SceneIntro,
+            SceneInGame,
+        };
+
+        void updateScene(float frameTime);
+        void drawScene(sf::RenderTarget& window);
+        void changeCurrentScene(SceneType scene);
 
     private:
-        std::vector<std::shared_ptr<Entity>> myEntities;
+        typedef std::shared_ptr<IScene> ScenePtr;
+        typedef std::map<SceneType, ScenePtr> MapScenes;
+        //IScene* myCrtScene;
+
+        MapScenes myScenes;
+        ScenePtr myCrtScene;
 };
 
 #endif // SCENEMANAGER_H
