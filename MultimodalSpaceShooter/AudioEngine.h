@@ -16,6 +16,9 @@ class AudioEngine
         ~AudioEngine();
 
         std::vector<sf::Sound> mySounds;
+        unsigned int           myNextSoundId;
+
+        static const int MAX_SOUNDS = 64;
 
         friend class Game;
 };

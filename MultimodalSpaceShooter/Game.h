@@ -20,6 +20,7 @@ class Game
     public:
         static Game& instance();
         void run();
+        void quit();
 
     private:
         Game();

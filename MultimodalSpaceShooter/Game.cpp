@@ -43,3 +43,8 @@ void Game::run()
         myWindow.Display();
     }
 }
+
+void Game::quit()
+{
+    myWindow.Close();
+}
