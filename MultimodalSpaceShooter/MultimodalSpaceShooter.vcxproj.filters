@@ -49,6 +49,12 @@
     <Filter Include="Source Files\utils">
       <UniqueIdentifier>{8636a71a-66f4-4345-b169-1b6d8c67a0b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui">
+      <UniqueIdentifier>{35e2e27f-e2d7-4b11-bc45-c129918bbe86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui">
+      <UniqueIdentifier>{a9350a50-8ada-4485-8e7f-00e3d5d11e22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\Entity.h">
@@ -140,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="src\utils\AnimatedSprite.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\Button.h">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\Widget.h">
+      <Filter>Header Files\gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +249,12 @@
     </ClCompile>
     <ClCompile Include="src\utils\AnimatedSprite.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\Button.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\Widget.cpp">
+      <Filter>Source Files\gui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

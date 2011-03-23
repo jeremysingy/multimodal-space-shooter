@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Text.hpp>
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
+#include "gui/Button.h"
 
 class InPauseScene : public IScene
 {
@@ -17,6 +18,8 @@ class InPauseScene : public IScene
 
     private:
         sf::Text myPauseText;
+        Button   myTestButton;
+        
 };
 
 #endif // INPAUSESCENE_H

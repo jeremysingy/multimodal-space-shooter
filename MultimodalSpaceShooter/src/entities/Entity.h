@@ -15,11 +15,11 @@ class Entity : public GraphicsObject,
         void destroy();
         bool isDestroyed() const;
 
-        bool myIsDestroyed;
-
     private:
         Entity(const Entity&);
         Entity& operator =(const Entity&);
+
+        bool myIsDestroyed;
 };
 
 #endif // ENTITY_H
