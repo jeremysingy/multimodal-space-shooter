@@ -5,7 +5,7 @@
 #include <memory>
 
 #include "Entity.h"
-
+#include "PlayableEntity.h"
 
 //////////////////////////////////////////////////
 /// Functor to get destroyed entities
@@ -25,11 +25,15 @@ class EntityManager
         ~EntityManager();
 
         void addEntity(std::shared_ptr<Entity> entity);
+        void addPlayableEntity(std::shared_ptr<PlayableEntity> playableEntity);
         //void removeEntity(std::shared_ptr<Entity> entity);
+        void onEvent(const sf::Event& event);
+
         void checkDestroyedEntities();
 
     private:
-        std::vector<std::shared_ptr<Entity>> myEntities;
+        std::vector<std::shared_ptr<Entity>>         myEntities;
+        std::vector<std::shared_ptr<PlayableEntity>> myPlayableEntities;
 };
 
 #endif // ENTITYMANAGER_H

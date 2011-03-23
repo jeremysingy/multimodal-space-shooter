@@ -16,13 +16,18 @@ Spaceship::~Spaceship()
 
 }
 
-void Spaceship::onEvent(const sf::Event& event)
+void Spaceship::onPlayerAction(const sf::Event& event)
 {
     if(event.Type == sf::Event::KeyPressed)
     {
         if(event.Key.Code == sf::Key::Space)
             fireMissile();
     }
+}
+
+void Spaceship::onMultimodalAction(const sf::Event& event)
+{
+    // TODO
 }
 
 void Spaceship::update(float frameTime)

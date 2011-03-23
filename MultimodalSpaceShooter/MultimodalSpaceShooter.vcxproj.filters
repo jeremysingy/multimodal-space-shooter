@@ -120,8 +120,14 @@
     <ClCompile Include="EntityManager.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
+    <ClCompile Include="InPauseScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
     <ClCompile Include="IntroScene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayableEntity.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,8 +212,14 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="InPauseScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
     <ClInclude Include="IntroScene.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayableEntity.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

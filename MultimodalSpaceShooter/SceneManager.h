@@ -6,10 +6,11 @@
 
 #include "Entity.h"
 #include "IScene.h"
+#include "EventListener.h"
 
 #include <map>
 
-class SceneManager
+class SceneManager : public EventListener
 {
     public:
         SceneManager();
@@ -18,16 +19,18 @@ class SceneManager
         {
             SceneIntro,
             SceneInGame,
+            SceneInPause
         };
 
         void updateScene(float frameTime);
         void drawScene(sf::RenderTarget& window);
         void changeCurrentScene(SceneType scene);
 
+        virtual void onEvent(const sf::Event& event);
+
     private:
         typedef std::shared_ptr<IScene> ScenePtr;
         typedef std::map<SceneType, ScenePtr> MapScenes;
-        //IScene* myCrtScene;
 
         MapScenes myScenes;
         ScenePtr myCrtScene;

@@ -5,13 +5,13 @@
 #include "IScene.h"
 #include "EventListener.h"
 
-class IntroScene : public IScene, public EventListener
+class IntroScene : public IScene
 {
     public:
         IntroScene();
 
         virtual void update(float frameTime);
-        virtual void draw(sf::RenderTarget& window);
+        virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onEvent(const sf::Event& event);
 

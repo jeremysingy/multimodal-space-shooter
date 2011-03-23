@@ -38,7 +38,7 @@ void EventManager::update(sf::Window& window)
     while(window.GetEvent(event))
     {
         // Manage high level events
-        if(event.Type == sf::Event::Closed || (event.Type == sf::Event::KeyPressed && event.Key.Code == sf::Key::Escape))
+        if(event.Type == sf::Event::Closed)
             window.Close();
 
         // Send other events to the listeners

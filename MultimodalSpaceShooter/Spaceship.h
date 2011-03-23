@@ -1,20 +1,21 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
 
-#include "Entity.h"
-#include "EventListener.h"
+#include "PlayableEntity.h"
 #include <SFML/Graphics.hpp>
 
-class Spaceship : public Entity, public EventListener
+class Spaceship : public PlayableEntity
 {
     public:
         Spaceship();
         ~Spaceship();
 
-        virtual void onEvent(const sf::Event& event);
         virtual void update(float frameTime);
         virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
+
+        virtual void onPlayerAction(const sf::Event& event);
+        virtual void onMultimodalAction(const sf::Event& event);
 
     private:
         void fireMissile();

@@ -2,7 +2,6 @@
 #include "Spaceship.h"
 #include "Planet.h"
 #include "Managers.h"
-#include <iostream>
 
 InGameScene::InGameScene()
 {
@@ -13,8 +12,8 @@ InGameScene::InGameScene()
 
     // Create some entities
     // TODO: this is just a test!
-    std::shared_ptr<Entity> spaceship(new Spaceship);
-    entityManager().addEntity(spaceship);
+    std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
+    entityManager().addPlayableEntity(spaceship);
 
     std::shared_ptr<Entity> planet1(new Planet(sf::Vector2f(100, 200)));
     entityManager().addEntity(planet1);
@@ -37,7 +36,18 @@ void InGameScene::update(float frameTime)
     entityManager().checkDestroyedEntities();
 }
 
-void InGameScene::draw(sf::RenderTarget& window)
+void InGameScene::draw(sf::RenderTarget& window) const
 {
     graphicsEngine().drawScene(window);
+}
+
+void InGameScene::onEvent(const sf::Event& event)
+{
+    if(event.Type == sf::Event::KeyPressed)
+    {
+        if(event.Key.Code == sf::Key::Escape)
+            sceneManager().changeCurrentScene(SceneManager::SceneInPause);
+
+        entityManager().onEvent(event);
+    }
 }
