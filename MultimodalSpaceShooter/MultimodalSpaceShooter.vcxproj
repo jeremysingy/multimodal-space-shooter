@@ -10,6 +10,73 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\entities\Entity.h" />
+    <ClInclude Include="src\entities\Explosion.h" />
+    <ClInclude Include="src\entities\Missile.h" />
+    <ClInclude Include="src\entities\Planet.h" />
+    <ClInclude Include="src\entities\PlayableEntity.h" />
+    <ClInclude Include="src\entities\Spaceship.h" />
+    <ClInclude Include="src\loaders\ImageManager.h" />
+    <ClInclude Include="src\loaders\ResourceManager.h" />
+    <ClInclude Include="src\loaders\SoundManager.h" />
+    <ClInclude Include="src\managers\AudioEngine.h" />
+    <ClInclude Include="src\managers\EntityManager.h" />
+    <ClInclude Include="src\managers\EventListener.h" />
+    <ClInclude Include="src\managers\EventManager.h" />
+    <ClInclude Include="src\managers\GestureManager.h" />
+    <ClInclude Include="src\managers\GraphicsEngine.h" />
+    <ClInclude Include="src\managers\GraphicsObject.h" />
+    <ClInclude Include="src\managers\Managers.h" />
+    <ClInclude Include="src\managers\MultimodalListener.h" />
+    <ClInclude Include="src\managers\MultimodalManager.h" />
+    <ClInclude Include="src\managers\NiCallbacksWrapper.h" />
+    <ClInclude Include="src\managers\PhysicsEngine.h" />
+    <ClInclude Include="src\managers\PhysicsObject.h" />
+    <ClInclude Include="src\managers\SceneManager.h" />
+    <ClInclude Include="src\managers\VolumeRecorder.h" />
+    <ClInclude Include="src\scenes\InGameScene.h" />
+    <ClInclude Include="src\scenes\InPauseScene.h" />
+    <ClInclude Include="src\scenes\IntroScene.h" />
+    <ClInclude Include="src\scenes\IScene.h" />
+    <ClInclude Include="src\utils\AnimatedSprite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\loaders\ResourceManager.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\entities\Entity.cpp" />
+    <ClCompile Include="src\entities\Explosion.cpp" />
+    <ClCompile Include="src\entities\Missile.cpp" />
+    <ClCompile Include="src\entities\Planet.cpp" />
+    <ClCompile Include="src\entities\PlayableEntity.cpp" />
+    <ClCompile Include="src\entities\Spaceship.cpp" />
+    <ClCompile Include="src\loaders\ImageManager.cpp" />
+    <ClCompile Include="src\loaders\SoundManager.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\managers\AudioEngine.cpp" />
+    <ClCompile Include="src\managers\EntityManager.cpp" />
+    <ClCompile Include="src\managers\EventListener.cpp" />
+    <ClCompile Include="src\managers\EventManager.cpp" />
+    <ClCompile Include="src\managers\GestureManager.cpp" />
+    <ClCompile Include="src\managers\GraphicsEngine.cpp" />
+    <ClCompile Include="src\managers\GraphicsObject.cpp" />
+    <ClCompile Include="src\managers\Managers.cpp" />
+    <ClCompile Include="src\managers\MultimodalListener.cpp" />
+    <ClCompile Include="src\managers\MultimodalManager.cpp" />
+    <ClCompile Include="src\managers\NiCallbacksWrapper.cpp" />
+    <ClCompile Include="src\managers\PhysicsEngine.cpp" />
+    <ClCompile Include="src\managers\PhysicsObject.cpp" />
+    <ClCompile Include="src\managers\SceneManager.cpp" />
+    <ClCompile Include="src\managers\VolumeRecorder.cpp" />
+    <ClCompile Include="src\scenes\InGameScene.cpp" />
+    <ClCompile Include="src\scenes\InPauseScene.cpp" />
+    <ClCompile Include="src\scenes\IntroScene.cpp" />
+    <ClCompile Include="src\scenes\IScene.cpp" />
+    <ClCompile Include="src\utils\AnimatedSprite.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B3FE0F9E-8C29-49E3-A0A7-B92E73D99901}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -56,7 +123,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName);$(SolutionDir)$(ProjectName)\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName);$(SolutionDir)$(ProjectName)\src;$(SolutionDir)$(ProjectName)\src\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -87,73 +154,6 @@
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="AnimatedSprite.cpp" />
-    <ClCompile Include="AudioEngine.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityManager.cpp" />
-    <ClCompile Include="EventListener.cpp" />
-    <ClCompile Include="EventManager.cpp" />
-    <ClCompile Include="Explosion.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GestureManager.cpp" />
-    <ClCompile Include="GraphicsEngine.cpp" />
-    <ClCompile Include="GraphicsObject.cpp" />
-    <ClCompile Include="ImageManager.cpp" />
-    <ClCompile Include="InGameScene.cpp" />
-    <ClCompile Include="InPauseScene.cpp" />
-    <ClCompile Include="IntroScene.cpp" />
-    <ClCompile Include="IScene.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Managers.cpp" />
-    <ClCompile Include="Missile.cpp" />
-    <ClCompile Include="MultimodalListener.cpp" />
-    <ClCompile Include="MultimodalManager.cpp" />
-    <ClCompile Include="NiCallbacksWrapper.cpp" />
-    <ClCompile Include="PhysicsEngine.cpp" />
-    <ClCompile Include="PhysicsObject.cpp" />
-    <ClCompile Include="Planet.cpp" />
-    <ClCompile Include="PlayableEntity.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="Spaceship.cpp" />
-    <ClCompile Include="VolumeRecorder.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AnimatedSprite.h" />
-    <ClInclude Include="AudioEngine.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityManager.h" />
-    <ClInclude Include="EventListener.h" />
-    <ClInclude Include="EventManager.h" />
-    <ClInclude Include="Explosion.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GestureManager.h" />
-    <ClInclude Include="GraphicsEngine.h" />
-    <ClInclude Include="GraphicsObject.h" />
-    <ClInclude Include="ImageManager.h" />
-    <ClInclude Include="InGameScene.h" />
-    <ClInclude Include="InPauseScene.h" />
-    <ClInclude Include="IntroScene.h" />
-    <ClInclude Include="IScene.h" />
-    <ClInclude Include="Managers.h" />
-    <ClInclude Include="Missile.h" />
-    <ClInclude Include="MultimodalListener.h" />
-    <ClInclude Include="MultimodalManager.h" />
-    <ClInclude Include="NiCallbacksWrapper.h" />
-    <ClInclude Include="PhysicsEngine.h" />
-    <ClInclude Include="PhysicsObject.h" />
-    <ClInclude Include="Planet.h" />
-    <ClInclude Include="PlayableEntity.h" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="Spaceship.h" />
-    <ClInclude Include="VolumeRecorder.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ResourceManager.inl" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
