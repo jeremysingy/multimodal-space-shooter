@@ -55,6 +55,12 @@
     <Filter Include="Source Files\gui">
       <UniqueIdentifier>{a9350a50-8ada-4485-8e7f-00e3d5d11e22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utils\tinyxml">
+      <UniqueIdentifier>{9a0a8f96-6bdc-4e73-9fda-c6601cacfa24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\tinyxml">
+      <UniqueIdentifier>{457c5a99-7f93-4085-bb3c-75e7e5e41b88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\Entity.h">
@@ -155,6 +161,15 @@
     </ClInclude>
     <ClInclude Include="src\loaders\LevelManager.h">
       <Filter>Header Files\loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\tinyxml\tinystr.h">
+      <Filter>Header Files\utils\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\tinyxml\tinyxml.h">
+      <Filter>Header Files\utils\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\EntityModel.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +276,21 @@
     </ClCompile>
     <ClCompile Include="src\loaders\LevelManager.cpp">
       <Filter>Source Files\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\tinyxml\tinystr.cpp">
+      <Filter>Source Files\utils\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\utils\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\utils\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\utils\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\EntityModel.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

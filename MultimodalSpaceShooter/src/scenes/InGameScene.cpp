@@ -12,6 +12,7 @@ InGameScene::InGameScene()
 
     // Create some entities
     // TODO: this is just a test!
+    levelManager().loadFromFile("worlds/sample.xml");
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
 

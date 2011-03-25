@@ -10,6 +10,7 @@
 #include "managers/EntityManager.h"
 #include "loaders/ImageManager.h"
 #include "loaders/SoundManager.h"
+#include "loaders/LevelManager.h"
 
 GraphicsEngine& graphicsEngine();
 PhysicsEngine& physicsEngine();
@@ -20,5 +21,6 @@ SceneManager& sceneManager();
 EntityManager& entityManager();
 ImageManager& imageManager();
 SoundManager& soundManager();
+LevelManager& levelManager();
 
 #endif // MANAGERS_H
