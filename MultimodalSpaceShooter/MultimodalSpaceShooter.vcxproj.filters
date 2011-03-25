@@ -153,6 +153,9 @@
     <ClInclude Include="src\gui\Widget.h">
       <Filter>Header Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="src\loaders\LevelManager.h">
+      <Filter>Header Files\loaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -255,6 +258,9 @@
     </ClCompile>
     <ClCompile Include="src\gui\Widget.cpp">
       <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\LevelManager.cpp">
+      <Filter>Source Files\loaders</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
