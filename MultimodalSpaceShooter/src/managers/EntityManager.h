@@ -28,6 +28,7 @@ class EntityManager
         void addPlayableEntity(std::shared_ptr<PlayableEntity> playableEntity);
         //void removeEntity(std::shared_ptr<Entity> entity);
         void onEvent(const sf::Event& event);
+        void onMultimodalEvent(MultimodalEvent event);
 
         void checkDestroyedEntities();
 

@@ -1,15 +1,18 @@
 #include "gui/Button.h"
 #include <SFML/Graphics.hpp>
 
-Button::Button(const sf::Vector2f& position, const std::string& text, const sf::Image& backgroundImage,
-               const sf::Color& textColor, const sf::Color& selectedTextColor) :
-myBackground(backgroundImage, position),
-myText(text, sf::Font::GetDefaultFont(), 40),
+const sf::Vector2f Button::TEXT_PADDING(10, 10);
+
+Button::Button(const sf::Vector2f& position, const std::string& text, const sf::Image& background, const sf::Image& backgroundOver,
+               const sf::Color& textColor, const sf::Color& selectedTextColor, unsigned int textSize) :
+myImg(background),
+myImgOver(backgroundOver),
+myBackground(background, position),
+myText(text, sf::Font::GetDefaultFont(), textSize),
 myTextColor(textColor),
 mySelectedTextColor(mySelectedTextColor)
 {
-    myBackground.SetSubRect(sf::IntRect(0, 0, 500, 80));
-    myText.SetPosition(position.x + 10, position.y + 10);
+    myText.SetPosition(position + TEXT_PADDING);
 }
 
 

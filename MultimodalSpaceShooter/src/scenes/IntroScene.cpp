@@ -30,3 +30,8 @@ void IntroScene::onEvent(const sf::Event& event)
             sceneManager().changeCurrentScene(SceneManager::SceneInGame);
     }
 }
+
+void IntroScene::onMultimodalEvent(MultimodalEvent event)
+{
+
+}

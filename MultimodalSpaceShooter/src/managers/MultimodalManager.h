@@ -4,10 +4,9 @@
 #include <set>
 #include <SFML/System/Vector2.hpp>
 
-#include "GestureManager.h"
-#include "VolumeRecorder.h"
-
-class MultimodalListener;
+#include "managers/GestureManager.h"
+#include "managers/VolumeRecorder.h"
+#include "managers/MultimodalListener.h"
 
 class MultimodalManager
 {
@@ -17,6 +16,7 @@ class MultimodalManager
         MultimodalManager();
         ~MultimodalManager();
         
+        bool isGestureEnabled();
         void update();
         const sf::Vector2f& getBodyPosition() const;
         const sf::Vector2f& getLeftHandPosition() const;

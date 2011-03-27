@@ -6,6 +6,8 @@ MultimodalManager::MultimodalManager()
     {
         myVolumeRecorder.Start(11025);
     }
+
+    myGestureManager.initialize();
 }
 
 
@@ -25,9 +27,27 @@ void MultimodalManager::removeListener(MultimodalListener* listener)
     myListeners.erase(listener);
 }
 
+bool MultimodalManager::isGestureEnabled()
+{
+    return myGestureManager.isInitialized();
+}
+
 void MultimodalManager::update()
 {
-    //myGestureManager.update();
+    myGestureManager.update();
+
+    if(myVolumeRecorder.hasVaried())
+    {
+        MultimodalEvent event = VolumeChangedArmDown;
+        if(myGestureManager.getRightHandPosition().y > myGestureManager.getBodyPosition().y)
+            event = VolumeChangedArmUp;
+        
+        // Send other multimodal event to the listeners
+        for(std::set<MultimodalListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
+        {
+            (*i)->onMultimodalEvent(event);
+        }
+    }
 }
 
 const sf::Vector2f& MultimodalManager::getBodyPosition() const

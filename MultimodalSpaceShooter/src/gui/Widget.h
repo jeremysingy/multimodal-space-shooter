@@ -13,9 +13,9 @@ class Widget
         virtual void onEvent(const sf::Event& event) { };
         virtual void draw(sf::RenderTarget& window) const = 0;
 
-    private:
-        Widget(const Widget&);
-        Widget& operator =(const Widget&);
+    protected:
+        //Widget(const Widget&);
+        //Widget& operator =(const Widget&);
 };
 
 #endif // WIDGET_H

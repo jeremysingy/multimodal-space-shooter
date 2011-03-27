@@ -12,7 +12,7 @@ MultimodalListener::~MultimodalListener()
     multimodalManager().removeListener(this);
 }
 
-void MultimodalListener::onMultimodalEvent(GestureType gestureType)
+void MultimodalListener::onMultimodalEvent(MultimodalEvent event)
 {
 
 }

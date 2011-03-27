@@ -3,6 +3,7 @@
 
 #include "Entity.h"
 #include <SFML/Window/Event.hpp>
+#include "managers/MultimodalListener.h"
 
 class PlayableEntity : public Entity
 {
@@ -11,7 +12,7 @@ class PlayableEntity : public Entity
         virtual ~PlayableEntity();
 
         virtual void onPlayerAction(const sf::Event& event) = 0;
-        virtual void onMultimodalAction(const sf::Event& event) = 0;
+        virtual void onMultimodalAction(MultimodalEvent event) = 0;
 };
 
 #endif // PLAYABLEENTITY_H

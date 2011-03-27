@@ -20,6 +20,7 @@
     <ClInclude Include="src\entities\PlayableEntity.h" />
     <ClInclude Include="src\entities\Spaceship.h" />
     <ClInclude Include="src\gui\Button.h" />
+    <ClInclude Include="src\gui\ButtonListener.h" />
     <ClInclude Include="src\gui\Menu.h" />
     <ClInclude Include="src\gui\Widget.h" />
     <ClInclude Include="src\loaders\ImageManager.h" />
@@ -62,6 +63,7 @@
     <ClCompile Include="src\entities\PlayableEntity.cpp" />
     <ClCompile Include="src\entities\Spaceship.cpp" />
     <ClCompile Include="src\gui\Button.cpp" />
+    <ClCompile Include="src\gui\ButtonListener.cpp" />
     <ClCompile Include="src\gui\Menu.cpp" />
     <ClCompile Include="src\gui\Widget.cpp" />
     <ClCompile Include="src\loaders\ImageManager.cpp" />

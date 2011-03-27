@@ -5,21 +5,23 @@
 #include <SFML/Graphics.hpp>
 
 InPauseScene::InPauseScene() :
-myPauseText("Game in pause, press Q to exit"),
-myTestButton(sf::Vector2f(250, 100), "Test", *imageManager().get("button_test.png"))
+myCursor(*imageManager().get("cursor.png")),
+myMenu("Pause Menu", *imageManager().get("menu_test.png"))
 {
-    myPauseText.Move(200, 50);
+    myMenu.addButton("blabla");
+    myMenu.addButton("blibli");
+    myMenu.addButton("bloblo");
 }
 
 void InPauseScene::update(float frameTime)
 {
-    // Nothing to update for now
+    myCursor.SetPosition(multimodalManager().getRightHandPosition());
 }
 
 void InPauseScene::draw(sf::RenderTarget& window) const
 {
-    window.Draw(myPauseText);
-    myTestButton.draw(window);
+    myMenu.draw(window);
+    window.Draw(myCursor);
 }
 
 void InPauseScene::onEvent(const sf::Event& event)
@@ -32,4 +34,9 @@ void InPauseScene::onEvent(const sf::Event& event)
         if(event.Key.Code == sf::Key::Q)
             Game::instance().quit();
     }
+}
+
+void InPauseScene::onMultimodalEvent(MultimodalEvent event)
+{
+
 }

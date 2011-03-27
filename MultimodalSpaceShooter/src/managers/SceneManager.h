@@ -7,10 +7,11 @@
 #include "entities/Entity.h"
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
+#include "managers/MultimodalListener.h"
 
 #include <map>
 
-class SceneManager : public EventListener
+class SceneManager : public EventListener, public MultimodalListener
 {
     public:
         SceneManager();
@@ -27,6 +28,7 @@ class SceneManager : public EventListener
         void changeCurrentScene(SceneType scene);
 
         virtual void onEvent(const sf::Event& event);
+        virtual void onMultimodalEvent(MultimodalEvent event);
 
     private:
         typedef std::shared_ptr<IScene> ScenePtr;

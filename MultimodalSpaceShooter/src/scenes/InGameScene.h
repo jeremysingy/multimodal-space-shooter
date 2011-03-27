@@ -3,6 +3,7 @@
 
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
+#include "managers/MultimodalListener.h"
 
 class InGameScene : public IScene
 {
@@ -14,6 +15,7 @@ class InGameScene : public IScene
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onEvent(const sf::Event& event);
+        virtual void onMultimodalEvent(MultimodalEvent event);
 };
 
 #endif // INGAMESCENE_H

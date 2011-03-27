@@ -7,23 +7,30 @@
 const std::string GestureManager::CONFIG_PATH("./config/OpenNIConfig.xml");
 
 GestureManager::GestureManager() :
+myIsInitialized(false),
 needPose(false)
 {
     std::fill(strPose, strPose + 20, 0);
-
-    //if(!initOpenNI())
-    //    throw std::runtime_error("cannot init OpenNI");
 }
 
 
 GestureManager::~GestureManager()
 {
+    niContext.Shutdown();
+}
 
+void GestureManager::initialize()
+{
+    myIsInitialized = initOpenNI();
+}
+
+bool GestureManager::isInitialized()
+{
+    return myIsInitialized;
 }
 
 bool GestureManager::initOpenNI()
 {
-    std::cout << "test";
     XnStatus nRetVal = XN_STATUS_OK;
     xn::EnumerationErrors errors;
 
@@ -91,6 +98,9 @@ bool GestureManager::initOpenNI()
 
 void GestureManager::update()
 {
+    if(!myIsInitialized)
+        return;
+
     xn::SceneMetaData sceneMD;
     xn::DepthMetaData depthMD;
     niDepthGenerator.GetMetaData(depthMD);

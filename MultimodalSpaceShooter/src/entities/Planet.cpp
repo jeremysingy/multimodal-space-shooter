@@ -5,7 +5,7 @@
 const float Planet::SPEED = 10.f;
 
 Planet::Planet(const sf::Vector2f& position) :
-mySprite(*imageManager().get("planete1.png"))
+mySprite(*imageManager().get("planet1.png"))
 {
     mySprite.SetPosition(position);
 }

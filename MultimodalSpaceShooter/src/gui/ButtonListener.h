@@ -7,6 +7,7 @@
 class ButtonListener
 {
     public:
+        ButtonListener();
         virtual ~ButtonListener();
 
         virtual void onButtonPress();

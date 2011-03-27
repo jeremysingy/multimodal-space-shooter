@@ -25,9 +25,10 @@ void Spaceship::onPlayerAction(const sf::Event& event)
     }
 }
 
-void Spaceship::onMultimodalAction(const sf::Event& event)
+void Spaceship::onMultimodalAction(MultimodalEvent event)
 {
     // TODO
+    std::cout << "multimodal action!" << std::endl;
 }
 
 void Spaceship::update(float frameTime)
@@ -36,6 +37,21 @@ void Spaceship::update(float frameTime)
         mySprite.Move(-SPEED * frameTime, 0);
     if(eventManager().getInput().IsKeyDown(sf::Key::Right))
         mySprite.Move( SPEED * frameTime, 0);
+
+    sf::Vector2f newPos(0.f, mySprite.GetPosition().y);
+
+    if(multimodalManager().isGestureEnabled())
+    {
+        sf::Vector2f newPos(multimodalManager().getBodyPosition().x, mySprite.GetPosition().y);
+        mySprite.SetPosition(newPos);
+    }
+    else
+    {
+        if(eventManager().getInput().IsKeyDown(sf::Key::Left))
+            mySprite.Move(-SPEED * frameTime, 0);
+        if(eventManager().getInput().IsKeyDown(sf::Key::Right))
+            mySprite.Move( SPEED * frameTime, 0);
+    }
 }
 
 sf::FloatRect Spaceship::getBoundingRect() const

@@ -1,4 +1,4 @@
-#include "managers/EventListener.h"
+#include "gui/ButtonListener.h"
 #include "managers/Managers.h"
 
 ButtonListener::ButtonListener()
@@ -11,7 +11,7 @@ ButtonListener::~ButtonListener()
     
 }
 
-void EventListener::onButtonPress()
+void ButtonListener::onButtonPress()
 {
     
 }

@@ -20,12 +20,15 @@ class Game
 {
     public:
         static Game& instance();
+
+        const sf::Vector2i& getScreenSize();
         void run();
         void quit();
 
     private:
         Game();
 
+        sf::Vector2i     myScreenSize;
         sf::RenderWindow myWindow;
 
         ImageManager      myImageManager;

@@ -37,3 +37,11 @@ void EntityManager::onEvent(const sf::Event& event)
         (*i)->onPlayerAction(event);
     }
 }
+
+void EntityManager::onMultimodalEvent(MultimodalEvent event)
+{
+    for(std::vector<std::shared_ptr<PlayableEntity>>::iterator i = myPlayableEntities.begin(); i != myPlayableEntities.end(); ++i)
+    {
+        (*i)->onMultimodalAction(event);
+    }
+}

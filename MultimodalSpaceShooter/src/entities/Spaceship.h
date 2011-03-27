@@ -15,7 +15,7 @@ class Spaceship : public PlayableEntity
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onPlayerAction(const sf::Event& event);
-        virtual void onMultimodalAction(const sf::Event& event);
+        virtual void onMultimodalAction(MultimodalEvent event);
 
     private:
         void fireMissile();

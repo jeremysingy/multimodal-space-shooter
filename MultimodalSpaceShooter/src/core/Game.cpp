@@ -10,12 +10,18 @@ Game& Game::instance()
 }
 
 Game::Game() :
-myWindow(sf::VideoMode(800, 600, 32), "Multimodal Space Shooter"),
+myScreenSize(800, 600),
+myWindow(sf::VideoMode(myScreenSize.x, myScreenSize.y, 32), "Multimodal Space Shooter"),
 myEventManager(myWindow.GetInput()),
 myImageManager("./images/"),
 mySoundManager("./sounds/")
 {
 
+}
+
+const sf::Vector2i& Game::getScreenSize()
+{
+    return myScreenSize;
 }
 
 void Game::run()

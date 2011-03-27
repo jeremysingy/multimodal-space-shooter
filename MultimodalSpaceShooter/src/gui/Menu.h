@@ -18,10 +18,12 @@ class Menu : public Widget
         void addButton(const std::string& text);
 
     private:
-        sf::Sprite myBackground;
-        sf::Text   myTitle;
-
+        sf::Sprite          myBackground;
+        sf::Text            myTitle;
         std::vector<Button> myButtons;
+        float               myNextButtonPos;
+
+        static const float MARGIN;
 };
 
 #endif // MENU_H

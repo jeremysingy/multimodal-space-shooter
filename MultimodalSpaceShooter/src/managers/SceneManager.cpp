@@ -23,6 +23,11 @@ void SceneManager::onEvent(const sf::Event& event)
     myCrtScene->onEvent(event);
 }
 
+void SceneManager::onMultimodalEvent(MultimodalEvent event)
+{
+    myCrtScene->onMultimodalEvent(event);
+}
+
 void SceneManager::updateScene(float frameTime)
 {
     myCrtScene->update(frameTime);

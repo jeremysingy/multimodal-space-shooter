@@ -8,19 +8,23 @@
 class Button : public Widget
 {
     public:
-        Button(const sf::Vector2f& position, const std::string& text, const sf::Image& backgroundImage,
-               const sf::Color& textColor = sf::Color::White, const sf::Color& selectedTextColor = sf::Color::White);
+        Button(const sf::Vector2f& position, const std::string& text, const sf::Image& background, const sf::Image& backgroundOver,
+               const sf::Color& textColor = sf::Color::White, const sf::Color& selectedTextColor = sf::Color::White, unsigned int textSize = 40);
         virtual ~Button();
 
         virtual void onEvent(const sf::Event& event);
         virtual void draw(sf::RenderTarget& window) const;
 
     private:
+        sf::Image  myImg;
+        sf::Image  myImgOver;
         sf::Sprite myBackground;
         sf::Text   myText;
 
         sf::Color  myTextColor;
         sf::Color  mySelectedTextColor;
+
+        static const sf::Vector2f TEXT_PADDING;
 
 };
 

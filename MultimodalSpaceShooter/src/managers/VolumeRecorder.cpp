@@ -16,7 +16,7 @@ float VolumeRecorder::getVolume() const
     return myVolume;
 }
 
-VolumeRecorder::SoundLevel VolumeRecorder::getLevel() const
+VolumeLevel VolumeRecorder::getLevel() const
 {
     return myLevel;
 }
@@ -29,7 +29,7 @@ bool VolumeRecorder::hasVaried() const
 bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCount)
 {
     float       volume = 0;
-    SoundLevel  tmpLevel = Low;
+    VolumeLevel tmpLevel = Low;
 
     for(std::size_t i = 0; i < samplesCount; ++i)
         volume += samples[i] * samples[i];

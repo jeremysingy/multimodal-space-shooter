@@ -11,6 +11,8 @@ class GestureManager
         GestureManager();
         ~GestureManager();
 
+        void initialize();
+        bool isInitialized();
         void update();
         const sf::Vector2f& getBodyPosition() const;
         const sf::Vector2f& getLeftHandPosition() const;
@@ -31,6 +33,7 @@ class GestureManager
 
         static const std::string CONFIG_PATH;
 
+        bool               myIsInitialized;
         xn::Context        niContext;
         xn::DepthGenerator niDepthGenerator;
         xn::UserGenerator  niUserGenerator;

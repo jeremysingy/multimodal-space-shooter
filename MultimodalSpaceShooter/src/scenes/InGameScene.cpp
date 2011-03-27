@@ -8,7 +8,7 @@ InGameScene::InGameScene()
     // Preload images
     imageManager().load("spaceship.png");
     imageManager().load("explosion.png");
-    imageManager().load("planete1.png");
+    imageManager().load("planet1.png");
 
     // Create some entities
     // TODO: this is just a test!
@@ -51,4 +51,9 @@ void InGameScene::onEvent(const sf::Event& event)
 
         entityManager().onEvent(event);
     }
+}
+
+void InGameScene::onMultimodalEvent(MultimodalEvent event)
+{
+    //entityManager().on
 }
