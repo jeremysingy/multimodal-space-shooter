@@ -27,8 +27,7 @@ void Spaceship::onPlayerAction(const sf::Event& event)
 
 void Spaceship::onMultimodalAction(MultimodalEvent event)
 {
-    // TODO
-    std::cout << "multimodal action!" << std::endl;
+    fireMissile();
 }
 
 void Spaceship::update(float frameTime)

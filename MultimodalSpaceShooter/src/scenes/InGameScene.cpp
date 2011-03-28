@@ -55,5 +55,5 @@ void InGameScene::onEvent(const sf::Event& event)
 
 void InGameScene::onMultimodalEvent(MultimodalEvent event)
 {
-    //entityManager().on
+    entityManager().onMultimodalEvent(event);
 }

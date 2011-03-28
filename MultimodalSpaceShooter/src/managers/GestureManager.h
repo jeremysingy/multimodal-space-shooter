@@ -4,6 +4,7 @@
 #include <XnCppWrapper.h>
 #include <string>
 #include <SFML/System/Vector2.hpp>
+#include <SFML/System.hpp>
 
 class GestureManager
 {
@@ -13,13 +14,17 @@ class GestureManager
 
         void initialize();
         bool isInitialized();
-        void update();
+        void startTracking();
+        void stopTracking();
+
         const sf::Vector2f& getBodyPosition() const;
         const sf::Vector2f& getLeftHandPosition() const;
         const sf::Vector2f& getRightHandPosition() const;
 
     private:
         bool initOpenNI();
+        void processThread();
+        void update();
         void setConvertedPos(sf::Vector2f& dest, const XnPoint3D& src);
 
         // Callbacks
@@ -33,7 +38,10 @@ class GestureManager
 
         static const std::string CONFIG_PATH;
 
+        sf::Thread         myThread;
+
         bool               myIsInitialized;
+        bool               myIsTracking;
         xn::Context        niContext;
         xn::DepthGenerator niDepthGenerator;
         xn::UserGenerator  niUserGenerator;

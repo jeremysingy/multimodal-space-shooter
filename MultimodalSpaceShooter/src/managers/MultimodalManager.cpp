@@ -1,4 +1,5 @@
 #include "managers/MultimodalManager.h"
+#include <iostream>
 
 MultimodalManager::MultimodalManager()
 {
@@ -7,7 +8,8 @@ MultimodalManager::MultimodalManager()
         myVolumeRecorder.Start(11025);
     }
 
-    myGestureManager.initialize();
+    //myGestureManager.initialize();
+    //myGestureManager.startTracking();
 }
 
 
@@ -34,9 +36,9 @@ bool MultimodalManager::isGestureEnabled()
 
 void MultimodalManager::update()
 {
-    myGestureManager.update();
+    //myGestureManager.update();
 
-    if(myVolumeRecorder.hasVaried())
+    if(myVolumeRecorder.hasLevelIncreased())
     {
         MultimodalEvent event = VolumeChangedArmDown;
         if(myGestureManager.getRightHandPosition().y > myGestureManager.getBodyPosition().y)

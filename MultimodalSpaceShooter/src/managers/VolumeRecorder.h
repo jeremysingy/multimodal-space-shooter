@@ -17,8 +17,11 @@ class VolumeRecorder : public sf::SoundRecorder
         ~VolumeRecorder();
 
         float getVolume() const;
-        VolumeLevel getLevel()  const;
-        bool hasVaried() const;
+        VolumeLevel getLevel() const;
+        bool hasLevelIncreased() const;
+        bool hasLevelDecreased() const;
+
+        //bool hasVaried() const;
 
     private:
         bool OnProcessSamples(const sf::Int16* samples, std::size_t samplesCount);
@@ -26,7 +29,7 @@ class VolumeRecorder : public sf::SoundRecorder
         float        myVolume; 
         VolumeLevel  myLevel;
         VolumeLevel  myOldLevel;
-        bool         varied;
+        mutable bool myUpdated;
 };
 
 #endif // VOLUMERECORDER_H

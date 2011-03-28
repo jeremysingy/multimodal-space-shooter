@@ -7,12 +7,13 @@
 const std::string GestureManager::CONFIG_PATH("./config/OpenNIConfig.xml");
 
 GestureManager::GestureManager() :
+myThread(&GestureManager::update, this),
 myIsInitialized(false),
+myIsTracking(false),
 needPose(false)
 {
     std::fill(strPose, strPose + 20, 0);
 }
-
 
 GestureManager::~GestureManager()
 {
@@ -96,11 +97,32 @@ bool GestureManager::initOpenNI()
     return true;
 }
 
+void GestureManager::startTracking()
+{
+    if(myIsInitialized)
+    {
+        myIsTracking = true;
+        myThread.Launch();
+    }
+}
+
+void GestureManager::stopTracking()
+{
+    myIsTracking = false;
+    myThread.Wait();
+}
+
+void GestureManager::processThread()
+{
+    while(myIsTracking)
+    {
+        update();
+        sf::Sleep(0.1f);
+    }
+}
+
 void GestureManager::update()
 {
-    if(!myIsInitialized)
-        return;
-
     xn::SceneMetaData sceneMD;
     xn::DepthMetaData depthMD;
     niDepthGenerator.GetMetaData(depthMD);
