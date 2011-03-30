@@ -6,9 +6,9 @@
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
 #include "gui/Menu.h"
-#include "gui/Button.h"
+#include "gui/ButtonListener.h"
 
-class InPauseScene : public IScene
+class InPauseScene : public IScene, public ButtonListener
 {
     public:
         InPauseScene();
@@ -18,6 +18,7 @@ class InPauseScene : public IScene
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onButtonPress(const std::string& buttonId);
 
     private:
         sf::Sprite myCursor;

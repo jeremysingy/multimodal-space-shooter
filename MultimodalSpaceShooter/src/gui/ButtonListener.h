@@ -1,8 +1,10 @@
 #ifndef BUTTONLISTENER_H
 #define BUTTONLISTENER_H
 
+#include <string>
+
 //////////////////////////////////////////////////
-/// Base class for an event listener
+/// Base class for a button listener
 //////////////////////////////////////////////////
 class ButtonListener
 {
@@ -10,7 +12,7 @@ class ButtonListener
         ButtonListener();
         virtual ~ButtonListener();
 
-        virtual void onButtonPress();
+        virtual void onButtonPress(const std::string& buttonId); 
 };
 
 #endif // BUTTONLISTENER_H

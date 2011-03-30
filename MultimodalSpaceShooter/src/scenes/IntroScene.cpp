@@ -1,37 +1,48 @@
 #include "scenes/IntroScene.h"
 #include "managers/Managers.h"
+#include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
 IntroScene::IntroScene() :
-myWelcomeText("Welcome in Multimodal Space Shooter"),
-myChooseText("Press enter to start the game")
-
+myCursor(*imageManager().get("cursor.png")),
+myMenu("Start Menu", *imageManager().get("menu_test.png"))
 {
-    myWelcomeText.Move(200, 50);
-    myChooseText.Move(200, 100);
+    myMenu.addButton("but_intro_start", "Start a new game", this);
+    myMenu.addButton("but_intro_quit", "Quit", this);
 }
 
 void IntroScene::update(float frameTime)
 {
-    // Nothing to update for now
+    if(multimodalManager().isGestureEnabled())
+        myCursor.SetPosition(multimodalManager().getRightHandPosition());
+    else
+        myCursor.SetPosition(static_cast<float>(eventManager().getInput().GetMouseX()),
+                             static_cast<float>(eventManager().getInput().GetMouseY()));
+
+    myMenu.update(frameTime);
 }
 
 void IntroScene::draw(sf::RenderTarget& window) const
 {
-    window.Draw(myWelcomeText);
-    window.Draw(myChooseText);
+    myMenu.draw(window);
+    window.Draw(myCursor);
 }
 
 void IntroScene::onEvent(const sf::Event& event)
 {
-    if(event.Type == sf::Event::KeyPressed)
-    {
-        if(event.Key.Code == sf::Key::Return)
-            sceneManager().changeCurrentScene(SceneManager::SceneInGame);
-    }
+    myMenu.onEvent(event);
 }
 
 void IntroScene::onMultimodalEvent(MultimodalEvent event)
 {
-
+    myMenu.onMultimodalEvent(event);
 }
+
+void IntroScene::onButtonPress(const std::string& buttonId)
+{
+    if(buttonId == "but_intro_start")
+        sceneManager().changeCurrentScene(SceneManager::SceneInGame);
+    else if(buttonId == "but_intro_quit")
+        Game::instance().quit();
+}
+

@@ -13,9 +13,11 @@ class Menu : public Widget
         virtual ~Menu();
 
         virtual void onEvent(const sf::Event& event);
+        virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;
 
-        void addButton(const std::string& text);
+        void addButton(const std::string& id, const std::string& text, ButtonListener* listener = NULL);
 
     private:
         sf::Sprite          myBackground;

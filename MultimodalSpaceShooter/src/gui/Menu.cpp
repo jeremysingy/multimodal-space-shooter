@@ -1,6 +1,7 @@
 #include "gui/Menu.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
+#include "ButtonListener.h"
 #include <SFML/Graphics.hpp>
 
 const float Menu::MARGIN(10.f);
@@ -24,20 +25,38 @@ Menu::~Menu()
 
 }
 
-void Menu::addButton(const std::string& text)
+void Menu::addButton(const std::string& id, const std::string& text, ButtonListener* listener)
 {
     sf::Image& img     = *imageManager().get("button.png");
     sf::Image& imgOver = *imageManager().get("button_sel.png");
 
     const sf::Vector2i screenSize = Game::instance().getScreenSize();
-    myButtons.push_back(Button(sf::Vector2f(screenSize.x / 2.f - 500.f / 2.f, myNextButtonPos), text, img, imgOver));
+
+    Button button(id, sf::Vector2f(screenSize.x / 2.f - 500.f / 2.f, myNextButtonPos), text, img, imgOver);
+    if(listener)
+        button.addListener(listener);
+
+    myButtons.push_back(button);
 
     myNextButtonPos += img.GetHeight() + MARGIN;
 }
 
 void Menu::onEvent(const sf::Event& event)
 {
-    // TODO
+    for(std::vector<Button>::iterator i = myButtons.begin(); i != myButtons.end(); ++i)
+        i->onEvent(event);
+}
+
+void Menu::onMultimodalEvent(MultimodalEvent event)
+{
+    for(std::vector<Button>::iterator i = myButtons.begin(); i != myButtons.end(); ++i)
+        i->onMultimodalEvent(event);
+}
+
+void Menu::update(float frameTime)
+{
+    for(std::vector<Button>::iterator i = myButtons.begin(); i != myButtons.end(); ++i)
+        i->update(frameTime);
 }
 
 void Menu::draw(sf::RenderTarget& window) const

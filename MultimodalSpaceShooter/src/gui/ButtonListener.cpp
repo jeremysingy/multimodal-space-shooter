@@ -11,7 +11,7 @@ ButtonListener::~ButtonListener()
     
 }
 
-void ButtonListener::onButtonPress()
+void ButtonListener::onButtonPress(const std::string& buttonId)
 {
     
 }

@@ -3,6 +3,7 @@
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include "managers/MultimodalListener.h"
 
 class Widget
 {
@@ -11,6 +12,8 @@ class Widget
         virtual ~Widget();
 
         virtual void onEvent(const sf::Event& event) { };
+        virtual void onMultimodalEvent(MultimodalEvent event) { };
+        virtual void update(float frameTime) = 0;
         virtual void draw(sf::RenderTarget& window) const = 0;
 
     protected:

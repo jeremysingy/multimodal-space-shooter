@@ -7,7 +7,7 @@
 const std::string GestureManager::CONFIG_PATH("./config/OpenNIConfig.xml");
 
 GestureManager::GestureManager() :
-myThread(&GestureManager::update, this),
+myThread(&GestureManager::processThread, this),
 myIsInitialized(false),
 myIsTracking(false),
 needPose(false)

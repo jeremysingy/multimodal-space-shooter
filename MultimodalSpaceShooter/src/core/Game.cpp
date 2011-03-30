@@ -16,7 +16,7 @@ myEventManager(myWindow.GetInput()),
 myImageManager("./images/"),
 mySoundManager("./sounds/")
 {
-
+    myWindow.ShowMouseCursor(false);
 }
 
 const sf::Vector2i& Game::getScreenSize()

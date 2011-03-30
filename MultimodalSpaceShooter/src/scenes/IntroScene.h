@@ -5,8 +5,10 @@
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
+#include "gui/Menu.h"
+#include "gui/ButtonListener.h"
 
-class IntroScene : public IScene
+class IntroScene : public IScene, public ButtonListener
 {
     public:
         IntroScene();
@@ -16,10 +18,11 @@ class IntroScene : public IScene
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onButtonPress(const std::string& buttonId);
 
     private:
-        sf::Text myWelcomeText;
-        sf::Text myChooseText;
+        sf::Sprite myCursor;
+        Menu       myMenu;
 };
 
 #endif // INTROSCENE_H
