@@ -1,14 +1,15 @@
 #include "entities/Spaceship.h"
 #include "entities/Missile.h"
 #include "managers/Managers.h"
+#include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
 const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"))
+mySprite(*imageManager().get("spaceship.png"),150,165,0.005)
 {
-    mySprite.Move(400, 500);
+    mySprite.Move(400, 420);
 }
 
 Spaceship::~Spaceship()
@@ -51,6 +52,8 @@ void Spaceship::update(float frameTime)
         if(eventManager().getInput().IsKeyDown(sf::Key::Right))
             mySprite.Move( SPEED * frameTime, 0);
     }
+
+    mySprite.update();
 }
 
 sf::FloatRect Spaceship::getBoundingRect() const
