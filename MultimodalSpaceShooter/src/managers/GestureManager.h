@@ -37,6 +37,8 @@ class GestureManager
         friend class NiCallbacksWrapper;
 
         static const std::string CONFIG_PATH;
+        static const float       RESOLUTION_X;
+        static const float       RESOLUTION_Y;
 
         sf::Thread         myThread;
 

@@ -1,10 +1,13 @@
 #include "managers/GestureManager.h"
 #include "managers/NiCallbacksWrapper.h"
+#include "core/Game.h"
 #include <iostream>
 #include <algorithm>
 #include <exception>
 
 const std::string GestureManager::CONFIG_PATH("./config/OpenNIConfig.xml");
+const float       GestureManager::RESOLUTION_X = 640.f;
+const float       GestureManager::RESOLUTION_Y = 480.f;
 
 GestureManager::GestureManager() :
 myThread(&GestureManager::processThread, this),
@@ -117,7 +120,7 @@ void GestureManager::processThread()
     while(myIsTracking)
     {
         update();
-        sf::Sleep(0.1f);
+        sf::Sleep(0.05f);
     }
 }
 
@@ -177,8 +180,11 @@ const sf::Vector2f& GestureManager::getRightHandPosition() const
 
 void GestureManager::setConvertedPos(sf::Vector2f& dest, const XnPoint3D& src)
 {
-    XnVector3D converted;
+    XnPoint3D converted;
     niDepthGenerator.ConvertRealWorldToProjective(1, &src, &converted);
+    
+    converted.X = converted.X / RESOLUTION_X * Game::instance().getScreenSize().x;
+    converted.Y = converted.Y / RESOLUTION_Y * Game::instance().getScreenSize().y;
 
     dest.x = converted.X;
     dest.y = converted.Y;
