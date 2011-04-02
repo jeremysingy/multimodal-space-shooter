@@ -19,6 +19,7 @@ class SceneManager : public EventListener, public MultimodalListener
         enum SceneType
         {
             SceneIntro,
+            SceneTracking,
             SceneInGame,
             SceneInPause
         };

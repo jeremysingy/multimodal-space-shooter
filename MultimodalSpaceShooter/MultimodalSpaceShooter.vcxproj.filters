@@ -177,6 +177,9 @@
     <ClInclude Include="src\gui\Menu.h">
       <Filter>Header Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="src\scenes\TrackingScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -303,6 +306,9 @@
     </ClCompile>
     <ClCompile Include="src\gui\Menu.cpp">
       <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\TrackingScene.cpp">
+      <Filter>Source Files\scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ class GestureManager
         GestureManager();
         ~GestureManager();
 
-        void initialize();
+        bool initialize();
         bool isInitialized();
         void startTracking();
         void stopTracking();

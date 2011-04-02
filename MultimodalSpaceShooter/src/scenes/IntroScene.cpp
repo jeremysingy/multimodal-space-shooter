@@ -7,7 +7,8 @@ IntroScene::IntroScene() :
 myCursor(*imageManager().get("cursor.png")),
 myMenu("Start Menu", *imageManager().get("menu_test.png"))
 {
-    myMenu.addButton("but_intro_start", "Start a new game", this);
+    myMenu.addButton("but_intro_start_multi", "Start game using multimodality", this);
+    myMenu.addButton("but_intro_start_norm", "Start game without multimodality", this);
     myMenu.addButton("but_intro_quit", "Quit", this);
 }
 
@@ -40,7 +41,9 @@ void IntroScene::onMultimodalEvent(MultimodalEvent event)
 
 void IntroScene::onButtonPress(const std::string& buttonId)
 {
-    if(buttonId == "but_intro_start")
+    if(buttonId == "but_intro_start_multi")
+        sceneManager().changeCurrentScene(SceneManager::SceneTracking);
+    else if(buttonId == "but_intro_start_norm")
         sceneManager().changeCurrentScene(SceneManager::SceneInGame);
     else if(buttonId == "but_intro_quit")
         Game::instance().quit();

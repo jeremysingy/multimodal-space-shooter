@@ -3,15 +3,10 @@
 
 MultimodalManager::MultimodalManager()
 {
+    
     if(sf::SoundRecorder::IsAvailable())
-    {
         myVolumeRecorder.Start(11025);
-    }
-
-    //myGestureManager.initialize();
-    //myGestureManager.startTracking();
 }
-
 
 MultimodalManager::~MultimodalManager()
 {
@@ -24,9 +19,17 @@ void MultimodalManager::addListener(MultimodalListener* listener)
         myListeners.insert(listener);
 }
 
-void MultimodalManager::removeListener(MultimodalListener* listener) 
+void MultimodalManager::removeListener(MultimodalListener* listener)
 {
     myListeners.erase(listener);
+}
+
+bool MultimodalManager::enableGesture()
+{
+    myGestureManager.initialize();
+    myGestureManager.startTracking();
+
+    return myGestureManager.isInitialized();
 }
 
 bool MultimodalManager::isGestureEnabled()
@@ -36,8 +39,6 @@ bool MultimodalManager::isGestureEnabled()
 
 void MultimodalManager::update()
 {
-    //myGestureManager.update();
-
     if(myVolumeRecorder.hasLevelIncreased())
     {
         MultimodalEvent event = VolumeChangedArmDown;

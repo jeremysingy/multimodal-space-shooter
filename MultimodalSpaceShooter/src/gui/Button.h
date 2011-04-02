@@ -12,7 +12,7 @@ class Button : public Widget
 {
     public:
         Button(const std::string& id, const sf::Vector2f& position, const std::string& text, const sf::Image& background, const sf::Image& backgroundOver,
-               const sf::Color& textColor = sf::Color::White, const sf::Color& selectedTextColor = sf::Color::White, unsigned int textSize = 40);
+               const sf::Color& textColor = sf::Color::White, const sf::Color& selectedTextColor = sf::Color::White, unsigned int textSize = 30);
         virtual ~Button();
 
         virtual void onEvent(const sf::Event& event);

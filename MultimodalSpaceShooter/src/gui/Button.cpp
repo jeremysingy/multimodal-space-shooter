@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-const sf::Vector2f Button::TEXT_PADDING(10, 10);
+const sf::Vector2f Button::TEXT_PADDING(20, 20);
 
 Button::Button(const std::string& id, const sf::Vector2f& position, const std::string& text, const sf::Image& background,
                const sf::Image& backgroundOver, const sf::Color& textColor, const sf::Color& selectedTextColor, unsigned int textSize) :

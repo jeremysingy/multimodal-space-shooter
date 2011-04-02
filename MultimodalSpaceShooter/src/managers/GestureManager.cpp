@@ -23,9 +23,11 @@ GestureManager::~GestureManager()
     niContext.Shutdown();
 }
 
-void GestureManager::initialize()
+bool GestureManager::initialize()
 {
     myIsInitialized = initOpenNI();
+
+    return myIsInitialized;
 }
 
 bool GestureManager::isInitialized()
@@ -111,6 +113,7 @@ void GestureManager::startTracking()
 
 void GestureManager::stopTracking()
 {
+    std::cout << "gesture stop ok" << std::endl;
     myIsTracking = false;
     myThread.Wait();
 }

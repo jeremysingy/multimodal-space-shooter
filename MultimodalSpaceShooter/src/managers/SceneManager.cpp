@@ -1,6 +1,7 @@
 #include "managers/SceneManager.h"
 #include "entities/Entity.h"
 #include "scenes/IntroScene.h"
+#include "scenes/TrackingScene.h"
 #include "scenes/InGameScene.h"
 #include "scenes/InPauseScene.h"
 #include <algorithm>
@@ -8,10 +9,12 @@
 SceneManager::SceneManager()
 {
     ScenePtr introScene(new IntroScene);
+    ScenePtr trackingScene(new TrackingScene);
     ScenePtr inGameScene(new InGameScene);
     ScenePtr inPauseScene(new InPauseScene);
 
     myScenes[SceneIntro]  = introScene;
+    myScenes[SceneTracking]  = trackingScene;
     myScenes[SceneInGame] = inGameScene;
     myScenes[SceneInPause] = inPauseScene;
 

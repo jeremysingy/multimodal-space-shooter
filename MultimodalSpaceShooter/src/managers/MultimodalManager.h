@@ -16,6 +16,7 @@ class MultimodalManager
         MultimodalManager();
         ~MultimodalManager();
         
+        bool enableGesture();
         bool isGestureEnabled();
         void update();
         const sf::Vector2f& getBodyPosition() const;
