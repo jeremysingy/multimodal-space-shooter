@@ -33,7 +33,6 @@ class Game
 
         ImageManager      myImageManager;
         SoundManager	  mySoundManager;
-        LevelManager      myLevelManager;
 
         GraphicsEngine    myGraphicsEngine;
         PhysicsEngine     myPhysicsEngine;
@@ -48,7 +47,6 @@ class Game
         // Declare managers as friends of the game main class
         friend ImageManager& imageManager();
         friend SoundManager& soundManager();
-        friend LevelManager& levelManager();
 
         friend GraphicsEngine& graphicsEngine();
         friend PhysicsEngine& physicsEngine();

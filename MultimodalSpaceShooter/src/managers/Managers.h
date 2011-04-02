@@ -19,8 +19,8 @@ EventManager& eventManager();
 MultimodalManager& multimodalManager();
 SceneManager& sceneManager();
 EntityManager& entityManager();
+
 ImageManager& imageManager();
 SoundManager& soundManager();
-LevelManager& levelManager();
 
 #endif // MANAGERS_H

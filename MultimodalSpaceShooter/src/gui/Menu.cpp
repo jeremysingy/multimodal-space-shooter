@@ -9,7 +9,7 @@ const float Menu::MARGIN(10.f);
 Menu::Menu(const std::string& title, const sf::Image& backgroundImage) :
 myBackground(backgroundImage),
 myTitle(title, sf::Font::GetDefaultFont(), 40),
-myNextButtonPos(150.f)
+myNextButtonPos(250.f)
 {
     const sf::Vector2i screenSize = Game::instance().getScreenSize();
     const sf::Vector2f spriteSize = myBackground.GetSize();

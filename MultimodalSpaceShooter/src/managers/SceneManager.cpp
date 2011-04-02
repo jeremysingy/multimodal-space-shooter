@@ -19,6 +19,7 @@ SceneManager::SceneManager()
     myScenes[SceneInPause] = inPauseScene;
 
     myCrtScene = introScene;
+    myCrtScene->onShow();
 }
 
 void SceneManager::onEvent(const sf::Event& event)
@@ -48,6 +49,7 @@ void SceneManager::drawScene(sf::RenderTarget& window)
 
 void SceneManager::changeCurrentScene(SceneType newScene)
 {
+    myCrtScene->onExit();
     myCrtScene = myScenes[newScene];
     myCrtScene->onShow();
 }

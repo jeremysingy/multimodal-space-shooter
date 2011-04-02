@@ -4,15 +4,19 @@
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
+#include "utils/PausableClock.h"
+#include "loaders/LevelManager.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
 
 class InGameScene : public IScene
 {
     public:
         InGameScene();
         virtual ~InGameScene();
+
+        virtual void onShow();
+        virtual void onExit();
 
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;
@@ -21,7 +25,8 @@ class InGameScene : public IScene
         virtual void onMultimodalEvent(MultimodalEvent event);
 
     private:
-        sf::Clock gameClock;
+        LevelManager  myLevelManager;
+        PausableClock myGameClock;
 };
 
 #endif // INGAMESCENE_H

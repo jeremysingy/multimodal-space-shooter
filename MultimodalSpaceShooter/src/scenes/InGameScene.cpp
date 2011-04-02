@@ -3,20 +3,19 @@
 #include "entities/Planet.h"
 #include "managers/Managers.h"
 
-InGameScene::InGameScene()
+InGameScene::InGameScene() :
+myGameClock(true)
 {
-    //TODO ERROR
-    gameClock.Reset();
     // Preload images
+    imageManager().load("background.png");
     imageManager().load("spaceship.png");
     imageManager().load("explosion.png");
     imageManager().load("fire.png");
-    imageManager().load("background.png");
-    imageManager().load("planet1.png");
 
-    // Create some entities
-    // TODO: this is just a test!
-    levelManager().loadFromFile("worlds/sample.xml");
+    // Load the world
+    myLevelManager.load("worlds/sample.xml");
+
+    // Create the playable spaceship
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
 }
@@ -26,19 +25,28 @@ InGameScene::~InGameScene()
 
 }
 
+void InGameScene::onShow()
+{
+    myGameClock.start();
+}
+
+void InGameScene::onExit()
+{
+    myGameClock.pause();
+}
+
 void InGameScene::update(float frameTime)
 {
+    std::shared_ptr<Entity> nextEntity = myLevelManager.getNextEntity(myGameClock.getElapsedTime());
+
+    while(nextEntity)
+    {
+        entityManager().addEntity(nextEntity);
+        nextEntity = myLevelManager.getNextEntity(myGameClock.getElapsedTime());
+    }
+
     physicsEngine().updateScene(frameTime);
     entityManager().checkDestroyedEntities();
-
-    if(!levelManager().myEntityModels.empty()){
-        EntityModel entityModel = levelManager().myEntityModels.top();
-        if(entityModel.getTime()<=gameClock.GetElapsedTime()){
-            levelManager().myEntityModels.pop();
-            std::shared_ptr<Entity> planet(new Planet(sf::Vector2f(entityModel.getXCoordinate(), 15)));
-            entityManager().addEntity(planet);
-        }
-    }
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const

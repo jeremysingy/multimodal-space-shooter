@@ -45,8 +45,3 @@ SoundManager& soundManager()
 {
     return Game::instance().mySoundManager;
 }
-
-LevelManager& levelManager()
-{
-    return Game::instance().myLevelManager;
-}

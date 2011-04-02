@@ -183,6 +183,9 @@
     <ClInclude Include="src\utils\NiCallbacksWrapper.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\PausableClock.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -313,8 +316,10 @@
     <ClCompile Include="src\entities\Fire.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
-
     <ClCompile Include="src\utils\NiCallbacksWrapper.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\PausableClock.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>

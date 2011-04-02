@@ -12,6 +12,8 @@ class IScene
         virtual ~IScene();
 
         virtual void onShow();
+        virtual void onExit();
+
         virtual void update(float frameTime) = 0;
         virtual void draw(sf::RenderTarget& window) const = 0;
 

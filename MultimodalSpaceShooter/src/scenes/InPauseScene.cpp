@@ -3,7 +3,6 @@
 #include "core/Game.h"
 
 #include <SFML/Graphics.hpp>
-#include <sstream>
 
 InPauseScene::InPauseScene() :
 myCursor(*imageManager().get("cursor.png")),
@@ -21,11 +20,6 @@ void InPauseScene::update(float frameTime)
         myCursor.SetPosition(static_cast<float>(eventManager().getInput().GetMouseX()),
                              static_cast<float>(eventManager().getInput().GetMouseY()));
 
-    std::ostringstream oss;
-    oss << multimodalManager().getRightHandPosition().x << "-" << multimodalManager().getRightHandPosition().y;
-
-    myText.SetString(oss.str());
-
     myMenu.update(frameTime);
 }
 
@@ -33,7 +27,6 @@ void InPauseScene::draw(sf::RenderTarget& window) const
 {
     myMenu.draw(window);
     window.Draw(myCursor);
-    window.Draw(myText);
 }
 
 void InPauseScene::onEvent(const sf::Event& event)

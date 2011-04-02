@@ -15,6 +15,11 @@ void IScene::onShow()
 
 }
 
+void IScene::onExit()
+{
+
+}
+
 void IScene::onTrackingStateChanged(Tracking::State newState)
 {
 

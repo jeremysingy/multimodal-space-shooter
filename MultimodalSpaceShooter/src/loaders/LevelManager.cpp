@@ -1,40 +1,74 @@
 #include "loaders/LevelManager.h"
+#include "entities/Planet.h"
+#include "managers/Managers.h"
 #include <utils/tinyxml/tinyxml.h>
 #include <sstream>
 
-LevelManager::LevelManager(){
+LevelManager::LevelManager()
+{
 
 }
 
-LevelManager::~LevelManager(){
-
-}
-
-int LevelManager::loadFromFile(const std::string& name){
+int LevelManager::load(const std::string& name)
+{
     TiXmlDocument doc(name.c_str());
-    if(!doc.LoadFile()){
+
+    if(!doc.LoadFile())
+    {
         std::cerr << "Error while loading world" << std::endl;
         std::cerr << "error #" << doc.ErrorId() << " : " << doc.ErrorDesc() << std::endl;
         return 1;
     }
 
-    //temp variables
+    // Temp variables
     float coordinate;
     float time;
 
-    //Get first 
+    // Get first node
     TiXmlHandle hdl(&doc);
-    TiXmlElement *elem = hdl.FirstChild("world").FirstChild("enemies").FirstChild("enemy").ToElement();
-    while(elem){
-        std::istringstream issCoordinate(elem->Attribute("xCoordinate"));
-        issCoordinate>>coordinate;
-        
-        std::istringstream issTime(elem->Attribute("time"));
-        issTime>>time;
+    TiXmlElement* element = hdl.FirstChild("world").FirstChild("enemies").FirstChild("enemy").ToElement();
 
-        myEntityModels.push(EntityModel(elem->Attribute("type"), coordinate, time));
-        elem=elem->NextSiblingElement();
+    // Get all elements in the file and add it to the priority queue
+    while(element)
+    {
+        std::istringstream issCoordinate(element->Attribute("xCoordinate"));
+        issCoordinate >> coordinate;
+        
+        std::istringstream issTime(element->Attribute("time"));
+        issTime >> time;
+
+        // Load the image in memory if it is still not loaded
+        imageManager().get(element->Attribute("image"));
+
+        // Add the entity to the priority queue
+        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, time));
+
+        element = element->NextSiblingElement();
     }
 
     return 0;
+}
+
+std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
+{
+    if(!myEntityModels.empty())
+    {
+        EntityModel entityModel = myEntityModels.top();
+
+        if(entityModel.getTime() <= gameTime)
+        {
+            myEntityModels.pop();
+            std::shared_ptr<Entity> planet(new Planet(sf::Vector2f(entityModel.getXCoordinate(), 15)));
+
+            return planet;
+        }
+    }
+
+    // No entity for now, return a null pointer
+    return std::shared_ptr<Entity>();
+}
+
+bool LevelManager::isWorldEnded()
+{
+    return myEntityModels.empty();
 }
