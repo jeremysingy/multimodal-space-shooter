@@ -44,3 +44,8 @@ unsigned int AnimatedSprite::getNbFrames() const
 {
     return myFrames.size();
 }
+
+unsigned int AnimatedSprite::getCrtFrame() const
+{
+    return myCrtFrame;
+}

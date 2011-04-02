@@ -11,6 +11,7 @@ class AnimatedSprite : public sf::Sprite
         
         float getFrameTime() const;
         unsigned int getNbFrames() const;
+        unsigned int getCrtFrame() const;
         void update();
 
     private:

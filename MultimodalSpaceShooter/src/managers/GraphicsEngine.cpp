@@ -36,6 +36,8 @@ void GraphicsEngine::removeObject(GraphicsObject* object)
 
 void GraphicsEngine::drawScene(sf::RenderTarget& window)
 {
+    // Draw the background
+
     // Draw all the objects of the scene
     for(std::set<GraphicsObject*>::iterator i = myObjects.begin(); i != myObjects.end(); ++i)
     {

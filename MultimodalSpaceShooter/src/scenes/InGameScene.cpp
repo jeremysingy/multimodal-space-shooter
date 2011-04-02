@@ -8,6 +8,8 @@ InGameScene::InGameScene()
     // Preload images
     imageManager().load("spaceship.png");
     imageManager().load("explosion.png");
+    imageManager().load("fire.png");
+    imageManager().load("background.png");
     imageManager().load("planet1.png");
 
     // Create some entities

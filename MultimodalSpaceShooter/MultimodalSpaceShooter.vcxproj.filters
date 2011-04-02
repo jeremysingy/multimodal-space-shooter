@@ -177,6 +177,9 @@
     <ClInclude Include="src\gui\Menu.h">
       <Filter>Header Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="src\entities\Fire.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -302,6 +305,9 @@
       <Filter>Source Files\gui</Filter>
     </ClCompile>
     <ClCompile Include="src\entities\Spaceship.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\Fire.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,7 @@
 
 #include "PlayableEntity.h"
 #include "utils/AnimatedSprite.h"
+#include "Fire.h"
 #include <SFML/Graphics.hpp>
 
 class Spaceship : public PlayableEntity
@@ -22,6 +23,7 @@ class Spaceship : public PlayableEntity
         void fireMissile();
 
         AnimatedSprite mySprite;
+        Fire           myFire;
 
         static const float SPEED;
 };
