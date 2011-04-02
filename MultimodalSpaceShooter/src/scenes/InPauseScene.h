@@ -23,6 +23,8 @@ class InPauseScene : public IScene, public ButtonListener
     private:
         sf::Sprite myCursor;
         Menu       myMenu;
+
+        sf::Text   myText;
         
 };
 

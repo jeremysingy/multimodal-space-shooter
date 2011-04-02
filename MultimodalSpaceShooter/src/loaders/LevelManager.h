@@ -6,6 +6,7 @@
 #include <queue>
 #include "ResourceManager.h"
 #include "entities/EntityModel.h"
+#include <vector>
 
 class LevelManager {
     public:
@@ -15,7 +16,7 @@ class LevelManager {
         LevelManager();
         ~LevelManager();
 
-        std::priority_queue<EntityModel> myEntityModels;
+        std::priority_queue<EntityModel, std::vector<EntityModel>, CompareTime>  myEntityModels;
 
         friend class Game;
 };

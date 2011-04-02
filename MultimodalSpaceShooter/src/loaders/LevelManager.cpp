@@ -1,5 +1,6 @@
 #include "loaders/LevelManager.h"
 #include <utils/tinyxml/tinyxml.h>
+#include <sstream>
 
 LevelManager::LevelManager(){
 
@@ -17,12 +18,23 @@ int LevelManager::loadFromFile(const std::string& name){
         return 1;
     }
 
+    //temp variables
+    float coordinate;
+    float time;
+
     //Get first 
     TiXmlHandle hdl(&doc);
     TiXmlElement *elem = hdl.FirstChild("world").FirstChild("enemies").FirstChild("enemy").ToElement();
-    if(elem){
-        //std::cout << "first ennemy should be planet : " << elem->Attribute("time") << std::endl;
-        //myEntityModels.push(new EntityModel(elem->Attribute("type"), elem->Attribute("xCoordinate"), elem->Attribute("time")));
+    while(elem){
+        std::istringstream issCoordinate(elem->Attribute("xCoordinate"));
+        issCoordinate>>coordinate;
+        
+        std::istringstream issTime(elem->Attribute("time"));
+        issTime>>time;
+
+        std::cout << "enemy with time : " << elem->Attribute("time") << std::endl;
+        myEntityModels.push(EntityModel(elem->Attribute("type"), coordinate, time));
+        elem=elem->NextSiblingElement();
     }
 
     return 0;
