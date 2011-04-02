@@ -5,6 +5,7 @@
 
 InGameScene::InGameScene()
 {
+    //TODO ERROR
     gameClock.Reset();
     // Preload images
     imageManager().load("spaceship.png");

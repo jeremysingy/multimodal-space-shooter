@@ -1,8 +1,19 @@
 <world>
 	<background image=""/>
 	<enemies>
-		<enemy type="planet" xCoordinate="100" time="3"/>
-		<enemy type="planet" xCoordinate="300" time="5"/>
-		<enemy type="planet" xCoordinate="700" time="10"/>
+		<enemy type="planet" xCoordinate="50" speed="20" time="1"/>
+		<enemy type="planet" xCoordinate="150" speed="20" time="2"/>
+		<enemy type="planet" xCoordinate="250" speed="20" time="3"/>
+    <enemy type="planet" xCoordinate="350" speed="20" time="4"/>
+    <enemy type="planet" xCoordinate="450" speed="20" time="5"/>
+    <enemy type="planet" xCoordinate="550" speed="20" time="6"/>
+    <enemy type="planet" xCoordinate="650" speed="20" time="7"/>
+    <enemy type="planet" xCoordinate="650" speed="20" time="14"/>
+    <enemy type="planet" xCoordinate="550" speed="20" time="15"/>
+    <enemy type="planet" xCoordinate="450" speed="20" time="16"/>
+    <enemy type="planet" xCoordinate="350" speed="20" time="17"/>
+    <enemy type="planet" xCoordinate="250" speed="20" time="18"/>
+    <enemy type="planet" xCoordinate="150" speed="20" time="19"/>
+    <enemy type="planet" xCoordinate="50" speed="20" time="20"/>
 	</enemies>
 </world>

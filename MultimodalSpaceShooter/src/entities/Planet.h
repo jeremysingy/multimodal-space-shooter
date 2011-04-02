@@ -7,7 +7,7 @@
 class Planet : public Entity
 {
     public:
-        Planet(const sf::Vector2f& position);
+        Planet(const sf::Vector2f& position, const float initSpeed=10.f);
         virtual ~Planet();
 
         virtual void update(float frameTime);
