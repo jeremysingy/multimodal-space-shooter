@@ -1,8 +1,8 @@
 <world>
 	<background image=""/>
 	<enemies>
-		<enemy type="planet" xCoordinate="3" time="10"/>
-		<enemy type="planet" xCoordinate="6" time="30"/>
-		<enemy type="planet" xCoordinate="30" time="40"/>
+		<enemy type="planet" xCoordinate="100" time="3"/>
+		<enemy type="planet" xCoordinate="300" time="5"/>
+		<enemy type="planet" xCoordinate="700" time="10"/>
 	</enemies>
 </world>

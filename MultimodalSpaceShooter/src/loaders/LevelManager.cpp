@@ -32,7 +32,6 @@ int LevelManager::loadFromFile(const std::string& name){
         std::istringstream issTime(elem->Attribute("time"));
         issTime>>time;
 
-        std::cout << "enemy with time : " << elem->Attribute("time") << std::endl;
         myEntityModels.push(EntityModel(elem->Attribute("type"), coordinate, time));
         elem=elem->NextSiblingElement();
     }

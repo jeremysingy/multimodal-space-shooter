@@ -5,6 +5,7 @@
 
 InGameScene::InGameScene()
 {
+    gameClock.Reset();
     // Preload images
     imageManager().load("spaceship.png");
     imageManager().load("explosion.png");
@@ -15,15 +16,6 @@ InGameScene::InGameScene()
     levelManager().loadFromFile("worlds/sample.xml");
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
-
-    std::shared_ptr<Entity> planet1(new Planet(sf::Vector2f(100, 200)));
-    entityManager().addEntity(planet1);
-
-    std::shared_ptr<Entity> planet2(new Planet(sf::Vector2f(300, 15)));
-    entityManager().addEntity(planet2);
-
-    std::shared_ptr<Entity> planet3(new Planet(sf::Vector2f(700, 120)));
-    entityManager().addEntity(planet3);
 }
 
 InGameScene::~InGameScene()
@@ -35,6 +27,15 @@ void InGameScene::update(float frameTime)
 {
     physicsEngine().updateScene(frameTime);
     entityManager().checkDestroyedEntities();
+
+    if(!levelManager().myEntityModels.empty()){
+        EntityModel entityModel = levelManager().myEntityModels.top();
+        if(entityModel.getTime()<=gameClock.GetElapsedTime()){
+            levelManager().myEntityModels.pop();
+            std::shared_ptr<Entity> planet(new Planet(sf::Vector2f(entityModel.getXCoordinate(), 15)));
+            entityManager().addEntity(planet);
+        }
+    }
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const
