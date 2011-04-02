@@ -1,6 +1,6 @@
 #include "entities/EntityModel.h"
 
-EntityModel::EntityModel(const std::string& type, int xCoordinate, int time) :
+EntityModel::EntityModel(const std::string& type, float xCoordinate, float time) :
 myType(type),
 myXCoordinate(xCoordinate),
 myTime(time)
@@ -8,14 +8,14 @@ myTime(time)
 
 }
 
-std::string& EntityModel::getType(){
+std::string EntityModel::getType() const{
     return myType;
 }
 
-int EntityModel::getXCoordinate(){
+float EntityModel::getXCoordinate() const {
     return myXCoordinate;
 }
 
-int EntityModel::getTime(){
+float EntityModel::getTime() const{
     return myTime;
 }
