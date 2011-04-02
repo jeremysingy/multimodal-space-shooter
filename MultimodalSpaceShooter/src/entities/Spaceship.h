@@ -2,6 +2,7 @@
 #define SPACESHIP_H
 
 #include "PlayableEntity.h"
+#include "utils/AnimatedSprite.h"
 #include <SFML/Graphics.hpp>
 
 class Spaceship : public PlayableEntity
@@ -20,7 +21,7 @@ class Spaceship : public PlayableEntity
     private:
         void fireMissile();
 
-        sf::Sprite mySprite;
+        AnimatedSprite mySprite;
 
         static const float SPEED;
 };
