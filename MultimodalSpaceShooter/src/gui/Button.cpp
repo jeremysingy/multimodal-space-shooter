@@ -27,7 +27,12 @@ Button::~Button()
 
 void Button::onEvent(const sf::Event& event)
 {
-    // Nothing to do
+    if(myIsSelected)
+    {
+        if(event.Type == sf::Event::MouseButtonPressed && event.MouseButton.Button == sf::Mouse::Left)
+            for(std::set<ButtonListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
+                (*i)->onButtonPress(myId);
+    }
 }
 
 void Button::onMultimodalEvent(MultimodalEvent event)

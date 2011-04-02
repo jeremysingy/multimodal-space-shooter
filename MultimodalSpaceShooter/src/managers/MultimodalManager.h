@@ -16,7 +16,7 @@ class MultimodalManager
         MultimodalManager();
         ~MultimodalManager();
         
-        bool enableGesture();
+        bool isMultimodalityAvailable();
         void startTracking();
         Tracking::State getTrackingState();
         bool hasStateChanged();

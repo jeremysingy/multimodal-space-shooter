@@ -27,15 +27,15 @@ void MultimodalManager::removeListener(MultimodalListener* listener)
     myListeners.erase(listener);
 }
 
+bool MultimodalManager::isMultimodalityAvailable()
+{
+    return myGestureManager.getState() != Tracking::NotInitialized && sf::SoundRecorder::IsAvailable();
+}
+
 void MultimodalManager::startTracking()
 {
     myGestureManager.startTracking();
 }
-
-/*bool MultimodalManager::isGestureEnabled()
-{
-    return myGestureManager.getState() != Tracking::NotInitialized;
-}*/
 
 Tracking::State MultimodalManager::getTrackingState()
 {
