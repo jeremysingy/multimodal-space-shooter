@@ -177,6 +177,9 @@
     <ClInclude Include="src\scenes\TrackingScene.h">
       <Filter>Header Files\scenes</Filter>
     </ClInclude>
+    <ClInclude Include="src\entities\Fire.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
     <ClInclude Include="src\utils\NiCallbacksWrapper.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
@@ -307,6 +310,10 @@
     <ClCompile Include="src\scenes\TrackingScene.cpp">
       <Filter>Source Files\scenes</Filter>
     </ClCompile>
+    <ClCompile Include="src\entities\Fire.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+
     <ClCompile Include="src\utils\NiCallbacksWrapper.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>

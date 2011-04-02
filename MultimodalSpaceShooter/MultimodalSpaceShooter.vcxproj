@@ -15,6 +15,7 @@
     <ClInclude Include="src\entities\Entity.h" />
     <ClInclude Include="src\entities\EntityModel.h" />
     <ClInclude Include="src\entities\Explosion.h" />
+    <ClInclude Include="src\entities\Fire.h" />
     <ClInclude Include="src\entities\Missile.h" />
     <ClInclude Include="src\entities\Planet.h" />
     <ClInclude Include="src\entities\PlayableEntity.h" />
@@ -59,6 +60,7 @@
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityModel.cpp" />
     <ClCompile Include="src\entities\Explosion.cpp" />
+    <ClCompile Include="src\entities\Fire.cpp" />
     <ClCompile Include="src\entities\Missile.cpp" />
     <ClCompile Include="src\entities\Planet.cpp" />
     <ClCompile Include="src\entities\PlayableEntity.cpp" />
