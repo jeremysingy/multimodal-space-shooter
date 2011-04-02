@@ -21,7 +21,7 @@ class CompareTime {
 public:
     bool operator()(const EntityModel& e1, const EntityModel& e2)
     {
-        return e1.getTime()<e2.getTime();
+        return e1.getTime()>e2.getTime();
     }
 };
 

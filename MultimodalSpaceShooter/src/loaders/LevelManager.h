@@ -11,12 +11,11 @@
 class LevelManager {
     public:
         int loadFromFile(const std::string& name);
+        std::priority_queue<EntityModel, std::vector<EntityModel>, CompareTime>  myEntityModels;
         
     private:
         LevelManager();
         ~LevelManager();
-
-        std::priority_queue<EntityModel, std::vector<EntityModel>, CompareTime>  myEntityModels;
 
         friend class Game;
 };

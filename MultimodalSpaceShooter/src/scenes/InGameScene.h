@@ -4,6 +4,9 @@
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
+#include <iostream>
+#include <SFML/Graphics.hpp>
+
 
 class InGameScene : public IScene
 {
@@ -16,6 +19,9 @@ class InGameScene : public IScene
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(MultimodalEvent event);
+
+    private:
+        sf::Clock gameClock;
 };
 
 #endif // INGAMESCENE_H
