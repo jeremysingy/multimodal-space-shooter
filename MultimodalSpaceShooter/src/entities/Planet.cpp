@@ -2,9 +2,9 @@
 #include "entities/Explosion.h"
 #include "managers/Managers.h"
 
-const float Planet::SPEED = 10.f;
+const float Planet::SPEED = 20.f;
 
-Planet::Planet(const sf::Vector2f& position) :
+Planet::Planet(const sf::Vector2f& position, const float initSpeed) :
 mySprite(*imageManager().get("planet1.png"))
 {
     mySprite.SetPosition(position);
