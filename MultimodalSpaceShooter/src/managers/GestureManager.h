@@ -6,6 +6,17 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/System.hpp>
 
+namespace Tracking
+{
+    enum State
+    {
+        NotInitialized,    // OpenNI not initialized
+        Initialized,       // Initialized but no user detected
+        UserDetected,      // A user is detected
+        UserTracked        // A user is tracked
+    };
+}
+
 class GestureManager
 {
     public:
@@ -13,7 +24,7 @@ class GestureManager
         ~GestureManager();
 
         bool initialize();
-        bool isInitialized();
+        Tracking::State getState();
         void startTracking();
         void stopTracking();
 
@@ -36,23 +47,26 @@ class GestureManager
 
         friend class NiCallbacksWrapper;
 
+        // Constants
         static const std::string CONFIG_PATH;
         static const float       RESOLUTION_X;
         static const float       RESOLUTION_Y;
+        static const float       FPS;
 
+        // Attributes
         sf::Thread         myThread;
-
-        bool               myIsInitialized;
+        Tracking::State    myCrtState;
         bool               myIsTracking;
-        xn::Context        niContext;
-        xn::DepthGenerator niDepthGenerator;
-        xn::UserGenerator  niUserGenerator;
-        bool               needPose;
-        XnChar             strPose[20];
+        sf::Vector2f       myBodyPos;
+        sf::Vector2f       myLeftHandPos;
+        sf::Vector2f       myRightHandPos;
 
-        sf::Vector2f myBodyPos;
-        sf::Vector2f myLeftHandPos;
-        sf::Vector2f myRightHandPos;
+        // OpenNI variables
+        xn::Context        myNiContext;
+        xn::DepthGenerator myNiDepthGenerator;
+        xn::UserGenerator  myNiUserGenerator;
+        bool               myNeedPose;
+        XnChar             myStrPose[20];
 };
 
 #endif // GESTUREMANAGER_H

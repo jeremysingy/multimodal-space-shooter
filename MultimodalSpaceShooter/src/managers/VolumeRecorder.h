@@ -21,8 +21,6 @@ class VolumeRecorder : public sf::SoundRecorder
         bool hasLevelIncreased() const;
         bool hasLevelDecreased() const;
 
-        //bool hasVaried() const;
-
     private:
         bool OnProcessSamples(const sf::Int16* samples, std::size_t samplesCount);
 

@@ -1,5 +1,5 @@
 #include "managers/GestureManager.h"
-#include "managers/NiCallbacksWrapper.h"
+#include "utils/NiCallbacksWrapper.h"
 #include "core/Game.h"
 #include <iostream>
 #include <algorithm>
@@ -8,31 +8,33 @@
 const std::string GestureManager::CONFIG_PATH("./config/OpenNIConfig.xml");
 const float       GestureManager::RESOLUTION_X = 640.f;
 const float       GestureManager::RESOLUTION_Y = 480.f;
+const float       GestureManager::FPS = 20.f;
 
 GestureManager::GestureManager() :
 myThread(&GestureManager::processThread, this),
-myIsInitialized(false),
+myCrtState(Tracking::NotInitialized),
 myIsTracking(false),
-needPose(false)
+myNeedPose(false)
 {
-    std::fill(strPose, strPose + 20, 0);
+    std::fill(myStrPose, myStrPose + 20, 0);
 }
 
 GestureManager::~GestureManager()
 {
-    niContext.Shutdown();
+    myNiContext.Shutdown();
 }
 
 bool GestureManager::initialize()
 {
-    myIsInitialized = initOpenNI();
+    if(initOpenNI())
+        myCrtState = Tracking::Initialized;
 
-    return myIsInitialized;
+    return myCrtState == Tracking::Initialized;
 }
 
-bool GestureManager::isInitialized()
+Tracking::State GestureManager::getState()
 {
-    return myIsInitialized;
+    return myCrtState;
 }
 
 bool GestureManager::initOpenNI()
@@ -40,7 +42,7 @@ bool GestureManager::initOpenNI()
     XnStatus nRetVal = XN_STATUS_OK;
     xn::EnumerationErrors errors;
 
-    nRetVal = niContext.InitFromXmlFile(CONFIG_PATH.c_str(), &errors);
+    nRetVal = myNiContext.InitFromXmlFile(CONFIG_PATH.c_str(), &errors);
 
     if(nRetVal == XN_STATUS_NO_NODE_PRESENT)
     {
@@ -57,10 +59,10 @@ bool GestureManager::initOpenNI()
     }
 
     // Get the depth and user nodes
-    if(niContext.FindExistingNode(XN_NODE_TYPE_DEPTH, niDepthGenerator))
+    if(myNiContext.FindExistingNode(XN_NODE_TYPE_DEPTH, myNiDepthGenerator))
         std::cerr << "error: " << xnGetStatusString(nRetVal) << std::endl;
-    if(niContext.FindExistingNode(XN_NODE_TYPE_USER, niUserGenerator))
-        if(niUserGenerator.Create(niContext))
+    if(myNiContext.FindExistingNode(XN_NODE_TYPE_USER, myNiUserGenerator))
+        if(myNiUserGenerator.Create(myNiContext))
             std::cerr << "error: " << xnGetStatusString(nRetVal) << std::endl;
 
     // Create callbacks
@@ -68,32 +70,32 @@ bool GestureManager::initOpenNI()
     XnCallbackHandle calibrationCallbacks;
     XnCallbackHandle poseCallbacks;
 
-    if(!niUserGenerator.IsCapabilitySupported(XN_CAPABILITY_SKELETON))
+    if(!myNiUserGenerator.IsCapabilitySupported(XN_CAPABILITY_SKELETON))
     {
         std::cerr << "User generator doesn't support skeleton" << std::endl;
         return false;
     }
 
-    niUserGenerator.RegisterUserCallbacks(NiCallbacksWrapper::onNewUser, NiCallbacksWrapper::onLostUser, this, userCallbacks);
-    niUserGenerator.GetSkeletonCap().RegisterCalibrationCallbacks(NiCallbacksWrapper::onCalibrationStart, NiCallbacksWrapper::onCalibrationEnd, this, calibrationCallbacks);
+    myNiUserGenerator.RegisterUserCallbacks(NiCallbacksWrapper::onNewUser, NiCallbacksWrapper::onLostUser, this, userCallbacks);
+    myNiUserGenerator.GetSkeletonCap().RegisterCalibrationCallbacks(NiCallbacksWrapper::onCalibrationStart, NiCallbacksWrapper::onCalibrationEnd, this, calibrationCallbacks);
 
-    if(niUserGenerator.GetSkeletonCap().NeedPoseForCalibration())
+    if(myNiUserGenerator.GetSkeletonCap().NeedPoseForCalibration())
     {
-        needPose = true;
-        if(!niUserGenerator.IsCapabilitySupported(XN_CAPABILITY_POSE_DETECTION))
+        myNeedPose = true;
+        if(!myNiUserGenerator.IsCapabilitySupported(XN_CAPABILITY_POSE_DETECTION))
         {
             std::cerr << "Pose required but not supported" << std::endl;
             return false;
         }
 
-        niUserGenerator.GetPoseDetectionCap().RegisterToPoseCallbacks(NiCallbacksWrapper::onPoseDetected, NULL, this, poseCallbacks);
-        niUserGenerator.GetSkeletonCap().GetCalibrationPose(strPose);
+        myNiUserGenerator.GetPoseDetectionCap().RegisterToPoseCallbacks(NiCallbacksWrapper::onPoseDetected, NULL, this, poseCallbacks);
+        myNiUserGenerator.GetSkeletonCap().GetCalibrationPose(myStrPose);
     }
 
-    niUserGenerator.GetSkeletonCap().SetSkeletonProfile(XN_SKEL_PROFILE_ALL);
+    myNiUserGenerator.GetSkeletonCap().SetSkeletonProfile(XN_SKEL_PROFILE_ALL);
 
     // Start generators
-    if(niContext.StartGeneratingAll())
+    if(myNiContext.StartGeneratingAll())
     {
         std::cerr << "Error while generating: " << xnGetStatusString(nRetVal) << std::endl;
         return false;
@@ -104,7 +106,7 @@ bool GestureManager::initOpenNI()
 
 void GestureManager::startTracking()
 {
-    if(myIsInitialized)
+    if(myCrtState == Tracking::Initialized)
     {
         myIsTracking = true;
         myThread.Launch();
@@ -113,9 +115,11 @@ void GestureManager::startTracking()
 
 void GestureManager::stopTracking()
 {
-    std::cout << "gesture stop ok" << std::endl;
-    myIsTracking = false;
-    myThread.Wait();
+    if(myIsTracking)
+    {
+        myIsTracking = false;
+        myThread.Wait();
+    }
 }
 
 void GestureManager::processThread()
@@ -123,7 +127,7 @@ void GestureManager::processThread()
     while(myIsTracking)
     {
         update();
-        sf::Sleep(0.05f);
+        sf::Sleep(1.f / FPS);
     }
 }
 
@@ -131,32 +135,32 @@ void GestureManager::update()
 {
     xn::SceneMetaData sceneMD;
     xn::DepthMetaData depthMD;
-    niDepthGenerator.GetMetaData(depthMD);
+    myNiDepthGenerator.GetMetaData(depthMD);
 
-    niContext.WaitAndUpdateAll();
+    myNiContext.WaitAndUpdateAll();
 
-    niDepthGenerator.GetMetaData(depthMD);
-    niUserGenerator.GetUserPixels(0, sceneMD);
+    myNiDepthGenerator.GetMetaData(depthMD);
+    myNiUserGenerator.GetUserPixels(0, sceneMD);
 
     // We get only one user
     XnUserID user;
     XnUInt16 nUsers = 1;
-    niUserGenerator.GetUsers(&user, nUsers);
+    myNiUserGenerator.GetUsers(&user, nUsers);
 
     if(nUsers >= 1)
     {
         XnPoint3D bodyPos;
 
-        niUserGenerator.GetCoM(user, bodyPos);
+        myNiUserGenerator.GetCoM(user, bodyPos);
         setConvertedPos(myBodyPos, bodyPos);
 
-        if(niUserGenerator.GetSkeletonCap().IsTracking(user))
+        if(myNiUserGenerator.GetSkeletonCap().IsTracking(user))
         {
             XnSkeletonJointPosition leftHandPos;
             XnSkeletonJointPosition rightHandPos;
 
-            niUserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user, XN_SKEL_LEFT_HAND, leftHandPos);
-            niUserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user, XN_SKEL_RIGHT_HAND, rightHandPos);
+            myNiUserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user, XN_SKEL_LEFT_HAND, leftHandPos);
+            myNiUserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user, XN_SKEL_RIGHT_HAND, rightHandPos);
 
             if(leftHandPos.fConfidence >= 0.5)
                 setConvertedPos(myLeftHandPos, leftHandPos.position);
@@ -184,7 +188,7 @@ const sf::Vector2f& GestureManager::getRightHandPosition() const
 void GestureManager::setConvertedPos(sf::Vector2f& dest, const XnPoint3D& src)
 {
     XnPoint3D converted;
-    niDepthGenerator.ConvertRealWorldToProjective(1, &src, &converted);
+    myNiDepthGenerator.ConvertRealWorldToProjective(1, &src, &converted);
     
     converted.X = converted.X / RESOLUTION_X * Game::instance().getScreenSize().x;
     converted.Y = converted.Y / RESOLUTION_Y * Game::instance().getScreenSize().y;
@@ -197,17 +201,19 @@ void GestureManager::setConvertedPos(sf::Vector2f& dest, const XnPoint3D& src)
 void GestureManager::onNewUser(xn::UserGenerator& generator, XnUserID nId)
 {
     std::cout << "New user " << nId << std::endl;
+    myCrtState = Tracking::UserDetected;
 
     // New user found
-    if(needPose)
-        niUserGenerator.GetPoseDetectionCap().StartPoseDetection(strPose, nId);
+    if(myNeedPose)
+        myNiUserGenerator.GetPoseDetectionCap().StartPoseDetection(myStrPose, nId);
     else
-        niUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
+        myNiUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
 }
 
 // Callback: An existing user was lost
 void GestureManager::onLostUser(xn::UserGenerator& generator, XnUserID nId)
 {
+    myCrtState = Tracking::Initialized;
     std::cout << "Lost user " << nId << std::endl;
 }
 
@@ -221,19 +227,20 @@ void GestureManager::onCalibrationEnd(xn::SkeletonCapability& capability, XnUser
 {
     if(bSuccess)
     {
-        // Calibration succeeded
+        // Calibration succeeded£
+        myCrtState = Tracking::UserTracked;
         std::cout << "Calibration complete, start tracking user " << nId << std::endl;
-        niUserGenerator.GetSkeletonCap().StartTracking(nId);
+        myNiUserGenerator.GetSkeletonCap().StartTracking(nId);
     }
     else
     {
         // Calibration failed
         std::cout << "Calibration failed for user " << nId << std::endl;
 
-        if(needPose)
-            niUserGenerator.GetPoseDetectionCap().StartPoseDetection(strPose, nId);
+        if(myNeedPose)
+            myNiUserGenerator.GetPoseDetectionCap().StartPoseDetection(myStrPose, nId);
         else
-            niUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
+            myNiUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
     }
 }
 
@@ -241,6 +248,6 @@ void GestureManager::onCalibrationEnd(xn::SkeletonCapability& capability, XnUser
 void GestureManager::onPoseDetected(xn::PoseDetectionCapability& capability, const XnChar* strPose, XnUserID nId)
 {
     std::cout << "Pose " << strPose << " detected for user " << nId << std::endl;
-    niUserGenerator.GetPoseDetectionCap().StopPoseDetection(nId);
-    niUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
+    myNiUserGenerator.GetPoseDetectionCap().StopPoseDetection(nId);
+    myNiUserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
 }

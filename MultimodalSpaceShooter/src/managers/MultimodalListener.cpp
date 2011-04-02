@@ -12,6 +12,11 @@ MultimodalListener::~MultimodalListener()
     multimodalManager().removeListener(this);
 }
 
+void MultimodalListener::onTrackingStateChanged(Tracking::State newState)
+{
+
+}
+
 void MultimodalListener::onMultimodalEvent(MultimodalEvent event)
 {
 

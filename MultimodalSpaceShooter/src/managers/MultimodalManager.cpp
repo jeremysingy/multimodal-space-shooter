@@ -1,15 +1,18 @@
 #include "managers/MultimodalManager.h"
 #include <iostream>
 
-MultimodalManager::MultimodalManager()
+MultimodalManager::MultimodalManager() :
+myTrackingState(Tracking::NotInitialized)
 {
-    
+    myGestureManager.initialize();
+
     if(sf::SoundRecorder::IsAvailable())
         myVolumeRecorder.Start(11025);
 }
 
 MultimodalManager::~MultimodalManager()
 {
+    myGestureManager.stopTracking();
     myVolumeRecorder.Stop();
 }
 
@@ -24,21 +27,24 @@ void MultimodalManager::removeListener(MultimodalListener* listener)
     myListeners.erase(listener);
 }
 
-bool MultimodalManager::enableGesture()
+void MultimodalManager::startTracking()
 {
-    myGestureManager.initialize();
     myGestureManager.startTracking();
-
-    return myGestureManager.isInitialized();
 }
 
-bool MultimodalManager::isGestureEnabled()
+/*bool MultimodalManager::isGestureEnabled()
 {
-    return myGestureManager.isInitialized();
+    return myGestureManager.getState() != Tracking::NotInitialized;
+}*/
+
+Tracking::State MultimodalManager::getTrackingState()
+{
+    return myGestureManager.getState();
 }
 
 void MultimodalManager::update()
 {
+    // Send notifications of volume changed
     if(myVolumeRecorder.hasLevelIncreased())
     {
         MultimodalEvent event = VolumeChangedArmDown;
@@ -49,6 +55,18 @@ void MultimodalManager::update()
         for(std::set<MultimodalListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
         {
             (*i)->onMultimodalEvent(event);
+        }
+    }
+
+    // Send notifications of gesture tracking state changed
+    if(myGestureManager.getState() != myTrackingState)
+    {
+        myTrackingState = myGestureManager.getState();
+
+        // Send event to the listeners
+        for(std::set<MultimodalListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
+        {
+            (*i)->onTrackingStateChanged(myTrackingState);
         }
     }
 }

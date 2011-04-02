@@ -50,7 +50,7 @@ void Button::update(float frameTime)
 
     sf::FloatRect cursorRect(mousePos, sf::Vector2f(1.f, 1.f));
 
-    if(multimodalManager().isGestureEnabled())
+    if(multimodalManager().getTrackingState() == Tracking::UserTracked)
         cursorRect = sf::FloatRect(multimodalManager().getRightHandPosition(), sf::Vector2f(1.f, 1.f));
 
     bool isSelected = boundingRect.Intersects(cursorRect);

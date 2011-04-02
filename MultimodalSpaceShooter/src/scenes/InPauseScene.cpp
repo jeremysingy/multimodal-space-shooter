@@ -15,7 +15,7 @@ myMenu("Pause Menu", *imageManager().get("menu_test.png"))
 
 void InPauseScene::update(float frameTime)
 {
-    if(multimodalManager().isGestureEnabled())
+    if(multimodalManager().getTrackingState() == Tracking::UserTracked)
         myCursor.SetPosition(multimodalManager().getRightHandPosition());
     else
         myCursor.SetPosition(static_cast<float>(eventManager().getInput().GetMouseX()),

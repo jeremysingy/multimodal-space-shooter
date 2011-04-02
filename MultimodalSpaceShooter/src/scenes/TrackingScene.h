@@ -13,14 +13,17 @@ class TrackingScene : public IScene, public ButtonListener
     public:
         TrackingScene();
 
+        virtual void onShow();
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onTrackingStateChanged(Tracking::State newState);
         virtual void onButtonPress(const std::string& buttonId);
 
     private:
+        sf::Text   myTextIntro;
         sf::Text   myTextInfo;
         sf::Sprite myCursor;
         //Menu       myMenu;

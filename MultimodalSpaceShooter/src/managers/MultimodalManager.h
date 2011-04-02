@@ -17,8 +17,11 @@ class MultimodalManager
         ~MultimodalManager();
         
         bool enableGesture();
-        bool isGestureEnabled();
+        void startTracking();
+        Tracking::State getTrackingState();
+        bool hasStateChanged();
         void update();
+
         const sf::Vector2f& getBodyPosition() const;
         const sf::Vector2f& getLeftHandPosition() const;
         const sf::Vector2f& getRightHandPosition() const;
@@ -29,6 +32,8 @@ class MultimodalManager
 
         GestureManager myGestureManager;
         VolumeRecorder myVolumeRecorder;
+
+        Tracking::State myTrackingState;
 
         friend class Game;
 };

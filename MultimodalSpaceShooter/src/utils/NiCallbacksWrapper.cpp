@@ -1,4 +1,4 @@
-#include "managers/NiCallbacksWrapper.h"
+#include "utils/NiCallbacksWrapper.h"
 #include "managers/GestureManager.h"
 
 NiCallbacksWrapper::NiCallbacksWrapper(const GestureManager& gestureManager)

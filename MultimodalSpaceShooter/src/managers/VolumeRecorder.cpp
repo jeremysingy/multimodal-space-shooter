@@ -40,11 +40,6 @@ bool VolumeRecorder::hasLevelDecreased() const
     return myLevel < myOldLevel;
 }
 
-/*bool VolumeRecorder::hasVaried() const
-{
-    return myVaried;
-}*/
-
 bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCount)
 {
     float volume = 0;

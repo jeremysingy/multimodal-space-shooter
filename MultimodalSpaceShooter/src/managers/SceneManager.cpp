@@ -31,6 +31,11 @@ void SceneManager::onMultimodalEvent(MultimodalEvent event)
     myCrtScene->onMultimodalEvent(event);
 }
 
+void SceneManager::onTrackingStateChanged(Tracking::State newState)
+{
+    myCrtScene->onTrackingStateChanged(newState);
+}
+
 void SceneManager::updateScene(float frameTime)
 {
     myCrtScene->update(frameTime);
@@ -44,4 +49,5 @@ void SceneManager::drawScene(sf::RenderTarget& window)
 void SceneManager::changeCurrentScene(SceneType newScene)
 {
     myCrtScene = myScenes[newScene];
+    myCrtScene->onShow();
 }

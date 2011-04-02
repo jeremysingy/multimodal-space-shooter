@@ -120,9 +120,6 @@
     <ClInclude Include="src\managers\MultimodalManager.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\NiCallbacksWrapper.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\managers\PhysicsEngine.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
@@ -179,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="src\scenes\TrackingScene.h">
       <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\NiCallbacksWrapper.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -244,9 +244,6 @@
     <ClCompile Include="src\managers\MultimodalManager.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\NiCallbacksWrapper.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\managers\PhysicsEngine.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
@@ -309,6 +306,9 @@
     </ClCompile>
     <ClCompile Include="src\scenes\TrackingScene.cpp">
       <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\NiCallbacksWrapper.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

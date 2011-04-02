@@ -7,7 +7,7 @@
 const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"),150,165,0.005)
+mySprite(*imageManager().get("spaceship.png"), 150, 165, 0.005f)
 {
     mySprite.Move(400, 420);
 }
@@ -40,7 +40,7 @@ void Spaceship::update(float frameTime)
 
     sf::Vector2f newPos(0.f, mySprite.GetPosition().y);
 
-    if(multimodalManager().isGestureEnabled())
+    if(multimodalManager().getTrackingState() == Tracking::UserTracked)
     {
         sf::Vector2f newPos(multimodalManager().getBodyPosition().x, mySprite.GetPosition().y);
         mySprite.SetPosition(newPos);
