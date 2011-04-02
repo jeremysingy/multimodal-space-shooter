@@ -5,7 +5,7 @@
 #include "scenes/IScene.h"
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
-#include "gui/Menu.h"
+#include "gui/Button.h"
 #include "gui/ButtonListener.h"
 
 class TrackingScene : public IScene, public ButtonListener
@@ -26,8 +26,9 @@ class TrackingScene : public IScene, public ButtonListener
         sf::Text   myTextIntro;
         sf::Text   myTextInfo;
         sf::Sprite myCursor;
-        //Menu       myMenu;
         sf::Sprite myPoseSprite;
+        Button     myStartButton;
+        bool       myShowButton;
 };
 
 #endif // TRACKINGSCENE_H

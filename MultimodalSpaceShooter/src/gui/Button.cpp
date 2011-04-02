@@ -2,7 +2,6 @@
 #include "managers/Managers.h"
 #include "gui/ButtonListener.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
 const sf::Vector2f Button::TEXT_PADDING(20, 20);
 
@@ -37,8 +36,10 @@ void Button::onEvent(const sf::Event& event)
 
 void Button::onMultimodalEvent(MultimodalEvent event)
 {
+    std::cout << "test" << std::endl;
     if(myIsSelected)
     {
+        std::cout << "test 2" << std::endl;
         for(std::set<ButtonListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
         {
             (*i)->onButtonPress(myId);
