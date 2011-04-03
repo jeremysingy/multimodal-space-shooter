@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
     <ClInclude Include="src\core\Game.h" />
     <ClInclude Include="src\entities\Entity.h" />
     <ClInclude Include="src\entities\EntityModel.h" />
@@ -55,6 +56,7 @@
     <None Include="src\loaders\ResourceManager.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityModel.cpp" />

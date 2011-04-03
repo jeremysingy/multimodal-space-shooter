@@ -6,6 +6,7 @@
 #include "managers/MultimodalListener.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Background.h"
 
 
 class InGameScene : public IScene
@@ -22,6 +23,8 @@ class InGameScene : public IScene
 
     private:
         sf::Clock gameClock;
+
+        Background myBackground;
 };
 
 #endif // INGAMESCENE_H

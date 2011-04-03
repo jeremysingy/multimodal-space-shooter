@@ -3,7 +3,8 @@
 #include "entities/Planet.h"
 #include "managers/Managers.h"
 
-InGameScene::InGameScene()
+InGameScene::InGameScene():
+myBackground(*imageManager().get("background.png"),0.05f,1985)
 {
     //TODO ERROR
     gameClock.Reset();
@@ -19,6 +20,8 @@ InGameScene::InGameScene()
     levelManager().loadFromFile("worlds/sample.xml");
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
+
+    myBackground.SetImage(*imageManager().get("background.png"));
 }
 
 InGameScene::~InGameScene()
@@ -39,10 +42,13 @@ void InGameScene::update(float frameTime)
             entityManager().addEntity(planet);
         }
     }
+
+    myBackground.update();
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const
 {
+    window.Draw(myBackground);
     graphicsEngine().drawScene(window);
 }
 

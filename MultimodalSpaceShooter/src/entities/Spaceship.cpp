@@ -3,18 +3,16 @@
 #include "managers/Managers.h"
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
-#include <sstream>
-#include <iostream>
-#include <string>
+
 
 const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"),150,165,0.002f), myFire()
+mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire()
 {
     mySprite.Move(Game::instance().getScreenSize().x/2, Game::instance().getScreenSize().y-165);
 
-    myFire.setPosition(mySprite.GetPosition().x+67,mySprite.GetPosition().y);
+    myFire.setPosition(mySprite.GetPosition().x+66,mySprite.GetPosition().y);
 }
 
 
@@ -59,7 +57,7 @@ void Spaceship::update(float frameTime)
             mySprite.Move( SPEED * frameTime, 0);
     }
 
-    myFire.setPosition(mySprite.GetPosition().x+67,mySprite.GetPosition().y);
+    myFire.setPosition(mySprite.GetPosition().x+66,mySprite.GetPosition().y);
     myFire.update(frameTime);
     mySprite.update();
 }
