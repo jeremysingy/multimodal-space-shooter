@@ -1,0 +1,39 @@
+#ifndef INGAMESCENE_H
+#define INGAMESCENE_H
+
+#include "scenes/IScene.h"
+#include "managers/EventListener.h"
+#include "managers/MultimodalListener.h"
+#include "utils/PausableClock.h"
+#include "loaders/LevelManager.h"
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "Background.h"
+
+class InGameScene : public IScene
+{
+    public:
+        InGameScene();
+        virtual ~InGameScene();
+
+        virtual void onShow();
+        virtual void onExit();
+
+        virtual void update(float frameTime);
+        virtual void draw(sf::RenderTarget& window) const;
+
+        virtual void onEvent(const sf::Event& event);
+        virtual void onMultimodalEvent(MultimodalEvent event);
+
+    private:
+<<<<<<< HEAD
+        LevelManager  myLevelManager;
+        PausableClock myGameClock;
+=======
+        sf::Clock gameClock;
+
+        Background myBackground;
+>>>>>>> 3781e0efe6f06d8bdfe362d5e1b1d2d4b1dbd1f3
+};
+
+#endif // INGAMESCENE_H
