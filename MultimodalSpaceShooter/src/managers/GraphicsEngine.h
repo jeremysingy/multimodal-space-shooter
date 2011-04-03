@@ -28,6 +28,8 @@ class GraphicsEngine
         sf::Shape myVolumeViewer;
         sf::Shape myVolumeOutline;
 
+
+
         friend class Game;
 };
 

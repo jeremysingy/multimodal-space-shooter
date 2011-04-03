@@ -5,7 +5,7 @@
 
 InGameScene::InGameScene():
 myGameClock(true),
-myBackground(*imageManager().get("background.png"), 0.05f, 1985)
+myBackground(*imageManager().get("background.png"), 0.001f, 1985)
 {
     // Preload images
     imageManager().load("background.png");
@@ -20,7 +20,7 @@ myBackground(*imageManager().get("background.png"), 0.05f, 1985)
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
 
-    myBackground.SetImage(*imageManager().get("background.png"));
+    myBackground.setImage(*imageManager().get("background.png"));
 }
 
 InGameScene::~InGameScene()
@@ -55,7 +55,7 @@ void InGameScene::update(float frameTime)
 
 void InGameScene::draw(sf::RenderTarget& window) const
 {
-    window.Draw(myBackground);
+    myBackground.draw(window);
     graphicsEngine().drawScene(window);
 }
 

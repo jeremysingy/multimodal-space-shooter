@@ -16,6 +16,7 @@ myFpsText("", sf::Font::GetDefaultFont(), 16)
 
     myVolumeOutline = sf::Shape::Rectangle(sf::FloatRect(0, 0, 100, 5), sf::Color(0, 0, 0, 0), 1.f, sf::Color::Red);
     myVolumeOutline.SetPosition(680, 5);
+
 }
 
 
@@ -36,7 +37,9 @@ void GraphicsEngine::removeObject(GraphicsObject* object)
 
 void GraphicsEngine::drawScene(sf::RenderTarget& window)
 {
+
     // Draw the background
+
 
     // Draw all the objects of the scene
     for(std::set<GraphicsObject*>::iterator i = myObjects.begin(); i != myObjects.end(); ++i)
