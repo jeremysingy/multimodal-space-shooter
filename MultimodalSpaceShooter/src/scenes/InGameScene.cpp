@@ -3,8 +3,9 @@
 #include "entities/Planet.h"
 #include "managers/Managers.h"
 
-InGameScene::InGameScene() :
-myGameClock(true)
+InGameScene::InGameScene():
+myGameClock(true),
+myBackground(*imageManager().get("background.png"), 0.05f, 1985)
 {
     // Preload images
     imageManager().load("background.png");
@@ -18,6 +19,8 @@ myGameClock(true)
     // Create the playable spaceship
     std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
     entityManager().addPlayableEntity(spaceship);
+
+    myBackground.SetImage(*imageManager().get("background.png"));
 }
 
 InGameScene::~InGameScene()
@@ -45,12 +48,14 @@ void InGameScene::update(float frameTime)
         nextEntity = myLevelManager.getNextEntity(myGameClock.getElapsedTime());
     }
 
+    myBackground.update();
     physicsEngine().updateScene(frameTime);
     entityManager().checkDestroyedEntities();
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const
 {
+    window.Draw(myBackground);
     graphicsEngine().drawScene(window);
 }
 
