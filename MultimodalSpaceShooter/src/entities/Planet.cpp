@@ -2,10 +2,9 @@
 #include "entities/Explosion.h"
 #include "managers/Managers.h"
 
-const float Planet::SPEED = 20.f;
-
-Planet::Planet(const sf::Vector2f& position, const float initSpeed) :
-mySprite(*imageManager().get("planet1.png"))
+Planet::Planet(const sf::Vector2f& position, const float initialSpeed) :
+mySprite(*imageManager().get("planet1.png")),
+mySpeed(initialSpeed)
 {
     mySprite.SetPosition(position);
 }
@@ -18,7 +17,7 @@ Planet::~Planet()
 
 void Planet::update(float frameTime)
 {
-    mySprite.Move(0, SPEED * frameTime);
+    mySprite.Move(0, mySpeed * frameTime);
 }
 
 void Planet::onCollision(const sf::FloatRect& area)

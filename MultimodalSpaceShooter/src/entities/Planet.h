@@ -7,7 +7,7 @@
 class Planet : public Entity
 {
     public:
-        Planet(const sf::Vector2f& position, const float initSpeed=10.f);
+        Planet(const sf::Vector2f& position, const float initialSpeed = 10.f);
         virtual ~Planet();
 
         virtual void update(float frameTime);
@@ -17,8 +17,7 @@ class Planet : public Entity
 
     private:
         sf::Sprite mySprite;
-
-        static const float SPEED;
+        float mySpeed;
 };
 
 #endif // PLANET_H
