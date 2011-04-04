@@ -5,8 +5,12 @@
 const float Missile::SPEED = 500.f;
 
 Missile::Missile(const sf::Vector2f& initialPos) :
-mySprite(*imageManager().get("bullet.png"))
+<<<<<<< HEAD
 Entity(WEAPON),
+myShape(sf::Shape::Line(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 10.f), 1.f, sf::Color::Red))
+=======
+mySprite(*imageManager().get("bullet.png"))
+>>>>>>> 685f8f88861370e39df7304ab928057fb4ff42b3
 {
     mySprite.SetPosition(initialPos);
 }
