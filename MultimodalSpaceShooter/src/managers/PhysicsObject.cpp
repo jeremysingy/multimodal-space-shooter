@@ -3,13 +3,13 @@
 
 PhysicsObject::PhysicsObject()
 {
-    physicsEngine().addObject(this);
+    //physicsEngine().addObject(this);
 }
 
 
 PhysicsObject::~PhysicsObject()
 {
-    physicsEngine().removeObject(this);
+    //physicsEngine().removeObject(this);
 }
 
 void PhysicsObject::onCollision(const sf::FloatRect& area)

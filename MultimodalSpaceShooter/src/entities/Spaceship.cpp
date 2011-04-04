@@ -14,7 +14,6 @@ mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire()
     myFire.setPosition(mySprite.GetPosition().x + 66.f, mySprite.GetPosition().y);
 }
 
-
 Spaceship::~Spaceship()
 {
     myFire.destroy();

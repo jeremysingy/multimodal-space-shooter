@@ -3,11 +3,11 @@
 
 GraphicsObject::GraphicsObject()
 {
-    graphicsEngine().addObject(this);
+    //graphicsEngine().addObject(this);
 }
 
 
 GraphicsObject::~GraphicsObject()
 {
-    graphicsEngine().removeObject(this);
+    //graphicsEngine().removeObject(this);
 }

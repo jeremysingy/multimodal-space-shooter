@@ -49,14 +49,16 @@ void InGameScene::update(float frameTime)
     }
 
     myBackground.update();
-    physicsEngine().updateScene(frameTime);
+    //physicsEngine().updateScene(frameTime);
+    entityManager().updateEntities(frameTime);
     entityManager().checkDestroyedEntities();
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const
 {
     myBackground.draw(window);
-    graphicsEngine().drawScene(window);
+    //graphicsEngine().drawScene(window);
+    entityManager().drawEntities(window);
 }
 
 void InGameScene::onEvent(const sf::Event& event)

@@ -11,7 +11,7 @@ class Planet : public Entity
         virtual ~Planet();
 
         virtual void update(float frameTime);
-        virtual void onCollision(const sf::FloatRect& area);
+        virtual void onCollision(Type otherType, const sf::FloatRect& area);
         virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
 

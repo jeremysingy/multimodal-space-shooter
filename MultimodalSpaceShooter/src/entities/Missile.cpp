@@ -1,9 +1,10 @@
-#include "Missile.h"
+#include "entities/Missile.h"
 #include <SFML/Graphics.hpp>
 
 const float Missile::SPEED = 500.f;
 
 Missile::Missile(const sf::Vector2f& initialPos) :
+Entity(WEAPON),
 myShape(sf::Shape::Line(sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 10.f), 1.f, sf::Color::Red))
 {
     myShape.SetPosition(initialPos);
@@ -15,9 +16,10 @@ Missile::~Missile()
 
 }
 
-void Missile::onCollision(const sf::FloatRect& area)
+void Missile::onCollision(Type otherType, const sf::FloatRect& area)
 {
-    destroy();
+    if(otherType == DESTRUCTIVE)
+        destroy();
 }
 
 void Missile::update(float frameTime)
