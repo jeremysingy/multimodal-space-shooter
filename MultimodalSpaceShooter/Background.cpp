@@ -1,8 +1,5 @@
 #include "Background.h"
 #include "core/Game.h"
-#include <sstream>
-#include <iostream>
-#include <string>
 
 
 Background::Background(const sf::Image& image, float frameTime, int imgHeight) :

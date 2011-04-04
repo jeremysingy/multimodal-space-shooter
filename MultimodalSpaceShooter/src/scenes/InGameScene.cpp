@@ -5,7 +5,7 @@
 
 InGameScene::InGameScene():
 myGameClock(true),
-myBackground(*imageManager().get("background.png"), 0.001f, 1985)
+myBackground(*imageManager().get("background.png"), 0.01f, 1985)
 {
     // Preload images
     imageManager().load("background.png");

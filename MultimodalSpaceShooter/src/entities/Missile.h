@@ -2,7 +2,7 @@
 #define MISSILE_H
 
 #include "Entity.h"
-#include <SFML/Graphics/Shape.hpp>
+#include <SFML/Graphics.hpp>
 
 class Missile : public Entity
 {
@@ -16,7 +16,7 @@ class Missile : public Entity
         virtual sf::FloatRect getBoundingRect() const;
 
     private:
-        sf::Shape myShape;
+        sf::Sprite mySprite;
 
 
         static const float SPEED;
