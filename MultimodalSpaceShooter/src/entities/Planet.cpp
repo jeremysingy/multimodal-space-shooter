@@ -2,9 +2,9 @@
 #include "entities/Explosion.h"
 #include "managers/Managers.h"
 
-Planet::Planet(const sf::Vector2f& position, const float initialSpeed) :
+Planet::Planet(const sf::Image& image, const sf::Vector2f& position, const float initialSpeed) :
 Entity(DESTRUCTIVE),
-mySprite(*imageManager().get("planet1.png")),
+mySprite(image),
 mySpeed(initialSpeed)
 {
     mySprite.SetPosition(position);

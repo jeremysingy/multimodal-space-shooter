@@ -62,7 +62,11 @@ std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
         if(entityModel.getTime() <= gameTime)
         {
             myEntityModels.pop();
-            std::shared_ptr<Entity> planet(new Planet(sf::Vector2f(entityModel.getXCoordinate(), -70.f), entityModel.getSpeed()));
+
+            sf::Image& image = *imageManager().get(entityModel.getImageFile());
+            float initialPos = -static_cast<float>(image.GetHeight());
+
+            std::shared_ptr<Entity> planet(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
 
             return planet;
         }
