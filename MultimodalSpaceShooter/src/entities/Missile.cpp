@@ -5,8 +5,8 @@
 const float Missile::SPEED = 500.f;
 
 Missile::Missile(const sf::Vector2f& initialPos) :
-mySprite(*imageManager().get("bullet.png"))
 Entity(WEAPON),
+mySprite(*imageManager().get("bullet.png"))
 {
     mySprite.SetPosition(initialPos);
 }
