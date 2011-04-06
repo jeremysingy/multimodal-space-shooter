@@ -21,6 +21,7 @@
     <ClInclude Include="src\entities\Planet.h" />
     <ClInclude Include="src\entities\PlayableEntity.h" />
     <ClInclude Include="src\entities\Spaceship.h" />
+    <ClInclude Include="src\entities\SuperMissile.h" />
     <ClInclude Include="src\gui\Button.h" />
     <ClInclude Include="src\gui\ButtonListener.h" />
     <ClInclude Include="src\gui\Menu.h" />
@@ -68,6 +69,7 @@
     <ClCompile Include="src\entities\Planet.cpp" />
     <ClCompile Include="src\entities\PlayableEntity.cpp" />
     <ClCompile Include="src\entities\Spaceship.cpp" />
+    <ClCompile Include="src\entities\SuperMissile.cpp" />
     <ClCompile Include="src\gui\Button.cpp" />
     <ClCompile Include="src\gui\ButtonListener.cpp" />
     <ClCompile Include="src\gui\Menu.cpp" />

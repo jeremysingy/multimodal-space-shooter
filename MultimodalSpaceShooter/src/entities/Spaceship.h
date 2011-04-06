@@ -21,6 +21,7 @@ class Spaceship : public PlayableEntity
 
     private:
         void fireMissile();
+        void fireSuperMissiles();
 
         AnimatedSprite mySprite;
         Fire           myFire;

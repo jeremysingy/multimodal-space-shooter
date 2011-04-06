@@ -1,5 +1,6 @@
 #include "entities/Spaceship.h"
 #include "entities/Missile.h"
+#include "entities/SuperMissile.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
@@ -27,6 +28,9 @@ void Spaceship::onPlayerAction(const sf::Event& event)
     {
         if(event.Key.Code == sf::Key::Space)
             fireMissile();
+
+        if(event.Key.Code == sf::Key::Y)
+            fireSuperMissiles();
     }
 }
 
@@ -75,7 +79,7 @@ void Spaceship::draw(sf::RenderTarget& window) const
 
 void Spaceship::fireMissile()
 {
-    sf::Vector2f position(mySprite.GetPosition().x + mySprite.GetSize().x / 2, mySprite.GetPosition().y-20);
+    sf::Vector2f position((mySprite.GetPosition().x + mySprite.GetSize().x / 2)-2, mySprite.GetPosition().y-10);
 
     std::shared_ptr<Missile> missile(new Missile(position));
     entityManager().addEntity(missile);
@@ -85,4 +89,29 @@ void Spaceship::fireMissile()
     myFire.setOnFire(true);
 }
 
+void Spaceship::fireSuperMissiles()
+{
+    sf::Vector2f position(mySprite.GetPosition().x + 10, mySprite.GetPosition().y-10);
+    sf::Vector2f position2(mySprite.GetPosition().x + 140, mySprite.GetPosition().y-10);
+
+    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position,left,0.8f));
+    entityManager().addEntity(supermissileLL);
+
+    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position,straight,0.8f));
+    entityManager().addEntity(supermissileLM);
+
+    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position,right,0.8f));
+    entityManager().addEntity(supermissileLR);
+
+
+    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2,left,0.45));
+    entityManager().addEntity(supermissileRL);
+
+    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2,straight,0.45));
+    entityManager().addEntity(supermissileRM);
+
+    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2,right,0.45));
+    entityManager().addEntity(supermissileRR);
+
+}
 

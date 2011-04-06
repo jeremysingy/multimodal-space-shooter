@@ -11,6 +11,8 @@ myBackground(*imageManager().get("background.png"), 0.01f, 1985)
     imageManager().load("background.png");
     imageManager().load("spaceship.png");
     imageManager().load("explosion.png");
+    imageManager().load("bullet.png");
+    imageManager().load("superbullet.png");
     imageManager().load("fire.png");
 
     // Load the world
