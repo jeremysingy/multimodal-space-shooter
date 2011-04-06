@@ -7,7 +7,7 @@
 class Background
 {
     public:
-        Background(const sf::Image& image, float frameTime, int myImageHeight);
+        Background(const sf::Image& image, float frameTime, float imageHeight);
         
         float getFrameTime() const;
         void update();
@@ -16,7 +16,7 @@ class Background
     private:
         sf::Clock                myClock;
         float                    myFrameTime;
-        int                      myImageHeight;
+        float                    myImageHeight;
         sf::Sprite               firstSprite;
         sf::Sprite               secondSprite;
 

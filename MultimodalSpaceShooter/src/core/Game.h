@@ -34,8 +34,8 @@ class Game
         ImageManager      myImageManager;
         SoundManager	  mySoundManager;
 
-        GraphicsEngine    myGraphicsEngine;
-        PhysicsEngine     myPhysicsEngine;
+        //GraphicsEngine    myGraphicsEngine;
+        //PhysicsEngine     myPhysicsEngine;
         AudioEngine		  myAudioEngine;
 
         EventManager      myEventManager;
@@ -48,8 +48,8 @@ class Game
         friend ImageManager& imageManager();
         friend SoundManager& soundManager();
 
-        friend GraphicsEngine& graphicsEngine();
-        friend PhysicsEngine& physicsEngine();
+        //friend GraphicsEngine& graphicsEngine();
+        //friend PhysicsEngine& physicsEngine();
         friend AudioEngine& audioEngine();
 
         friend EventManager& eventManager();

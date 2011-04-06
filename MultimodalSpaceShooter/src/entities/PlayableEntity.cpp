@@ -1,6 +1,7 @@
 #include "PlayableEntity.h"
 
-PlayableEntity::PlayableEntity()
+PlayableEntity::PlayableEntity() :
+Entity(PLAYER)
 {
 
 }

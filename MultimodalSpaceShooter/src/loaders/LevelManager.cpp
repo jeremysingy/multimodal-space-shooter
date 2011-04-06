@@ -22,6 +22,7 @@ int LevelManager::load(const std::string& name)
 
     // Temp variables
     float coordinate;
+    float speed;
     float time;
 
     // Get first node
@@ -33,6 +34,9 @@ int LevelManager::load(const std::string& name)
     {
         std::istringstream issCoordinate(element->Attribute("xCoordinate"));
         issCoordinate >> coordinate;
+
+        std::istringstream issSpeed(element->Attribute("speed"));
+        issSpeed >> speed;
         
         std::istringstream issTime(element->Attribute("time"));
         issTime >> time;
@@ -41,7 +45,7 @@ int LevelManager::load(const std::string& name)
         imageManager().get(element->Attribute("image"));
 
         // Add the entity to the priority queue
-        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, time));
+        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, speed, time));
 
         element = element->NextSiblingElement();
     }
@@ -58,7 +62,11 @@ std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
         if(entityModel.getTime() <= gameTime)
         {
             myEntityModels.pop();
-            std::shared_ptr<Entity> planet(new Planet(sf::Vector2f(entityModel.getXCoordinate(), 15)));
+
+            sf::Image& image = *imageManager().get(entityModel.getImageFile());
+            float initialPos = -static_cast<float>(image.GetHeight());
+
+            std::shared_ptr<Entity> planet(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
 
             return planet;
         }

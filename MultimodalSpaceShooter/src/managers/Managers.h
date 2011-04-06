@@ -12,8 +12,8 @@
 #include "loaders/SoundManager.h"
 #include "loaders/LevelManager.h"
 
-GraphicsEngine& graphicsEngine();
-PhysicsEngine& physicsEngine();
+//GraphicsEngine& graphicsEngine();
+//PhysicsEngine& physicsEngine();
 AudioEngine& audioEngine();
 EventManager& eventManager();
 MultimodalManager& multimodalManager();

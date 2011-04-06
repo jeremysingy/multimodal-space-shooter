@@ -1,7 +1,7 @@
 #include "managers/Managers.h"
 #include "core/Game.h"
 
-GraphicsEngine& graphicsEngine()
+/*GraphicsEngine& graphicsEngine()
 {
     return Game::instance().myGraphicsEngine;
 }
@@ -9,7 +9,7 @@ GraphicsEngine& graphicsEngine()
 PhysicsEngine& physicsEngine()
 {
     return Game::instance().myPhysicsEngine;
-}
+}*/
 
 AudioEngine& audioEngine()
 {

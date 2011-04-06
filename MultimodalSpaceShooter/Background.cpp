@@ -2,12 +2,12 @@
 #include "core/Game.h"
 
 
-Background::Background(const sf::Image& image, float frameTime, int imgHeight) :
+Background::Background(const sf::Image& image, float frameTime, float imageHeight) :
 firstSprite(image),
 secondSprite(image),
 myFrameTime(frameTime)
 {
-    myImageHeight = imgHeight;
+    myImageHeight = imageHeight;
     setInitialPosition();
 }
 
@@ -22,7 +22,8 @@ void Background::update()
         myClock.Reset();
     }
 
-    if(secondSprite.GetPosition().y==Game::instance().getScreenSize().y-myImageHeight)setInitialPosition();
+    if(secondSprite.GetPosition().y == Game::instance().getScreenSize().y - myImageHeight)
+        setInitialPosition();
 }
 
 void Background::draw(sf::RenderTarget& window) const
@@ -38,8 +39,8 @@ float Background::getFrameTime() const
 
 void Background::setInitialPosition()
 {
-    firstSprite.SetPosition(0,Game::instance().getScreenSize().y-myImageHeight);
-    secondSprite.SetPosition(0,firstSprite.GetPosition().y-myImageHeight);
+    firstSprite.SetPosition(0.f, Game::instance().getScreenSize().y - myImageHeight);
+    secondSprite.SetPosition(0.f, firstSprite.GetPosition().y - myImageHeight);
 }
 
 void Background::setImage(const sf::Image &image)

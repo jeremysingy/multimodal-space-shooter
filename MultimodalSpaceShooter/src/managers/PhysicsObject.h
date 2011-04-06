@@ -2,6 +2,7 @@
 #define PHYSICSOBJECT_H
 
 #include <SFML/Graphics/Rect.hpp>
+#include "entities/Entity.h"
 
 class PhysicsObject
 {

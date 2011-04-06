@@ -6,6 +6,7 @@
 
 #include "entities/Entity.h"
 #include "entities/PlayableEntity.h"
+#include <iostream>
 
 //////////////////////////////////////////////////
 /// Functor to get destroyed entities
@@ -30,11 +31,24 @@ class EntityManager
         void onEvent(const sf::Event& event);
         void onMultimodalEvent(MultimodalEvent event);
 
+        void updateEntities(float frameTime);
+        void drawEntities(sf::RenderTarget& window);
         void checkDestroyedEntities();
 
     private:
-        std::vector<std::shared_ptr<Entity>>         myEntities;
-        std::vector<std::shared_ptr<PlayableEntity>> myPlayableEntities;
+        void manageCollisions();
+        void addNewEntities();
+        static bool isCollide(const Entity& entity1, const Entity& entity2, sf::FloatRect& collisionArea);
+
+        typedef std::shared_ptr<Entity> EntityPtr;
+        typedef std::vector<EntityPtr>  EntityVector;
+
+        typedef std::shared_ptr<PlayableEntity> PlayablePtr;
+        typedef std::vector<PlayablePtr>        PlayableVector;
+
+        EntityVector   myEntities;
+        EntityVector   myNewEntities;
+        PlayableVector myPlayableEntities;
 };
 
 #endif // ENTITYMANAGER_H

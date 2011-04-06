@@ -21,7 +21,6 @@ class PhysicsEngine
         void manageCollisions();
 
         std::set<PhysicsObject*> myObjects;
-        //std::vector<PhysicsObject*> myObjects;
 
         friend class Game;
 };

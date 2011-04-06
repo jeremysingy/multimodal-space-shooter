@@ -1,19 +1,19 @@
 <world>
     <background image=""/>
     <enemies>
-        <enemy type="planet" image="planet1.png" xCoordinate="50" speed="20" time="1"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="150" speed="20" time="2"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="250" speed="20" time="3"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="350" speed="20" time="4"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="450" speed="20" time="5"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="550" speed="20" time="6"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="650" speed="20" time="7"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="650" speed="20" time="14"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="550" speed="20" time="15"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="450" speed="20" time="16"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="350" speed="20" time="17"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="250" speed="20" time="18"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="150" speed="20" time="19"/>
-        <enemy type="planet" image="planet1.png" xCoordinate="50" speed="20" time="20"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="50" speed="50" time="1"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="950" speed="25" time="2.5"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="350" speed="50" time="3"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="750" speed="65" time="4"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="150" speed="20" time="5"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="550" speed="55" time="6"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="150" speed="35" time="7"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="650" speed="30" time="10"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="850" speed="50" time="11"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="450" speed="30" time="13"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="350" speed="20" time="13.5"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="250" speed="50" time="14"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="150" speed="50" time="15"/>
+        <enemy type="planet" image="planet1.png" xCoordinate="20" speed="20" time="15.5"/>
 	</enemies>
 </world>

@@ -5,7 +5,6 @@
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
-
 const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship() :
@@ -15,7 +14,6 @@ mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire()
 
     myFire.setPosition(mySprite.GetPosition().x + 66.f, mySprite.GetPosition().y);
 }
-
 
 Spaceship::~Spaceship()
 {
@@ -61,6 +59,8 @@ void Spaceship::update(float frameTime)
             mySprite.Move( SPEED * frameTime, 0);
     }
 
+    checkBorders();
+
     myFire.setPosition(mySprite.GetPosition().x+66,mySprite.GetPosition().y);
     myFire.update(frameTime);
     mySprite.update();
@@ -87,6 +87,14 @@ void Spaceship::fireMissile()
     audioEngine().playSound("piou.wav", 10.f);
 
     myFire.setOnFire(true);
+}
+
+void Spaceship::checkBorders()
+{
+    if(mySprite.GetPosition().x < 0.f)
+        mySprite.SetX(0.f);
+    else if(mySprite.GetPosition().x + mySprite.GetSize().x > Game::instance().getScreenSize().x)
+        mySprite.SetX(Game::instance().getScreenSize().x - mySprite.GetSize().x);
 }
 
 void Spaceship::fireSuperMissiles()

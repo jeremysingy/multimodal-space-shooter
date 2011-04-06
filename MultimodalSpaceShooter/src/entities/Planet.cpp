@@ -2,10 +2,10 @@
 #include "entities/Explosion.h"
 #include "managers/Managers.h"
 
-const float Planet::SPEED = 20.f;
-
-Planet::Planet(const sf::Vector2f& position, const float initSpeed) :
-mySprite(*imageManager().get("planet1.png"))
+Planet::Planet(const sf::Image& image, const sf::Vector2f& position, const float initialSpeed) :
+Entity(DESTRUCTIVE),
+mySprite(image),
+mySpeed(initialSpeed)
 {
     mySprite.SetPosition(position);
 }
@@ -18,17 +18,20 @@ Planet::~Planet()
 
 void Planet::update(float frameTime)
 {
-    mySprite.Move(0, SPEED * frameTime);
+    mySprite.Move(0, mySpeed * frameTime);
 }
 
-void Planet::onCollision(const sf::FloatRect& area)
+void Planet::onCollision(Type otherType, const sf::FloatRect& area)
 {
-    sf::Vector2f decal(320 / 2 - 80 / 2, 240 / 2 - 80 / 2);
+    if(otherType == WEAPON)
+    {
+        sf::Vector2f decal(320 / 2 - 80 / 2, 240 / 2 - 80 / 2);
 
-    std::shared_ptr<Explosion> explosion(new Explosion(mySprite.GetPosition() - decal));
-    entityManager().addEntity(explosion);
+        std::shared_ptr<Explosion> explosion(new Explosion(mySprite.GetPosition() - decal));
+        entityManager().addEntity(explosion);
 
-    destroy();
+        destroy();
+    }
 }
 
 sf::FloatRect Planet::getBoundingRect() const
