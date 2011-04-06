@@ -1,4 +1,4 @@
-#include "SuperMissile.h"
+#include "entities/SuperMissile.h"
 #include <SFML/Graphics.hpp>
 #include <math.h>
 #include "core/Game.h"
@@ -11,7 +11,8 @@ const float SuperMissile::SPEED = 500.f;
 SuperMissile::SuperMissile(const sf::Vector2f& initialPos, direction direc, float angle) :
 mySprite(*imageManager().get("superbullet.png")),
 myDirection(direc),
-myAngle(angle)
+myAngle(angle),
+Entity(WEAPON)
 {
     mySprite.SetPosition(initialPos);
 }
@@ -22,9 +23,10 @@ SuperMissile::~SuperMissile()
 
 }
 
-void SuperMissile::onCollision(const sf::FloatRect& area)
+void SuperMissile::onCollision(Type otherType, const sf::FloatRect& area)
 {
-    destroy();
+    if(otherType == DESTRUCTIVE)
+        destroy();
 }
 
 void SuperMissile::update(float frameTime)
@@ -33,11 +35,11 @@ void SuperMissile::update(float frameTime)
 
     if(myDirection == right)
     {
-        mySprite.Move(tan(myAngle)*y,y);
+        mySprite.Move(tan(myAngle)*y,-y);
     }
     else if(myDirection == left)
     {
-        mySprite.Move(-tan(myAngle)*y,y);
+        mySprite.Move(-tan(myAngle)*y,-y);
     }
     else
     {
@@ -46,7 +48,7 @@ void SuperMissile::update(float frameTime)
 
     if(mySprite.GetPosition().y <= 0  || 
         mySprite.GetPosition().x <= 0 || 
-        mySprite.GetPosition().x >= 1000)
+        mySprite.GetPosition().x >= Game::instance().getScreenSize().x)
         destroy();
 }
 

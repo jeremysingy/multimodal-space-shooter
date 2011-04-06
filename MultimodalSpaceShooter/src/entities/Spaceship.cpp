@@ -99,27 +99,29 @@ void Spaceship::checkBorders()
 
 void Spaceship::fireSuperMissiles()
 {
-    sf::Vector2f position(mySprite.GetPosition().x + 10, mySprite.GetPosition().y-10);
-    sf::Vector2f position2(mySprite.GetPosition().x + 140, mySprite.GetPosition().y-10);
+    sf::Vector2f position(mySprite.GetPosition().x + 9, mySprite.GetPosition().y-6);
+    sf::Vector2f position2(mySprite.GetPosition().x + 133, mySprite.GetPosition().y-6);
 
-    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position,left,0.8f));
+    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position,left,0.3));
     entityManager().addEntity(supermissileLL);
 
-    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position,straight,0.8f));
+    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position,straight,0.3));
     entityManager().addEntity(supermissileLM);
 
-    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position,right,0.8f));
+    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position,right,0.3));
     entityManager().addEntity(supermissileLR);
 
 
-    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2,left,0.45));
+    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2,left,0.3));
     entityManager().addEntity(supermissileRL);
 
-    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2,straight,0.45));
+    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2,straight,0.3));
     entityManager().addEntity(supermissileRM);
 
-    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2,right,0.45));
+    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2,right,0.3));
     entityManager().addEntity(supermissileRR);
+
+    audioEngine().playSound("piou.wav", 10.f);
 
 }
 
