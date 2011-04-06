@@ -89,39 +89,39 @@ void Spaceship::fireMissile()
     myFire.setOnFire(true);
 }
 
-void Spaceship::checkBorders()
-{
-    if(mySprite.GetPosition().x < 0.f)
-        mySprite.SetX(0.f);
-    else if(mySprite.GetPosition().x + mySprite.GetSize().x > Game::instance().getScreenSize().x)
-        mySprite.SetX(Game::instance().getScreenSize().x - mySprite.GetSize().x);
-}
-
 void Spaceship::fireSuperMissiles()
 {
-    sf::Vector2f position(mySprite.GetPosition().x + 9, mySprite.GetPosition().y-6);
-    sf::Vector2f position2(mySprite.GetPosition().x + 133, mySprite.GetPosition().y-6);
+    sf::Vector2f position(mySprite.GetPosition().x + 9.f, mySprite.GetPosition().y - 6.f);
+    sf::Vector2f position2(mySprite.GetPosition().x + 133.f, mySprite.GetPosition().y - 6.f);
 
-    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position,left,0.3));
+    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position, left, 0.3f));
     entityManager().addEntity(supermissileLL);
 
-    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position,straight,0.3));
+    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position, straight, 0.3f));
     entityManager().addEntity(supermissileLM);
 
-    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position,right,0.3));
+    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position, right, 0.3f));
     entityManager().addEntity(supermissileLR);
 
-
-    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2,left,0.3));
+    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2, left, 0.3f));
     entityManager().addEntity(supermissileRL);
 
-    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2,straight,0.3));
+    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2, straight, 0.3f));
     entityManager().addEntity(supermissileRM);
 
-    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2,right,0.3));
+    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2, right, 0.3f));
     entityManager().addEntity(supermissileRR);
 
     audioEngine().playSound("piou.wav", 10.f);
-
 }
 
+void Spaceship::checkBorders()
+{
+    float minPosX = -20.f;
+    float maxPosX = Game::instance().getScreenSize().x - mySprite.GetSize().x + 20.f;
+
+    if(mySprite.GetPosition().x < minPosX)
+        mySprite.SetX(minPosX);
+    else if(mySprite.GetPosition().x > maxPosX)
+        mySprite.SetX(maxPosX);
+}

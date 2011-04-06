@@ -9,11 +9,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Background.h"
+#include "gui/ProgressBar.h"
 
 class InGameScene : public IScene
 {
     public:
-        InGameScene();
+        InGameScene(SceneManager& sceneManager);
         virtual ~InGameScene();
 
         virtual void onShow();
@@ -26,9 +27,17 @@ class InGameScene : public IScene
         virtual void onMultimodalEvent(MultimodalEvent event);
 
     private:
+        void drawFps(sf::RenderTarget& window) const;
+
         LevelManager  myLevelManager;
         PausableClock myGameClock;
-        Background myBackground;
+
+        mutable sf::Clock myFpsClock;
+        mutable int       myFrameCount;
+
+        Background       myBackground;
+        ProgressBar      myVolumeBar;
+        mutable sf::Text myFpsText;
 };
 
 #endif // INGAMESCENE_H

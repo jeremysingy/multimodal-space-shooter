@@ -1,10 +1,12 @@
 #include "scenes/InPauseScene.h"
+#include "managers/SceneManager.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
 
 #include <SFML/Graphics.hpp>
 
-InPauseScene::InPauseScene() :
+InPauseScene::InPauseScene(SceneManager& sceneManager) :
+IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
 myMenu("Pause Menu", *imageManager().get("menu_test.png"))
 {
@@ -34,7 +36,7 @@ void InPauseScene::onEvent(const sf::Event& event)
     if(event.Type == sf::Event::KeyPressed)
     {
         if(event.Key.Code == sf::Key::Escape)
-            sceneManager().changeCurrentScene(SceneManager::SceneInGame);
+            mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
 
         if(event.Key.Code == sf::Key::Q)
             Game::instance().quit();
@@ -51,7 +53,7 @@ void InPauseScene::onMultimodalEvent(MultimodalEvent event)
 void InPauseScene::onButtonPress(const std::string& buttonId)
 {
     if(buttonId == "but_pause_continue")
-        sceneManager().changeCurrentScene(SceneManager::SceneInGame);
+        mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
     else if(buttonId == "but_pause_quit")
         Game::instance().quit();
 }

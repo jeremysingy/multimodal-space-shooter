@@ -8,10 +8,10 @@
 
 SceneManager::SceneManager()
 {
-    ScenePtr introScene(new IntroScene);
-    ScenePtr trackingScene(new TrackingScene);
-    ScenePtr inGameScene(new InGameScene);
-    ScenePtr inPauseScene(new InPauseScene);
+    ScenePtr introScene(new IntroScene(*this));
+    ScenePtr trackingScene(new TrackingScene(*this));
+    ScenePtr inGameScene(new InGameScene(*this));
+    ScenePtr inPauseScene(new InPauseScene(*this));
 
     myScenes[SceneIntro]  = introScene;
     myScenes[SceneTracking]  = trackingScene;

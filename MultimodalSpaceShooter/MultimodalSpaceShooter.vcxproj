@@ -25,6 +25,7 @@
     <ClInclude Include="src\gui\Button.h" />
     <ClInclude Include="src\gui\ButtonListener.h" />
     <ClInclude Include="src\gui\Menu.h" />
+    <ClInclude Include="src\gui\ProgressBar.h" />
     <ClInclude Include="src\gui\Widget.h" />
     <ClInclude Include="src\loaders\ImageManager.h" />
     <ClInclude Include="src\loaders\ResourceManager.h" />
@@ -35,13 +36,9 @@
     <ClInclude Include="src\managers\EventListener.h" />
     <ClInclude Include="src\managers\EventManager.h" />
     <ClInclude Include="src\managers\GestureManager.h" />
-    <ClInclude Include="src\managers\GraphicsEngine.h" />
-    <ClInclude Include="src\managers\GraphicsObject.h" />
     <ClInclude Include="src\managers\Managers.h" />
     <ClInclude Include="src\managers\MultimodalListener.h" />
     <ClInclude Include="src\managers\MultimodalManager.h" />
-    <ClInclude Include="src\managers\PhysicsEngine.h" />
-    <ClInclude Include="src\managers\PhysicsObject.h" />
     <ClInclude Include="src\managers\SceneManager.h" />
     <ClInclude Include="src\managers\VolumeRecorder.h" />
     <ClInclude Include="src\scenes\InGameScene.h" />
@@ -73,6 +70,7 @@
     <ClCompile Include="src\gui\Button.cpp" />
     <ClCompile Include="src\gui\ButtonListener.cpp" />
     <ClCompile Include="src\gui\Menu.cpp" />
+    <ClCompile Include="src\gui\ProgressBar.cpp" />
     <ClCompile Include="src\gui\Widget.cpp" />
     <ClCompile Include="src\loaders\ImageManager.cpp" />
     <ClCompile Include="src\loaders\SoundManager.cpp" />
@@ -83,13 +81,9 @@
     <ClCompile Include="src\managers\EventListener.cpp" />
     <ClCompile Include="src\managers\EventManager.cpp" />
     <ClCompile Include="src\managers\GestureManager.cpp" />
-    <ClCompile Include="src\managers\GraphicsEngine.cpp" />
-    <ClCompile Include="src\managers\GraphicsObject.cpp" />
     <ClCompile Include="src\managers\Managers.cpp" />
     <ClCompile Include="src\managers\MultimodalListener.cpp" />
     <ClCompile Include="src\managers\MultimodalManager.cpp" />
-    <ClCompile Include="src\managers\PhysicsEngine.cpp" />
-    <ClCompile Include="src\managers\PhysicsObject.cpp" />
     <ClCompile Include="src\managers\SceneManager.cpp" />
     <ClCompile Include="src\managers\VolumeRecorder.cpp" />
     <ClCompile Include="src\scenes\InGameScene.cpp" />

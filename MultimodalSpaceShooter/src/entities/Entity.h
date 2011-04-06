@@ -1,11 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-//#include "managers/GraphicsObject.h"
-//#include "managers/PhysicsObject.h"
 #include <SFML/Graphics/Shape.hpp>
 
-class Entity //: public GraphicsObject, public PhysicsObject
+class Entity
 {
     public:
         enum Type

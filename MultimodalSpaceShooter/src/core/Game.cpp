@@ -11,7 +11,7 @@ Game& Game::instance()
 
 Game::Game() :
 myScreenSize(1024, 768),
-myWindow(sf::VideoMode(myScreenSize.x, myScreenSize.y, 32), "Multimodal Space Shooter"),
+myWindow(sf::VideoMode(myScreenSize.x, myScreenSize.y, 32), "Multimodal Space Shooter - By SBB"),
 myEventManager(myWindow.GetInput()),
 myImageManager("./images/"),
 mySoundManager("./sounds/")

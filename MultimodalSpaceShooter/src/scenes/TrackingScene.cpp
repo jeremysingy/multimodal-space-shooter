@@ -1,10 +1,11 @@
 #include "scenes/TrackingScene.h"
+#include "managers/SceneManager.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
-#include "managers/Managers.h"
 #include <SFML/Graphics.hpp>
 
-TrackingScene::TrackingScene() :
+TrackingScene::TrackingScene(SceneManager& sceneManager) :
+IScene(sceneManager),
 myTextIntro("Please take this nice pose until your body is detected...", sf::Font::GetDefaultFont(), 25),
 myTextInfo("", sf::Font::GetDefaultFont(), 20),
 myCursor(*imageManager().get("cursor.png")),
@@ -81,6 +82,6 @@ void TrackingScene::onTrackingStateChanged(Tracking::State newState)
 void TrackingScene::onButtonPress(const std::string& buttonId)
 {
     if(buttonId == "but_tracking_start")
-        sceneManager().changeCurrentScene(SceneManager::SceneInGame);
+        mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
 }
 

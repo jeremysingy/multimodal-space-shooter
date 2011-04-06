@@ -105,12 +105,6 @@
     <ClInclude Include="src\managers\GestureManager.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\GraphicsEngine.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\GraphicsObject.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\managers\Managers.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
@@ -118,12 +112,6 @@
       <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\managers\MultimodalManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\PhysicsEngine.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\PhysicsObject.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\managers\SceneManager.h">
@@ -192,6 +180,9 @@
     <ClInclude Include="src\entities\SuperMissile.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="src\gui\ProgressBar.h">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -241,12 +232,6 @@
     <ClCompile Include="src\managers\GestureManager.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\GraphicsEngine.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\GraphicsObject.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\managers\Managers.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
@@ -254,12 +239,6 @@
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\managers\MultimodalManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\PhysicsEngine.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\PhysicsObject.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\managers\SceneManager.cpp">
@@ -333,6 +312,9 @@
     </ClCompile>
     <ClCompile Include="src\entities\SuperMissile.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\ProgressBar.cpp">
+      <Filter>Source Files\gui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

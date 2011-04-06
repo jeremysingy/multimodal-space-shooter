@@ -2,8 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
-#include "managers/GraphicsEngine.h"
-#include "managers/PhysicsEngine.h"
+
 #include "managers/AudioEngine.h"
 #include "managers/EventManager.h"
 #include "managers/MultimodalManager.h"
@@ -34,10 +33,7 @@ class Game
         ImageManager      myImageManager;
         SoundManager	  mySoundManager;
 
-        //GraphicsEngine    myGraphicsEngine;
-        //PhysicsEngine     myPhysicsEngine;
         AudioEngine		  myAudioEngine;
-
         EventManager      myEventManager;
         MultimodalManager myMultimodalManager;
 
@@ -48,8 +44,6 @@ class Game
         friend ImageManager& imageManager();
         friend SoundManager& soundManager();
 
-        //friend GraphicsEngine& graphicsEngine();
-        //friend PhysicsEngine& physicsEngine();
         friend AudioEngine& audioEngine();
 
         friend EventManager& eventManager();

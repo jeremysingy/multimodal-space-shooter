@@ -5,10 +5,12 @@
 #include <SFML/Window/Event.hpp>
 #include "managers/MultimodalListener.h"
 
+class SceneManager;
+
 class IScene
 {
     public:
-        IScene();
+        IScene(SceneManager& sceneManager);
         virtual ~IScene();
 
         virtual void onShow();
@@ -20,6 +22,9 @@ class IScene
         virtual void onEvent(const sf::Event& event) = 0;
         virtual void onMultimodalEvent(MultimodalEvent event) = 0;
         virtual void onTrackingStateChanged(Tracking::State newState);
+    
+    protected:
+        SceneManager& mySceneManager;
 };
 
 #endif // ISCENE_H
