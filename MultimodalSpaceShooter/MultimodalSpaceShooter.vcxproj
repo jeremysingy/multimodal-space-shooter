@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\entities\Asteroid.h" />
     <ClInclude Include="src\entities\Entity.h" />
     <ClInclude Include="src\entities\EntityModel.h" />
     <ClInclude Include="src\entities\Explosion.h" />
@@ -60,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\entities\Asteroid.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityModel.cpp" />
     <ClCompile Include="src\entities\Explosion.cpp" />
