@@ -6,12 +6,13 @@
 class EntityModel
 {
     public:
-        EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float time);
+        EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float time, float angle);
         std::string getType() const;
         std::string getImageFile() const;
         float getXCoordinate() const;
         float getSpeed() const;
         float getTime() const;
+		float getAngle() const;
 
     private:
         std::string myType;
@@ -19,6 +20,7 @@ class EntityModel
         float myXCoordinate;
         float mySpeed;
         float myTime;
+		float myAngle;
 };
 
 struct CompareTime

@@ -1,5 +1,6 @@
 #include "loaders/LevelManager.h"
 #include "entities/Planet.h"
+#include "entities/Asteroid.h"
 #include "managers/Managers.h"
 #include <utils/tinyxml/tinyxml.h>
 #include <sstream>
@@ -24,6 +25,7 @@ int LevelManager::load(const std::string& name)
     float coordinate;
     float speed;
     float time;
+	float angle;
 
     // Get first node
     TiXmlHandle hdl(&doc);
@@ -41,11 +43,14 @@ int LevelManager::load(const std::string& name)
         std::istringstream issTime(element->Attribute("time"));
         issTime >> time;
 
+		std::istringstream issAngle(element->Attribute("angle"));
+		issAngle >> angle;
+
         // Load the image in memory if it is still not loaded
         imageManager().get(element->Attribute("image"));
 
         // Add the entity to the priority queue
-        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, speed, time));
+        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, speed, time, angle));
 
         element = element->NextSiblingElement();
     }
@@ -62,13 +67,17 @@ std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
         if(entityModel.getTime() <= gameTime)
         {
             myEntityModels.pop();
-
-            sf::Image& image = *imageManager().get(entityModel.getImageFile());
+			sf::Image& image = *imageManager().get(entityModel.getImageFile());
+				
             float initialPos = -static_cast<float>(image.GetHeight());
 
-            std::shared_ptr<Entity> planet(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
-
-            return planet;
+			if(entityModel.getType()=="planet"){
+				std::shared_ptr<Entity> planet(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
+				return planet;
+			} else if(entityModel.getType()=="asteroid"){
+				std::shared_ptr<Entity> asteroid(new Asteroid(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed(), entityModel.getAngle()));
+				return asteroid;
+			}
         }
     }
 
