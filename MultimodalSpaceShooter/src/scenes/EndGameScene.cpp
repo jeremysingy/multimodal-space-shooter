@@ -8,9 +8,9 @@
 EndGameScene::EndGameScene(SceneManager& sceneManager) :
 IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
-myMenu("Pause Menu", *imageManager().get("menu_test.png"))
+myMenu("Congratulations, you finished the game", *imageManager().get("menu.png"), sf::Color::Green)
 {
-    myMenu.addButton("but_endgame_continue", "Continue", this);
+    myMenu.addButton("but_endgame_continue", "Restard the game", this);
     myMenu.addButton("but_endgame_quit", "Quit", this);
 }
 

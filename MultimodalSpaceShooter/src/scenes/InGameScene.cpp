@@ -16,6 +16,7 @@ myBackground(*imageManager().get("background.png"), 0.01f, 1985),
 myLifeBar(sf::Vector2f(10.f, 10.f), sf::Color::Green),
 myVolumeBar(sf::Vector2f(Game::instance().getScreenSize().x - 150.f, 10.f), sf::Color::Red),
 myFpsText("", sf::Font::GetDefaultFont(), 16),
+myEndTime(-1.f),
 mySpaceship(new Spaceship)
 {
     // Preload images
@@ -67,6 +68,15 @@ void InGameScene::update(float frameTime)
 
     myLifeBar.setLevel(mySpaceship->getLife() / static_cast<float>(Spaceship::DEFAULT_LIFE) * 100.f);
     myVolumeBar.setLevel(multimodalManager().getMicroVolume());
+
+    if(myLevelManager.isWorldEnded() && myEndTime < 0.f)
+        myEndTime = myGameClock.getElapsedTime();
+
+    if(myEndTime > 0.f && myGameClock.getElapsedTime() > myEndTime + 8.f)
+        mySceneManager.changeCurrentScene(Scene::EndGame);
+
+    if(mySpaceship->isDestroyed())
+        mySceneManager.changeCurrentScene(Scene::GameOver);
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const

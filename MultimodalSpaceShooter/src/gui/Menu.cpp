@@ -6,7 +6,7 @@
 
 const float Menu::MARGIN(10.f);
 
-Menu::Menu(const std::string& title, const sf::Image& backgroundImage) :
+Menu::Menu(const std::string& title, const sf::Image& backgroundImage, const sf::Color& titleColor) :
 myBackground(backgroundImage),
 myTitle(title, sf::Font::GetDefaultFont(), 40),
 myNextButtonPos(250.f)
@@ -17,6 +17,7 @@ myNextButtonPos(250.f)
 
     const sf::FloatRect titleSize = myTitle.GetRect();
     myTitle.SetPosition(screenSize.x / 2.f - titleSize.Width / 2.f, myBackground.GetPosition().y + 10);
+    myTitle.SetColor(titleColor);
 }
 
 

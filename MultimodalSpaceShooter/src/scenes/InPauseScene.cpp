@@ -8,7 +8,7 @@
 InPauseScene::InPauseScene(SceneManager& sceneManager) :
 IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
-myMenu("Pause Menu", *imageManager().get("menu_test.png"))
+myMenu("Pause Menu", *imageManager().get("menu.png"))
 {
     myMenu.addButton("but_pause_continue", "Continue", this);
     myMenu.addButton("but_pause_quit", "Quit", this);

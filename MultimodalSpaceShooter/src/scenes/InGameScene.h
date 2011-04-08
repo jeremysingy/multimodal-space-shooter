@@ -31,6 +31,7 @@ class InGameScene : public IScene
 
     private:
         void drawFps(sf::RenderTarget& window) const;
+        void endGame();
 
         LevelManager  myLevelManager;
         PausableClock myGameClock;
@@ -42,6 +43,7 @@ class InGameScene : public IScene
         ProgressBar      myLifeBar;
         ProgressBar      myVolumeBar;
         mutable sf::Text myFpsText;
+        float            myEndTime;
 
         std::shared_ptr<Spaceship> mySpaceship;
 };

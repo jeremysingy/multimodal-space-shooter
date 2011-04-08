@@ -9,7 +9,7 @@
 class Menu : public Widget
 {
     public:
-        Menu(const std::string& title, const sf::Image& backgroundImage);
+        Menu(const std::string& title, const sf::Image& backgroundImage, const sf::Color& titleColor = sf::Color::White);
         virtual ~Menu();
 
         virtual void onEvent(const sf::Event& event);

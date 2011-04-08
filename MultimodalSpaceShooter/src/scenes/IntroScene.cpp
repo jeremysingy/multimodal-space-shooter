@@ -7,7 +7,7 @@
 IntroScene::IntroScene(SceneManager& sceneManager) :
 IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
-myMenu("Start Menu", *imageManager().get("menu_test.png"))
+myMenu("Start Menu", *imageManager().get("menu.png"))
 {
     if(multimodalManager().isMultimodalityAvailable())
         myMenu.addButton("but_intro_start_multi", "Start game using multimodality", this);

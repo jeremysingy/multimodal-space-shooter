@@ -77,6 +77,9 @@ void Spaceship::update(float frameTime)
     myFire.setPosition(mySprite.GetPosition().x+66,mySprite.GetPosition().y);
     myFire.update(frameTime);
     mySprite.update();
+
+    if(myLife <= 0)
+        destroy();
 }
 
 void Spaceship::onCollision(Object::Type otherType, const sf::FloatRect& area)

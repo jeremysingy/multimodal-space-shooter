@@ -1,9 +1,9 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
 
-#include "PlayableEntity.h"
+#include "entities/PlayableEntity.h"
 #include "utils/AnimatedSprite.h"
-#include "Fire.h"
+#include "entities/Fire.h"
 #include <SFML/Graphics.hpp>
 
 class Spaceship : public PlayableEntity
