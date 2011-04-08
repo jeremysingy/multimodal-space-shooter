@@ -22,11 +22,18 @@ struct CheckDestroyed
 class EntityManager
 {
     public:
+        typedef std::shared_ptr<Entity> EntityPtr;
+        typedef std::vector<EntityPtr>  EntityVector;
+
+        typedef std::shared_ptr<PlayableEntity> PlayablePtr;
+        typedef std::vector<PlayablePtr>        PlayableVector;
+
         EntityManager();
         ~EntityManager();
 
         void addEntity(std::shared_ptr<Entity> entity);
         void addPlayableEntity(std::shared_ptr<PlayableEntity> playableEntity);
+        //PlayableVector getPlayableEntities();
         //void removeEntity(std::shared_ptr<Entity> entity);
         void onEvent(const sf::Event& event);
         void onMultimodalEvent(MultimodalEvent event);
@@ -39,12 +46,6 @@ class EntityManager
         void manageCollisions();
         void addNewEntities();
         static bool isCollide(const Entity& entity1, const Entity& entity2, sf::FloatRect& collisionArea);
-
-        typedef std::shared_ptr<Entity> EntityPtr;
-        typedef std::vector<EntityPtr>  EntityVector;
-
-        typedef std::shared_ptr<PlayableEntity> PlayablePtr;
-        typedef std::vector<PlayablePtr>        PlayableVector;
 
         EntityVector   myEntities;
         EntityVector   myNewEntities;

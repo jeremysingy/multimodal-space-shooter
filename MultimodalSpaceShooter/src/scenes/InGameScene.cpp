@@ -13,23 +13,25 @@ IScene(sceneManager),
 myGameClock(true),
 myFrameCount(0),
 myBackground(*imageManager().get("background.png"), 0.01f, 1985),
+myLifeBar(sf::Vector2f(10.f, 10.f), sf::Color::Green),
 myVolumeBar(sf::Vector2f(Game::instance().getScreenSize().x - 150.f, 10.f), sf::Color::Red),
-myFpsText("", sf::Font::GetDefaultFont(), 16)
+myFpsText("", sf::Font::GetDefaultFont(), 16),
+mySpaceship(new Spaceship)
 {
     // Preload images
-    imageManager().load("background.png");
-    imageManager().load("spaceship.png");
-    imageManager().load("explosion.png");
-    imageManager().load("bullet.png");
-    imageManager().load("superbullet.png");
-    imageManager().load("fire.png");
+    imageManager().get("background.png");
+    imageManager().get("spaceship.png");
+    imageManager().get("explosion.png");
+    imageManager().get("bullet.png");
+    imageManager().get("superbullet.png");
+    imageManager().get("fire.png");
 
     // Load the world
     myLevelManager.load("worlds/sample.xml");
 
     // Create the playable spaceship
-    std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
-    entityManager().addPlayableEntity(spaceship);
+    //std::shared_ptr<PlayableEntity> spaceship(mySpaceship);
+    entityManager().addPlayableEntity(mySpaceship);
 
     myBackground.setImage(*imageManager().get("background.png"));
 }
@@ -63,6 +65,7 @@ void InGameScene::update(float frameTime)
     entityManager().updateEntities(frameTime);
     entityManager().checkDestroyedEntities();
 
+    myLifeBar.setLevel(mySpaceship->getLife() / static_cast<float>(Spaceship::DEFAULT_LIFE) * 100.f);
     myVolumeBar.setLevel(multimodalManager().getMicroVolume());
 }
 
@@ -75,6 +78,7 @@ void InGameScene::draw(sf::RenderTarget& window) const
     entityManager().drawEntities(window);
 
     // Draw the UI controls
+    myLifeBar.draw(window);
     myVolumeBar.draw(window);
     drawFps(window);
 }
@@ -84,7 +88,7 @@ void InGameScene::onEvent(const sf::Event& event)
     if(event.Type == sf::Event::KeyPressed)
     {
         if(event.Key.Code == sf::Key::Escape)
-            mySceneManager.changeCurrentScene(SceneManager::SceneInPause);
+            mySceneManager.changeCurrentScene(Scene::InPause);
 
         entityManager().onEvent(event);
     }

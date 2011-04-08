@@ -8,7 +8,8 @@
 const float Spaceship::SPEED = 200.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire()
+mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire(),
+myLife(DEFAULT_LIFE)
 {
     mySprite.Move(Game::instance().getScreenSize().x / 2.f, Game::instance().getScreenSize().y - 165.f);
 
@@ -35,6 +36,11 @@ void Spaceship::onPlayerAction(const sf::Event& event)
 void Spaceship::onMultimodalAction(MultimodalEvent event)
 {
     fireMissile();
+}
+
+unsigned int Spaceship::getLife()
+{
+    return myLife;
 }
 
 void Spaceship::update(float frameTime)
@@ -64,6 +70,13 @@ void Spaceship::update(float frameTime)
     myFire.setPosition(mySprite.GetPosition().x+66,mySprite.GetPosition().y);
     myFire.update(frameTime);
     mySprite.update();
+}
+
+void Spaceship::onCollision(Object::Type otherType, const sf::FloatRect& area)
+{
+    if(otherType == Object::DESTRUCTIVE)
+        if(myLife > 0)
+            --myLife;
 }
 
 sf::FloatRect Spaceship::getBoundingRect() const

@@ -4,6 +4,8 @@
 #include "scenes/TrackingScene.h"
 #include "scenes/InGameScene.h"
 #include "scenes/InPauseScene.h"
+#include "scenes/GameOverScene.h"
+#include "scenes/EndGameScene.h"
 #include <algorithm>
 
 SceneManager::SceneManager()
@@ -12,11 +14,15 @@ SceneManager::SceneManager()
     ScenePtr trackingScene(new TrackingScene(*this));
     ScenePtr inGameScene(new InGameScene(*this));
     ScenePtr inPauseScene(new InPauseScene(*this));
+    ScenePtr gameOverScene(new GameOverScene(*this));
+    ScenePtr endGameScene(new EndGameScene(*this));
 
-    myScenes[SceneIntro]  = introScene;
-    myScenes[SceneTracking]  = trackingScene;
-    myScenes[SceneInGame] = inGameScene;
-    myScenes[SceneInPause] = inPauseScene;
+    myScenes[Scene::Intro]  = introScene;
+    myScenes[Scene::Tracking]  = trackingScene;
+    myScenes[Scene::InGame] = inGameScene;
+    myScenes[Scene::InPause] = inPauseScene;
+    myScenes[Scene::GameOver] = gameOverScene;
+    myScenes[Scene::EndGame] = endGameScene;
 
     myCrtScene = introScene;
     myCrtScene->onShow();
@@ -47,7 +53,7 @@ void SceneManager::drawScene(sf::RenderTarget& window)
     myCrtScene->draw(window);
 }
 
-void SceneManager::changeCurrentScene(SceneType newScene)
+void SceneManager::changeCurrentScene(Scene::Type newScene)
 {
     myCrtScene->onExit();
     myCrtScene = myScenes[newScene];

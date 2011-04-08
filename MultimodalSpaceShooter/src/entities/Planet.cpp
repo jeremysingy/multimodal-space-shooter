@@ -3,7 +3,7 @@
 #include "managers/Managers.h"
 
 Planet::Planet(const sf::Image& image, const sf::Vector2f& position, const float initialSpeed) :
-Entity(DESTRUCTIVE),
+Entity(Object::DESTRUCTIVE),
 mySprite(image),
 mySpeed(initialSpeed)
 {
@@ -21,9 +21,9 @@ void Planet::update(float frameTime)
     mySprite.Move(0, mySpeed * frameTime);
 }
 
-void Planet::onCollision(Type otherType, const sf::FloatRect& area)
+void Planet::onCollision(Object::Type otherType, const sf::FloatRect& area)
 {
-    if(otherType == WEAPON)
+    if(otherType == Object::WEAPON)
     {
         sf::Vector2f decal(320 / 2 - 80 / 2, 240 / 2 - 80 / 2);
 

@@ -82,6 +82,6 @@ void TrackingScene::onTrackingStateChanged(Tracking::State newState)
 void TrackingScene::onButtonPress(const std::string& buttonId)
 {
     if(buttonId == "but_tracking_start")
-        mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
+        mySceneManager.changeCurrentScene(Scene::InGame);
 }
 

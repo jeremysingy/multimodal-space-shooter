@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-Entity::Entity(Type type) :
+Entity::Entity(Object::Type type) :
 myType(type),
 myIsDestroyed(false)
 {
@@ -13,12 +13,12 @@ Entity::~Entity()
     
 }
 
-void Entity::onCollision(Type otherType, const sf::FloatRect& area)
+void Entity::onCollision(Object::Type otherType, const sf::FloatRect& area)
 {
 
 }
 
-Entity::Type Entity::getType() const
+Object::Type Entity::getType() const
 {
     return myType;
 }

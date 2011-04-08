@@ -20,6 +20,11 @@ void EntityManager::addPlayableEntity(std::shared_ptr<PlayableEntity> playableEn
     myPlayableEntities.push_back(playableEntity);
 }
 
+/*EntityManager::PlayableVector EntityManager::getPlayableEntities()
+{
+    return myPlayableEntities;
+}*/
+
 /*void EntityManager::removeEntity(std::shared_ptr<Entity> entity)
 {
     myEntities.erase(entity);
@@ -82,6 +87,7 @@ void EntityManager::addNewEntities()
 
 void EntityManager::manageCollisions()
 {
+    // Entities with entities
     for(std::size_t i = 0; i < myEntities.size(); ++i)
     {
         for(std::size_t j = i + 1; j < myEntities.size(); ++j)
@@ -92,6 +98,21 @@ void EntityManager::manageCollisions()
             {
                  myEntities[i]->onCollision((myEntities[j])->getType(), collisionArea);
                  myEntities[j]->onCollision((myEntities[i])->getType(), collisionArea);
+            }
+        }
+    }
+
+    // Playable entities with entities
+    for(std::size_t i = 0; i < myPlayableEntities.size(); ++i)
+    {
+        for(std::size_t j = i + 1; j < myEntities.size(); ++j)
+        {
+            sf::FloatRect collisionArea;
+            
+            if(isCollide(*myPlayableEntities[i], *myEntities[j], collisionArea))
+            {
+                 myPlayableEntities[i]->onCollision((myEntities[j])->getType(), collisionArea);
+                 myEntities[j]->onCollision((myPlayableEntities[i])->getType(), collisionArea);
             }
         }
     }

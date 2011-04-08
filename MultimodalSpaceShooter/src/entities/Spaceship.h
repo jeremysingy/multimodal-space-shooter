@@ -13,11 +13,18 @@ class Spaceship : public PlayableEntity
         ~Spaceship();
 
         virtual void update(float frameTime);
+        virtual void onCollision(Object::Type otherType, const sf::FloatRect& area);
+
         virtual sf::FloatRect getBoundingRect() const;
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onPlayerAction(const sf::Event& event);
         virtual void onMultimodalAction(MultimodalEvent event);
+
+        unsigned int getLife();
+
+        static const float SPEED;
+        static const int DEFAULT_LIFE = 5;
 
     private:
         void fireMissile();
@@ -26,8 +33,7 @@ class Spaceship : public PlayableEntity
 
         AnimatedSprite mySprite;
         Fire           myFire;
-
-        static const float SPEED;
+        unsigned int   myLife;
 };
 
 #endif // SPACESHIP_H

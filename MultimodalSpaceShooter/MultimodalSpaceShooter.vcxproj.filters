@@ -183,6 +183,12 @@
     <ClInclude Include="src\gui\ProgressBar.h">
       <Filter>Header Files\gui</Filter>
     </ClInclude>
+    <ClInclude Include="src\scenes\EndGameScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\GameOverScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -315,6 +321,12 @@
     </ClCompile>
     <ClCompile Include="src\gui\ProgressBar.cpp">
       <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\EndGameScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\GameOverScene.cpp">
+      <Filter>Source Files\scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

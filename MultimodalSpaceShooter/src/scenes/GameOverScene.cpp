@@ -1,20 +1,20 @@
-#include "scenes/InPauseScene.h"
+#include "scenes/GameOverScene.h"
 #include "managers/SceneManager.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
 
 #include <SFML/Graphics.hpp>
 
-InPauseScene::InPauseScene(SceneManager& sceneManager) :
+GameOverScene::GameOverScene(SceneManager& sceneManager) :
 IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
 myMenu("Pause Menu", *imageManager().get("menu_test.png"))
 {
-    myMenu.addButton("but_pause_continue", "Continue", this);
-    myMenu.addButton("but_pause_quit", "Quit", this);
+    myMenu.addButton("but_gameover_continue", "Continue", this);
+    myMenu.addButton("but_gameover_quit", "Quit", this);
 }
 
-void InPauseScene::update(float frameTime)
+void GameOverScene::update(float frameTime)
 {
     if(multimodalManager().getTrackingState() == Tracking::UserTracked)
         myCursor.SetPosition(multimodalManager().getRightHandPosition());
@@ -25,13 +25,13 @@ void InPauseScene::update(float frameTime)
     myMenu.update(frameTime);
 }
 
-void InPauseScene::draw(sf::RenderTarget& window) const
+void GameOverScene::draw(sf::RenderTarget& window) const
 {
     myMenu.draw(window);
     window.Draw(myCursor);
 }
 
-void InPauseScene::onEvent(const sf::Event& event)
+void GameOverScene::onEvent(const sf::Event& event)
 {
     if(event.Type == sf::Event::KeyPressed)
     {
@@ -45,15 +45,15 @@ void InPauseScene::onEvent(const sf::Event& event)
     myMenu.onEvent(event);
 }
 
-void InPauseScene::onMultimodalEvent(MultimodalEvent event)
+void GameOverScene::onMultimodalEvent(MultimodalEvent event)
 {
     myMenu.onMultimodalEvent(event);
 }
 
-void InPauseScene::onButtonPress(const std::string& buttonId)
+void GameOverScene::onButtonPress(const std::string& buttonId)
 {
-    if(buttonId == "but_pause_continue")
+    if(buttonId == "but_gameover_continue")
         mySceneManager.changeCurrentScene(Scene::InGame);
-    else if(buttonId == "but_pause_quit")
+    else if(buttonId == "but_gameover_quit")
         Game::instance().quit();
 }

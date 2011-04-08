@@ -5,11 +5,14 @@
 #include "managers/EventListener.h"
 #include "managers/MultimodalListener.h"
 #include "utils/PausableClock.h"
+#include "utils/Background.h"
 #include "loaders/LevelManager.h"
+#include "gui/ProgressBar.h"
+#include "entities/Spaceship.h"
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "utils/Background.h"
-#include "gui/ProgressBar.h"
+#include <memory>
 
 class InGameScene : public IScene
 {
@@ -36,8 +39,11 @@ class InGameScene : public IScene
         mutable int       myFrameCount;
 
         Background       myBackground;
+        ProgressBar      myLifeBar;
         ProgressBar      myVolumeBar;
         mutable sf::Text myFpsText;
+
+        std::shared_ptr<Spaceship> mySpaceship;
 };
 
 #endif // INGAMESCENE_H

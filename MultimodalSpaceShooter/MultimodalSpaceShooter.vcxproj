@@ -40,6 +40,8 @@
     <ClInclude Include="src\managers\MultimodalManager.h" />
     <ClInclude Include="src\managers\SceneManager.h" />
     <ClInclude Include="src\managers\VolumeRecorder.h" />
+    <ClInclude Include="src\scenes\EndGameScene.h" />
+    <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\InGameScene.h" />
     <ClInclude Include="src\scenes\InPauseScene.h" />
     <ClInclude Include="src\scenes\IntroScene.h" />
@@ -85,6 +87,8 @@
     <ClCompile Include="src\managers\MultimodalManager.cpp" />
     <ClCompile Include="src\managers\SceneManager.cpp" />
     <ClCompile Include="src\managers\VolumeRecorder.cpp" />
+    <ClCompile Include="src\scenes\EndGameScene.cpp" />
+    <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\InGameScene.cpp" />
     <ClCompile Include="src\scenes\InPauseScene.cpp" />
     <ClCompile Include="src\scenes\IntroScene.cpp" />

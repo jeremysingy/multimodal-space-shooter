@@ -5,7 +5,7 @@
 const float Missile::SPEED = 500.f;
 
 Missile::Missile(const sf::Vector2f& initialPos) :
-Entity(WEAPON),
+Entity(Object::WEAPON),
 mySprite(*imageManager().get("bullet.png"))
 {
     mySprite.SetPosition(initialPos);
@@ -17,9 +17,9 @@ Missile::~Missile()
 
 }
 
-void Missile::onCollision(Type otherType, const sf::FloatRect& area)
+void Missile::onCollision(Object::Type otherType, const sf::FloatRect& area)
 {
-    if(otherType == DESTRUCTIVE)
+    if(otherType == Object::DESTRUCTIVE)
         destroy();
 }
 

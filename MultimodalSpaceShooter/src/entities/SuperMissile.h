@@ -18,7 +18,7 @@ class SuperMissile : public Entity
 
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;
-        virtual void onCollision(Type otherType, const sf::FloatRect& area);
+        virtual void onCollision(Object::Type otherType, const sf::FloatRect& area);
         virtual sf::FloatRect getBoundingRect() const;
 
     private:

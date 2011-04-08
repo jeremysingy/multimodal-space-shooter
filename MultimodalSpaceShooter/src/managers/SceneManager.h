@@ -11,22 +11,27 @@
 
 #include <map>
 
+namespace Scene
+{
+    enum Type
+    {
+        Intro,
+        Tracking,
+        InGame,
+        InPause,
+        GameOver,
+        EndGame
+    };
+}
+
 class SceneManager : public EventListener, public MultimodalListener
 {
     public:
         SceneManager();
 
-        enum SceneType
-        {
-            SceneIntro,
-            SceneTracking,
-            SceneInGame,
-            SceneInPause
-        };
-
         void updateScene(float frameTime);
         void drawScene(sf::RenderTarget& window);
-        void changeCurrentScene(SceneType scene);
+        void changeCurrentScene(Scene::Type scene);
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(MultimodalEvent event);
@@ -34,7 +39,7 @@ class SceneManager : public EventListener, public MultimodalListener
 
     private:
         typedef std::shared_ptr<IScene> ScenePtr;
-        typedef std::map<SceneType, ScenePtr> MapScenes;
+        typedef std::map<Scene::Type, ScenePtr> MapScenes;
 
         MapScenes myScenes;
         ScenePtr myCrtScene;

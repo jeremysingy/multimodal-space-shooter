@@ -46,9 +46,9 @@ void IntroScene::onMultimodalEvent(MultimodalEvent event)
 void IntroScene::onButtonPress(const std::string& buttonId)
 {
     if(buttonId == "but_intro_start_multi")
-        mySceneManager.changeCurrentScene(SceneManager::SceneTracking);
+        mySceneManager.changeCurrentScene(Scene::Tracking);
     else if(buttonId == "but_intro_start_norm")
-        mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
+        mySceneManager.changeCurrentScene(Scene::InGame);
     else if(buttonId == "but_intro_quit")
         Game::instance().quit();
 }

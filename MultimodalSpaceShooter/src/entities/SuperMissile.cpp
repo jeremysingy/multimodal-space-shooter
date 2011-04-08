@@ -12,7 +12,7 @@ SuperMissile::SuperMissile(const sf::Vector2f& initialPos, direction direc, floa
 mySprite(*imageManager().get("superbullet.png")),
 myDirection(direc),
 myAngle(angle),
-Entity(WEAPON)
+Entity(Object::WEAPON)
 {
     mySprite.SetPosition(initialPos);
 }
@@ -23,9 +23,9 @@ SuperMissile::~SuperMissile()
 
 }
 
-void SuperMissile::onCollision(Type otherType, const sf::FloatRect& area)
+void SuperMissile::onCollision(Object::Type otherType, const sf::FloatRect& area)
 {
-    if(otherType == DESTRUCTIVE)
+    if(otherType == Object::DESTRUCTIVE)
         destroy();
 }
 
