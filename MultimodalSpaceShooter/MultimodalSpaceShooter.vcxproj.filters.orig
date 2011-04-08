@@ -177,13 +177,23 @@
     <ClInclude Include="src\entities\SuperMissile.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="src\utils\Background.h">
       <Filter>Header Files\utils</Filter>
-=======
+    </ClInclude>
     <ClInclude Include="src\gui\ProgressBar.h">
       <Filter>Header Files\gui</Filter>
->>>>>>> d7cca2698579f97781a6437b1f9826a29fc57ca4
+    </ClInclude>
+    <ClInclude Include="src\scenes\EndGameScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\GameOverScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Utils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\Asteroid.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,13 +322,20 @@
     <ClCompile Include="src\entities\SuperMissile.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="src\utils\Background.cpp">
       <Filter>Source Files\utils</Filter>
-=======
+    </ClCompile>
     <ClCompile Include="src\gui\ProgressBar.cpp">
       <Filter>Source Files\gui</Filter>
->>>>>>> d7cca2698579f97781a6437b1f9826a29fc57ca4
+    </ClCompile>
+    <ClCompile Include="src\scenes\EndGameScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\GameOverScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\Asteroid.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
