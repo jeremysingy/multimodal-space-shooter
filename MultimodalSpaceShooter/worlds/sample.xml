@@ -6,15 +6,19 @@
         <enemy type="planet" image="planet1.png" xCoordinate="350" speed="50" time="3" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="780" speed="150" time="3.5" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="750" speed="65" time="4" angle="270"/>
+        <enemy type="asteroid" image="asteroid.png" xCoordinate="750" speed="50" time="4.5" angle="95"/>
         <enemy type="planet" image="planet1.png" xCoordinate="150" speed="20" time="5" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="550" speed="55" time="6" angle="270"/>
+        <enemy type="asteroid" image="asteroid.png" xCoordinate="50" speed="50" time="6.5" angle="190"/>
         <enemy type="planet" image="planet1.png" xCoordinate="150" speed="35" time="7" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="650" speed="30" time="10" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="850" speed="50" time="11" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="450" speed="30" time="13" angle="270"/>
+        <enemy type="asteroid" image="asteroid.png" xCoordinate="50" speed="50" time="13.5" angle="50"/>
         <enemy type="planet" image="planet1.png" xCoordinate="350" speed="20" time="13.5" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="250" speed="50" time="14" angle="270"/>
         <enemy type="planet" image="planet1.png" xCoordinate="150" speed="50" time="15" angle="270"/>
+        <enemy type="asteroid" image="asteroid.png" xCoordinate="50" speed="50" time="1" angle="50"/>
         <enemy type="planet" image="planet1.png" xCoordinate="20" speed="20" time="15.5" angle="270"/>
 	</enemies>
 </world>

@@ -20,6 +20,7 @@ Asteroid::~Asteroid()
 
 void Asteroid::update(float frameTime)
 {
+	mySprite.Rotate(10*frameTime);
     mySprite.Move(std::cos(myAngle) * mySpeed * frameTime, std::sin(myAngle) * mySpeed * frameTime);
 }
 
