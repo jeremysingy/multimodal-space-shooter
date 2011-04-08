@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string.h>
 
-const float SuperMissile::SPEED = 500.f;
+const float SuperMissile::SPEED = 250.f;
 
 SuperMissile::SuperMissile(const sf::Vector2f& initialPos, direction direc, float angle) :
 mySprite(*imageManager().get("superbullet.png")),

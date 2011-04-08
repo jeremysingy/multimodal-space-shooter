@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.h" />
     <ClInclude Include="src\core\Game.h" />
     <ClInclude Include="src\entities\Entity.h" />
     <ClInclude Include="src\entities\EntityModel.h" />
@@ -50,6 +49,7 @@
     <ClInclude Include="src\scenes\IScene.h" />
     <ClInclude Include="src\scenes\TrackingScene.h" />
     <ClInclude Include="src\utils\AnimatedSprite.h" />
+    <ClInclude Include="src\utils\Background.h" />
     <ClInclude Include="src\utils\NiCallbacksWrapper.h" />
     <ClInclude Include="src\utils\PausableClock.h" />
     <ClInclude Include="src\utils\tinyxml\tinystr.h" />
@@ -59,7 +59,6 @@
     <None Include="src\loaders\ResourceManager.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Background.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
     <ClCompile Include="src\entities\EntityModel.cpp" />
@@ -98,6 +97,7 @@
     <ClCompile Include="src\scenes\IScene.cpp" />
     <ClCompile Include="src\scenes\TrackingScene.cpp" />
     <ClCompile Include="src\utils\AnimatedSprite.cpp" />
+    <ClCompile Include="src\utils\Background.cpp" />
     <ClCompile Include="src\utils\NiCallbacksWrapper.cpp" />
     <ClCompile Include="src\utils\PausableClock.cpp" />
     <ClCompile Include="src\utils\tinyxml\tinystr.cpp" />

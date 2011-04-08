@@ -8,7 +8,7 @@
 #include "loaders/LevelManager.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Background.h"
+#include "utils/Background.h"
 
 class InGameScene : public IScene
 {
