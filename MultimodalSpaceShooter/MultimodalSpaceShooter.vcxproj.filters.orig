@@ -105,12 +105,6 @@
     <ClInclude Include="src\managers\GestureManager.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\GraphicsEngine.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\GraphicsObject.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\managers\Managers.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
@@ -118,12 +112,6 @@
       <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\managers\MultimodalManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\PhysicsEngine.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\PhysicsObject.h">
       <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\managers\SceneManager.h">
@@ -180,15 +168,22 @@
     <ClInclude Include="src\entities\Fire.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="src\utils\NiCallbacksWrapper.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\PausableClock.h">
-=======
-    <ClInclude Include="Background.h">
->>>>>>> 3781e0efe6f06d8bdfe362d5e1b1d2d4b1dbd1f3
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\SuperMissile.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="src\utils\Background.h">
+      <Filter>Header Files\utils</Filter>
+=======
+    <ClInclude Include="src\gui\ProgressBar.h">
+      <Filter>Header Files\gui</Filter>
+>>>>>>> d7cca2698579f97781a6437b1f9826a29fc57ca4
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -239,12 +234,6 @@
     <ClCompile Include="src\managers\GestureManager.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\GraphicsEngine.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\GraphicsObject.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\managers\Managers.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
@@ -252,12 +241,6 @@
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\managers\MultimodalManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\PhysicsEngine.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\PhysicsObject.cpp">
       <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\managers\SceneManager.cpp">
@@ -320,15 +303,22 @@
     <ClCompile Include="src\entities\Fire.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="src\utils\NiCallbacksWrapper.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
     <ClCompile Include="src\utils\PausableClock.cpp">
-=======
-    <ClCompile Include="Background.cpp">
->>>>>>> 3781e0efe6f06d8bdfe362d5e1b1d2d4b1dbd1f3
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\SuperMissile.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="src\utils\Background.cpp">
+      <Filter>Source Files\utils</Filter>
+=======
+    <ClCompile Include="src\gui\ProgressBar.cpp">
+      <Filter>Source Files\gui</Filter>
+>>>>>>> d7cca2698579f97781a6437b1f9826a29fc57ca4
     </ClCompile>
   </ItemGroup>
 </Project>

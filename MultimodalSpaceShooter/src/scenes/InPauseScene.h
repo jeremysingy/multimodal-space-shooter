@@ -11,7 +11,7 @@
 class InPauseScene : public IScene, public ButtonListener
 {
     public:
-        InPauseScene();
+        InPauseScene(SceneManager& sceneManager);
 
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;

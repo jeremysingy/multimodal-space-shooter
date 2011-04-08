@@ -1,16 +1,6 @@
 #include "managers/Managers.h"
 #include "core/Game.h"
 
-/*GraphicsEngine& graphicsEngine()
-{
-    return Game::instance().myGraphicsEngine;
-}
-
-PhysicsEngine& physicsEngine()
-{
-    return Game::instance().myPhysicsEngine;
-}*/
-
 AudioEngine& audioEngine()
 {
     return Game::instance().myAudioEngine;
@@ -24,11 +14,6 @@ EventManager& eventManager()
 MultimodalManager& multimodalManager()
 {
     return Game::instance().myMultimodalManager;
-}
-
-SceneManager& sceneManager()
-{
-    return Game::instance().mySceneManager;
 }
 
 EntityManager& entityManager()

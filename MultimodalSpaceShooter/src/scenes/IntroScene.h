@@ -11,7 +11,7 @@
 class IntroScene : public IScene, public ButtonListener
 {
     public:
-        IntroScene();
+        IntroScene(SceneManager& sceneManager);
 
         virtual void update(float frameTime);
         virtual void draw(sf::RenderTarget& window) const;

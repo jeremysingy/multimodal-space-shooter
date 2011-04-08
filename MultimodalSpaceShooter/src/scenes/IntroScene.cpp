@@ -1,9 +1,11 @@
 #include "scenes/IntroScene.h"
+#include "managers/SceneManager.h"
 #include "managers/Managers.h"
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
-IntroScene::IntroScene() :
+IntroScene::IntroScene(SceneManager& sceneManager) :
+IScene(sceneManager),
 myCursor(*imageManager().get("cursor.png")),
 myMenu("Start Menu", *imageManager().get("menu_test.png"))
 {
@@ -44,9 +46,9 @@ void IntroScene::onMultimodalEvent(MultimodalEvent event)
 void IntroScene::onButtonPress(const std::string& buttonId)
 {
     if(buttonId == "but_intro_start_multi")
-        sceneManager().changeCurrentScene(SceneManager::SceneTracking);
+        mySceneManager.changeCurrentScene(SceneManager::SceneTracking);
     else if(buttonId == "but_intro_start_norm")
-        sceneManager().changeCurrentScene(SceneManager::SceneInGame);
+        mySceneManager.changeCurrentScene(SceneManager::SceneInGame);
     else if(buttonId == "but_intro_quit")
         Game::instance().quit();
 }

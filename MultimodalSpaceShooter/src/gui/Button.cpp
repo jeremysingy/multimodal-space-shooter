@@ -1,7 +1,6 @@
 #include "gui/Button.h"
 #include "managers/Managers.h"
 #include "gui/ButtonListener.h"
-#include <SFML/Graphics.hpp>
 
 const sf::Vector2f Button::TEXT_PADDING(20, 20);
 

@@ -8,12 +8,17 @@
 #include "loaders/LevelManager.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+<<<<<<< HEAD
+#include "utils/Background.h"
+=======
 #include "Background.h"
+#include "gui/ProgressBar.h"
+>>>>>>> d7cca2698579f97781a6437b1f9826a29fc57ca4
 
 class InGameScene : public IScene
 {
     public:
-        InGameScene();
+        InGameScene(SceneManager& sceneManager);
         virtual ~InGameScene();
 
         virtual void onShow();
@@ -26,14 +31,17 @@ class InGameScene : public IScene
         virtual void onMultimodalEvent(MultimodalEvent event);
 
     private:
-<<<<<<< HEAD
+        void drawFps(sf::RenderTarget& window) const;
+
         LevelManager  myLevelManager;
         PausableClock myGameClock;
-=======
-        sf::Clock gameClock;
 
-        Background myBackground;
->>>>>>> 3781e0efe6f06d8bdfe362d5e1b1d2d4b1dbd1f3
+        mutable sf::Clock myFpsClock;
+        mutable int       myFrameCount;
+
+        Background       myBackground;
+        ProgressBar      myVolumeBar;
+        mutable sf::Text myFpsText;
 };
 
 #endif // INGAMESCENE_H

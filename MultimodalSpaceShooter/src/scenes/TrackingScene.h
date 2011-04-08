@@ -11,7 +11,7 @@
 class TrackingScene : public IScene, public ButtonListener
 {
     public:
-        TrackingScene();
+        TrackingScene(SceneManager& sceneManager);
 
         virtual void onShow();
         virtual void update(float frameTime);
