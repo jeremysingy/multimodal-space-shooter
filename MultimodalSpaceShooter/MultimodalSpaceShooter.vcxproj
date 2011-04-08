@@ -53,6 +53,7 @@
     <ClInclude Include="src\utils\PausableClock.h" />
     <ClInclude Include="src\utils\tinyxml\tinystr.h" />
     <ClInclude Include="src\utils\tinyxml\tinyxml.h" />
+    <ClInclude Include="src\utils\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl" />

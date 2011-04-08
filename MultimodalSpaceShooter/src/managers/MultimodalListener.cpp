@@ -17,7 +17,7 @@ void MultimodalListener::onTrackingStateChanged(Tracking::State newState)
 
 }
 
-void MultimodalListener::onMultimodalEvent(MultimodalEvent event)
+void MultimodalListener::onMultimodalEvent(Multimodal::Event event)
 {
 
 }

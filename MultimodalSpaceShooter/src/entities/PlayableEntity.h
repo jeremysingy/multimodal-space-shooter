@@ -12,7 +12,7 @@ class PlayableEntity : public Entity
         virtual ~PlayableEntity();
 
         virtual void onPlayerAction(const sf::Event& event) = 0;
-        virtual void onMultimodalAction(MultimodalEvent event) = 0;
+        virtual void onMultimodalAction(Multimodal::Event event) = 0;
 };
 
 #endif // PLAYABLEENTITY_H

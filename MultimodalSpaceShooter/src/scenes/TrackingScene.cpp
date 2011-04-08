@@ -59,7 +59,7 @@ void TrackingScene::onEvent(const sf::Event& event)
     myStartButton.onEvent(event);
 }
 
-void TrackingScene::onMultimodalEvent(MultimodalEvent event)
+void TrackingScene::onMultimodalEvent(Multimodal::Event event)
 {
     myStartButton.onMultimodalEvent(event);
 }

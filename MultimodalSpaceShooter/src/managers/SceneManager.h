@@ -34,7 +34,7 @@ class SceneManager : public EventListener, public MultimodalListener
         void changeCurrentScene(Scene::Type scene);
 
         virtual void onEvent(const sf::Event& event);
-        virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onMultimodalEvent(Multimodal::Event event);
         virtual void onTrackingStateChanged(Tracking::State newState);
 
     private:

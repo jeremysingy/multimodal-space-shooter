@@ -23,7 +23,7 @@ void Planet::update(float frameTime)
 
 void Planet::onCollision(Object::Type otherType, const sf::FloatRect& area)
 {
-    if(otherType == Object::WEAPON)
+    if(otherType == Object::WEAPON || otherType == Object::PLAYER)
     {
         sf::Vector2f decal(320 / 2 - 80 / 2, 240 / 2 - 80 / 2);
 

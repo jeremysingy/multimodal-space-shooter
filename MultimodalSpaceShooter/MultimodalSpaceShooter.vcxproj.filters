@@ -189,6 +189,9 @@
     <ClInclude Include="src\scenes\GameOverScene.h">
       <Filter>Header Files\scenes</Filter>
     </ClInclude>
+    <ClInclude Include="src\utils\Utils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">

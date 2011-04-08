@@ -3,18 +3,18 @@
 #include <math.h>
 #include "core/Game.h"
 #include "managers/Managers.h"
+#include "utils/Utils.h"
 #include <iostream>
 #include <string.h>
 
 const float SuperMissile::SPEED = 250.f;
 
-SuperMissile::SuperMissile(const sf::Vector2f& initialPos, direction direc, float angle) :
+SuperMissile::SuperMissile(const sf::Vector2f& initialPosition, float angle) :
 mySprite(*imageManager().get("superbullet.png")),
-myDirection(direc),
-myAngle(angle),
+myAngle(utils::degToRad(angle)),
 Entity(Object::WEAPON)
 {
-    mySprite.SetPosition(initialPos);
+    mySprite.SetPosition(initialPosition);
 }
 
 
@@ -31,30 +31,17 @@ void SuperMissile::onCollision(Object::Type otherType, const sf::FloatRect& area
 
 void SuperMissile::update(float frameTime)
 {
-    float y = SPEED*frameTime;
+    float y = SPEED * frameTime;
 
-    if(myDirection == right)
-    {
-        mySprite.Move(tan(myAngle)*y,-y);
-    }
-    else if(myDirection == left)
-    {
-        mySprite.Move(-tan(myAngle)*y,-y);
-    }
-    else
-    {
-        mySprite.Move(0, -y);
-    }
+    mySprite.Move(std::cos(myAngle) * SPEED * frameTime, std::sin(myAngle) * SPEED * frameTime);
 
-    if(mySprite.GetPosition().y <= 0  || 
-        mySprite.GetPosition().x <= 0 || 
-        mySprite.GetPosition().x >= Game::instance().getScreenSize().x)
+    if(mySprite.GetPosition().y <= 0  || mySprite.GetPosition().x <= 0 || mySprite.GetPosition().x >= Game::instance().getScreenSize().x)
         destroy();
 }
 
 sf::FloatRect SuperMissile::getBoundingRect() const
 {
-    return sf::FloatRect(mySprite.GetPosition(), sf::Vector2f(1, 10));
+    return sf::FloatRect(mySprite.GetPosition(), mySprite.GetSize());
 }
 
 void SuperMissile::draw(sf::RenderTarget& window) const

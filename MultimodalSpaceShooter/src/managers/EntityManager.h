@@ -36,7 +36,7 @@ class EntityManager
         //PlayableVector getPlayableEntities();
         //void removeEntity(std::shared_ptr<Entity> entity);
         void onEvent(const sf::Event& event);
-        void onMultimodalEvent(MultimodalEvent event);
+        void onMultimodalEvent(Multimodal::Event event);
 
         void updateEntities(float frameTime);
         void drawEntities(sf::RenderTarget& window);

@@ -4,11 +4,14 @@
 #include <SFML/System/Vector2.hpp>
 #include "managers/GestureManager.h"
 
-enum MultimodalEvent
+namespace Multimodal
 {
-    VolumeChangedArmUp,
-    VolumeChangedArmDown
-};
+    enum Event
+    {
+        VolumeChangedArmUp,
+        VolumeChangedArmDown
+    };
+}
 
 class MultimodalListener
 {
@@ -16,7 +19,7 @@ class MultimodalListener
         virtual ~MultimodalListener();
 
         virtual void onTrackingStateChanged(Tracking::State newState);
-        virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onMultimodalEvent(Multimodal::Event event);
 
     protected:
         MultimodalListener();

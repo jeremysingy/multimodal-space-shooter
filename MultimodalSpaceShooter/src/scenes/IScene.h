@@ -20,7 +20,7 @@ class IScene
         virtual void draw(sf::RenderTarget& window) const = 0;
 
         virtual void onEvent(const sf::Event& event) = 0;
-        virtual void onMultimodalEvent(MultimodalEvent event) = 0;
+        virtual void onMultimodalEvent(Multimodal::Event event) = 0;
         virtual void onTrackingStateChanged(Tracking::State newState);
     
     protected:

@@ -19,12 +19,16 @@ class Spaceship : public PlayableEntity
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onPlayerAction(const sf::Event& event);
-        virtual void onMultimodalAction(MultimodalEvent event);
+        virtual void onMultimodalAction(Multimodal::Event event);
 
         unsigned int getLife();
 
         static const float SPEED;
         static const int DEFAULT_LIFE = 5;
+
+        static const float MISSILE_LEFT_ANGLE;
+        static const float MISSILE_UP_ANGLE;
+        static const float MISSILE_RIGHT_ANGLE;
 
     private:
         void fireMissile();

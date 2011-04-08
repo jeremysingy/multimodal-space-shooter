@@ -45,7 +45,7 @@ void GameOverScene::onEvent(const sf::Event& event)
     myMenu.onEvent(event);
 }
 
-void GameOverScene::onMultimodalEvent(MultimodalEvent event)
+void GameOverScene::onMultimodalEvent(Multimodal::Event event)
 {
     myMenu.onMultimodalEvent(event);
 }

@@ -17,7 +17,7 @@ class EndGameScene : public IScene, public ButtonListener
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onEvent(const sf::Event& event);
-        virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onMultimodalEvent(Multimodal::Event event);
         virtual void onButtonPress(const std::string& buttonId);
 
     private:

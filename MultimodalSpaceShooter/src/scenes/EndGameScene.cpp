@@ -45,7 +45,7 @@ void EndGameScene::onEvent(const sf::Event& event)
     myMenu.onEvent(event);
 }
 
-void EndGameScene::onMultimodalEvent(MultimodalEvent event)
+void EndGameScene::onMultimodalEvent(Multimodal::Event event)
 {
     myMenu.onMultimodalEvent(event);
 }

@@ -3,8 +3,8 @@
 
 VolumeRecorder::VolumeRecorder() :
 myVolume(0),
-myLevel(Low),
-myOldLevel(Low),
+myLevel(Volume::Low),
+myOldLevel(Volume::Low),
 myUpdated(false)
 {
 
@@ -20,7 +20,7 @@ float VolumeRecorder::getVolume() const
     return myVolume;
 }
 
-VolumeLevel VolumeRecorder::getLevel() const
+Volume::Level VolumeRecorder::getLevel() const
 {
     return myLevel;
 }
@@ -43,7 +43,7 @@ bool VolumeRecorder::hasLevelDecreased() const
 bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCount)
 {
     float volume = 0;
-    VolumeLevel tmpLevel = Low;
+    Volume::Level tmpLevel = Volume::Low;
 
     for(std::size_t i = 0; i < samplesCount; ++i)
         volume += samples[i] * samples[i];
@@ -52,22 +52,16 @@ bool VolumeRecorder::OnProcessSamples(const sf::Int16* samples, size_t samplesCo
 
     myVolume = volume / 250.f;
 
-    if(myVolume < Medium)
-        tmpLevel = Low;
-    if(myVolume >= Medium && myVolume < High)
-        tmpLevel = Medium;
-    if(myVolume >= High)
-        tmpLevel = High;
-
-    /*if(tmpLevel >= Medium && myOldLevel == Low)
-        myVaried = true;
-    else
-        myVaried = false;*/
+    if(myVolume < Volume::Medium)
+        tmpLevel = Volume::Low;
+    if(myVolume >= Volume::Medium && myVolume < Volume::High)
+        tmpLevel = Volume::Medium;
+    if(myVolume >= Volume::High)
+        tmpLevel = Volume::High;
 
     myOldLevel = myLevel;
     myLevel    = tmpLevel;
     myUpdated  = true;
-    //myVaried = myLevel != myOldLevel;
 
     return true;
 }

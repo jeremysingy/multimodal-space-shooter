@@ -5,10 +5,13 @@
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
-const float Spaceship::SPEED = 200.f;
+const float Spaceship::SPEED               = 200.f;
+const float Spaceship::MISSILE_LEFT_ANGLE  = 360.f - 55.f;
+const float Spaceship::MISSILE_UP_ANGLE    = 360.f - 90.f;
+const float Spaceship::MISSILE_RIGHT_ANGLE = 360.f - 125.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"),150,165,0.05f), myFire(),
+mySprite(*imageManager().get("spaceship.png"),150, 165, 0.05f), myFire(),
 myLife(DEFAULT_LIFE)
 {
     mySprite.Move(Game::instance().getScreenSize().x / 2.f, Game::instance().getScreenSize().y - 165.f);
@@ -33,9 +36,13 @@ void Spaceship::onPlayerAction(const sf::Event& event)
     }
 }
 
-void Spaceship::onMultimodalAction(MultimodalEvent event)
+void Spaceship::onMultimodalAction(Multimodal::Event event)
 {
-    fireMissile();
+    if(event == Multimodal::VolumeChangedArmDown && multimodalManager().getMicroLevel() == Volume::Medium)
+        fireMissile();
+
+    else if(event == Multimodal::VolumeChangedArmUp && multimodalManager().getMicroLevel() == Volume::High)
+        fireSuperMissiles();
 }
 
 unsigned int Spaceship::getLife()
@@ -104,25 +111,25 @@ void Spaceship::fireMissile()
 
 void Spaceship::fireSuperMissiles()
 {
-    sf::Vector2f position(mySprite.GetPosition().x + 9.f, mySprite.GetPosition().y - 6.f);
-    sf::Vector2f position2(mySprite.GetPosition().x + 133.f, mySprite.GetPosition().y - 6.f);
+    sf::Vector2f leftPos(mySprite.GetPosition().x + 9.f, mySprite.GetPosition().y - 6.f);
+    sf::Vector2f rightPos(mySprite.GetPosition().x + 133.f, mySprite.GetPosition().y - 6.f);
 
-    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(position, left, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileLL(new SuperMissile(leftPos, MISSILE_LEFT_ANGLE));
     entityManager().addEntity(supermissileLL);
 
-    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(position, straight, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileLM(new SuperMissile(leftPos, MISSILE_UP_ANGLE));
     entityManager().addEntity(supermissileLM);
 
-    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(position, right, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileLR(new SuperMissile(leftPos, MISSILE_RIGHT_ANGLE));
     entityManager().addEntity(supermissileLR);
 
-    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(position2, left, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileRL(new SuperMissile(rightPos, MISSILE_LEFT_ANGLE));
     entityManager().addEntity(supermissileRL);
 
-    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(position2, straight, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileRM(new SuperMissile(rightPos, MISSILE_UP_ANGLE));
     entityManager().addEntity(supermissileRM);
 
-    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(position2, right, 0.3f));
+    std::shared_ptr<SuperMissile> supermissileRR(new SuperMissile(rightPos, MISSILE_RIGHT_ANGLE));
     entityManager().addEntity(supermissileRR);
 
     audioEngine().playSound("piou.wav", 10.f);

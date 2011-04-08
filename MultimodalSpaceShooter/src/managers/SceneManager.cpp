@@ -33,7 +33,7 @@ void SceneManager::onEvent(const sf::Event& event)
     myCrtScene->onEvent(event);
 }
 
-void SceneManager::onMultimodalEvent(MultimodalEvent event)
+void SceneManager::onMultimodalEvent(Multimodal::Event event)
 {
     myCrtScene->onMultimodalEvent(event);
 }

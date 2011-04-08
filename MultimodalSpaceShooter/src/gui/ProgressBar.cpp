@@ -25,7 +25,7 @@ void ProgressBar::onEvent(const sf::Event& event)
 
 }
 
-void ProgressBar::onMultimodalEvent(MultimodalEvent event)
+void ProgressBar::onMultimodalEvent(Multimodal::Event event)
 {
 
 }

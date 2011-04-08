@@ -45,7 +45,7 @@ void InPauseScene::onEvent(const sf::Event& event)
     myMenu.onEvent(event);
 }
 
-void InPauseScene::onMultimodalEvent(MultimodalEvent event)
+void InPauseScene::onMultimodalEvent(Multimodal::Event event)
 {
     myMenu.onMultimodalEvent(event);
 }

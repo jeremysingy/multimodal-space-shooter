@@ -33,12 +33,10 @@ void Button::onEvent(const sf::Event& event)
     }
 }
 
-void Button::onMultimodalEvent(MultimodalEvent event)
+void Button::onMultimodalEvent(Multimodal::Event event)
 {
-    std::cout << "test" << std::endl;
     if(myIsSelected)
     {
-        std::cout << "test 2" << std::endl;
         for(std::set<ButtonListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
         {
             (*i)->onButtonPress(myId);

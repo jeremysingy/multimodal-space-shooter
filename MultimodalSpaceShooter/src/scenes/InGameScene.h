@@ -27,7 +27,7 @@ class InGameScene : public IScene
         virtual void draw(sf::RenderTarget& window) const;
 
         virtual void onEvent(const sf::Event& event);
-        virtual void onMultimodalEvent(MultimodalEvent event);
+        virtual void onMultimodalEvent(Multimodal::Event event);
 
     private:
         void drawFps(sf::RenderTarget& window) const;

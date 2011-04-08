@@ -3,12 +3,15 @@
 
 #include <SFML/Audio.hpp>
 
-enum VolumeLevel
+namespace Volume
 {
-    Low = 0,
-    Medium = 35,
-    High = 75
-};
+    enum Level
+    {
+        Low = 0,
+        Medium = 35,
+        High = 75
+    };
+}
 
 class VolumeRecorder : public sf::SoundRecorder
 {
@@ -17,17 +20,17 @@ class VolumeRecorder : public sf::SoundRecorder
         ~VolumeRecorder();
 
         float getVolume() const;
-        VolumeLevel getLevel() const;
+        Volume::Level getLevel() const;
         bool hasLevelIncreased() const;
         bool hasLevelDecreased() const;
 
     private:
         bool OnProcessSamples(const sf::Int16* samples, std::size_t samplesCount);
 
-        float        myVolume; 
-        VolumeLevel  myLevel;
-        VolumeLevel  myOldLevel;
-        mutable bool myUpdated;
+        float         myVolume; 
+        Volume::Level myLevel;
+        Volume::Level myOldLevel;
+        mutable bool  myUpdated;
 };
 
 #endif // VOLUMERECORDER_H

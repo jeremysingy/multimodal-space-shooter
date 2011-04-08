@@ -29,16 +29,15 @@ void Fire::draw(sf::RenderTarget& window) const
 
 sf::FloatRect Fire:: getBoundingRect() const
 {
-    return sf::FloatRect(mySprite.GetPosition(), sf::Vector2f(80, 80));
+    return sf::FloatRect(mySprite.GetPosition(), mySprite.GetSize());
 }
 
 void Fire::setOnFire(bool value)
 {
-    if(onFire == false && value == true)
+    if(!onFire && value)
         myClock.Reset();
 
     onFire = value;
-
 }
 
 void Fire::setPosition(float x, float y)

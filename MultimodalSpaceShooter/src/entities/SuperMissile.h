@@ -4,16 +4,10 @@
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
 
-enum direction{
-    left,
-    right,
-    straight
-};
-
 class SuperMissile : public Entity
 {
     public:
-        SuperMissile(const sf::Vector2f& initialPos, direction direct,float angle);
+        SuperMissile(const sf::Vector2f& initialPosition, float angle);
         virtual ~SuperMissile();
 
         virtual void update(float frameTime);
@@ -24,7 +18,6 @@ class SuperMissile : public Entity
     private:
         float myAngle;
         sf::Sprite mySprite;
-        direction myDirection;
 
         static const float SPEED;
 };

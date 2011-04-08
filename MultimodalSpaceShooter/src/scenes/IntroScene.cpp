@@ -38,7 +38,7 @@ void IntroScene::onEvent(const sf::Event& event)
     myMenu.onEvent(event);
 }
 
-void IntroScene::onMultimodalEvent(MultimodalEvent event)
+void IntroScene::onMultimodalEvent(Multimodal::Event event)
 {
     myMenu.onMultimodalEvent(event);
 }

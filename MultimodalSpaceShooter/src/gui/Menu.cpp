@@ -47,7 +47,7 @@ void Menu::onEvent(const sf::Event& event)
         i->onEvent(event);
 }
 
-void Menu::onMultimodalEvent(MultimodalEvent event)
+void Menu::onMultimodalEvent(Multimodal::Event event)
 {
     for(std::vector<Button>::iterator i = myButtons.begin(); i != myButtons.end(); ++i)
         i->onMultimodalEvent(event);

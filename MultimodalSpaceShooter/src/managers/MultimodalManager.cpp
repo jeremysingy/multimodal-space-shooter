@@ -47,9 +47,9 @@ void MultimodalManager::update()
     // Send notifications of volume changed
     if(myVolumeRecorder.hasLevelIncreased())
     {
-        MultimodalEvent event = VolumeChangedArmDown;
+        Multimodal::Event event = Multimodal::VolumeChangedArmDown;
         if(myGestureManager.getRightHandPosition().y > myGestureManager.getBodyPosition().y)
-            event = VolumeChangedArmUp;
+            event = Multimodal::VolumeChangedArmUp;
         
         // Send other multimodal event to the listeners
         for(std::set<MultimodalListener*>::iterator i = myListeners.begin(); i != myListeners.end(); ++i)
@@ -89,5 +89,10 @@ const sf::Vector2f& MultimodalManager::getRightHandPosition() const
 float MultimodalManager::getMicroVolume() const
 {
     return myVolumeRecorder.getVolume();
+}
+
+Volume::Level MultimodalManager::getMicroLevel() const
+{
+    return myVolumeRecorder.getLevel();
 }
 
