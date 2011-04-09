@@ -33,7 +33,7 @@ myEndTime(-1.f)
 
 void InGameScene::reset()
 {
-    myGameClock.reset();
+    myGameClock.reset(true);
     entityManager().reset();
 
     // Add the playable spaceship
