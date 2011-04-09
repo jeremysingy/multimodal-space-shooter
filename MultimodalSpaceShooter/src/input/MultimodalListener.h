@@ -2,7 +2,7 @@
 #define MULTIMODALLISTENER_H
 
 #include <SFML/System/Vector2.hpp>
-#include "managers/GestureManager.h"
+#include "input/GestureManager.h"
 
 namespace Multimodal
 {
@@ -13,6 +13,9 @@ namespace Multimodal
     };
 }
 
+//////////////////////////////////////////////////
+/// Base class for an multimoal event listener
+//////////////////////////////////////////////////
 class MultimodalListener
 {
     public:

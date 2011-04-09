@@ -1,11 +1,11 @@
-#include "managers/SceneManager.h"
-#include "entities/Entity.h"
+#include "scenes/SceneManager.h"
 #include "scenes/IntroScene.h"
 #include "scenes/TrackingScene.h"
 #include "scenes/InGameScene.h"
 #include "scenes/InPauseScene.h"
 #include "scenes/GameOverScene.h"
 #include "scenes/EndGameScene.h"
+#include "entities/Entity.h"
 #include <algorithm>
 
 SceneManager::SceneManager()

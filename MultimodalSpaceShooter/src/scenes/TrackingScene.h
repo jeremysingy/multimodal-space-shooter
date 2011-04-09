@@ -3,11 +3,15 @@
 
 #include <SFML/Graphics/Text.hpp>
 #include "scenes/IScene.h"
-#include "managers/EventListener.h"
-#include "managers/MultimodalListener.h"
+#include "input/EventListener.h"
+#include "input/MultimodalListener.h"
 #include "gui/Button.h"
 #include "gui/ButtonListener.h"
 
+//////////////////////////////////////////////////
+/// Scene when the user is configuring the Kinect
+/// for tracking gesture
+//////////////////////////////////////////////////
 class TrackingScene : public IScene, public ButtonListener
 {
     public:

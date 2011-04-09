@@ -1,6 +1,6 @@
 #include "scenes/IntroScene.h"
-#include "managers/SceneManager.h"
-#include "managers/Managers.h"
+#include "scenes/SceneManager.h"
+#include "core/Managers.h"
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
 

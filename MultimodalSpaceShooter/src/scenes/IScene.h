@@ -3,8 +3,11 @@
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Event.hpp>
-#include "managers/MultimodalListener.h"
+#include "input/MultimodalListener.h"
 
+//////////////////////////////////////////////////
+/// Abstract base class for every scenes of the game
+//////////////////////////////////////////////////
 class SceneManager;
 
 class IScene

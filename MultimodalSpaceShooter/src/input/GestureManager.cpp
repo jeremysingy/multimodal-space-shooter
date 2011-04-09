@@ -1,4 +1,4 @@
-#include "managers/GestureManager.h"
+#include "input/GestureManager.h"
 #include "utils/NiCallbacksWrapper.h"
 #include "core/Game.h"
 #include <iostream>
@@ -48,13 +48,13 @@ bool GestureManager::initOpenNI()
     {
         XnChar strError[1024];
         errors.ToString(strError, 1024);
-        std::cerr << strError << std::endl;
+        std::cerr << "OpenNI node: " << strError << std::endl;
 
         return false;
     }
     else if(nRetVal != XN_STATUS_OK)
     {
-        std::cerr << "Open failed: " << xnGetStatusString(nRetVal);
+        std::cerr << "OpenNI failed: " << xnGetStatusString(nRetVal);
         return false;
     }
 

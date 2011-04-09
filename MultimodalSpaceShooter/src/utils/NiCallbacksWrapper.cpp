@@ -1,5 +1,5 @@
 #include "utils/NiCallbacksWrapper.h"
-#include "managers/GestureManager.h"
+#include "input/GestureManager.h"
 
 NiCallbacksWrapper::NiCallbacksWrapper(const GestureManager& gestureManager)
 {

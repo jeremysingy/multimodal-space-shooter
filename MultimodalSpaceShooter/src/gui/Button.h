@@ -3,11 +3,14 @@
 
 #include "gui/Widget.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <set>
 
 class ButtonListener;
 
+//////////////////////////////////////////////////
+/// Button element that can be pushed and listened
+/// for pushing events
+//////////////////////////////////////////////////
 class Button : public Widget
 {
     public:

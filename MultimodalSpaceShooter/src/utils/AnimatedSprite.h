@@ -4,6 +4,9 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+//////////////////////////////////////////////////
+/// Special sprite that is animated with multiple images
+//////////////////////////////////////////////////
 class AnimatedSprite : public sf::Sprite
 {
     public:

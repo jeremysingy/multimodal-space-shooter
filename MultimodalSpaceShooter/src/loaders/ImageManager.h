@@ -4,6 +4,10 @@
 #include "ResourceManager.h"
 #include <SFML/Graphics/Image.hpp>
 
+//////////////////////////////////////////////////
+/// Image manager
+/// Manages the life cycle of these image ressources
+//////////////////////////////////////////////////
 class ImageManager : public ResourceManager<sf::Image>
 {
     public:

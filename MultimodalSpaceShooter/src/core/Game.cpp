@@ -17,6 +17,7 @@ myImageManager("./images/"),
 mySoundManager("./sounds/")
 {
     myWindow.ShowMouseCursor(false);
+    myWindow.EnableKeyRepeat(false);
 }
 
 const sf::Vector2i& Game::getScreenSize()

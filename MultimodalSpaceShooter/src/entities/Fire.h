@@ -5,6 +5,9 @@
 #include "utils/AnimatedSprite.h"
 #include <SFML/Graphics.hpp>
 
+//////////////////////////////////////////////////
+/// Fire when the spaceship launches missiles
+//////////////////////////////////////////////////
 class Fire : public Entity
 {
     public:

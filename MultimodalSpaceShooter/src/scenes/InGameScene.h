@@ -2,24 +2,26 @@
 #define INGAMESCENE_H
 
 #include "scenes/IScene.h"
-#include "managers/EventListener.h"
-#include "managers/MultimodalListener.h"
+#include "input/EventListener.h"
+#include "input/MultimodalListener.h"
 #include "utils/PausableClock.h"
 #include "utils/Background.h"
 #include "loaders/LevelManager.h"
 #include "gui/ProgressBar.h"
 #include "entities/Spaceship.h"
 
-#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
 
+//////////////////////////////////////////////////
+/// Scene in game when the user is playing
+//////////////////////////////////////////////////
 class InGameScene : public IScene
 {
     public:
         InGameScene(SceneManager& sceneManager);
-        virtual ~InGameScene();
 
+        void reset();
         virtual void onShow();
         virtual void onExit();
 
@@ -31,7 +33,7 @@ class InGameScene : public IScene
 
     private:
         void drawFps(sf::RenderTarget& window) const;
-        void endGame();
+        void checkEndGame();
 
         LevelManager  myLevelManager;
         PausableClock myGameClock;
@@ -39,13 +41,12 @@ class InGameScene : public IScene
         mutable sf::Clock myFpsClock;
         mutable int       myFrameCount;
 
-        Background       myBackground;
+        std::shared_ptr<Background> myBackground;
         ProgressBar      myLifeBar;
         ProgressBar      myVolumeBar;
         mutable sf::Text myFpsText;
+        bool             myShowFps;
         float            myEndTime;
-
-        std::shared_ptr<Spaceship> mySpaceship;
 };
 
 #endif // INGAMESCENE_H

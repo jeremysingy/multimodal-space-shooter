@@ -1,13 +1,16 @@
 #ifndef ENDGAMESCENE_H
 #define ENDGAMESCENE_H
 
-#include <SFML/Graphics/Text.hpp>
 #include "scenes/IScene.h"
-#include "managers/EventListener.h"
-#include "managers/MultimodalListener.h"
+#include "input/EventListener.h"
+#include "input/MultimodalListener.h"
 #include "gui/Menu.h"
 #include "gui/ButtonListener.h"
+#include <SFML/Graphics/Text.hpp>
 
+//////////////////////////////////////////////////
+/// End scene when the game is completed
+//////////////////////////////////////////////////
 class EndGameScene : public IScene, public ButtonListener
 {
     public:

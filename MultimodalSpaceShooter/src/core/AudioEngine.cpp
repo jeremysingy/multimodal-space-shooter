@@ -1,5 +1,5 @@
-#include "managers/AudioEngine.h"
-#include "managers/Managers.h"
+#include "core/AudioEngine.h"
+#include "core/Managers.h"
 
 AudioEngine::AudioEngine() :
 mySounds(MAX_SOUNDS),

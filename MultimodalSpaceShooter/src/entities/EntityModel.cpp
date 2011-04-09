@@ -1,12 +1,13 @@
 #include "entities/EntityModel.h"
 
-EntityModel::EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float time, float angle=270) :
+EntityModel::EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float angle, float rotation, float time) :
 myType(type),
 myImageFile(imageFile),
 myXCoordinate(xCoordinate),
 mySpeed(speed),
-myTime(time),
-myAngle(angle)
+myAngle(angle),
+myRotation(rotation),
+myTime(time)
 {
 
 }
@@ -31,12 +32,17 @@ float EntityModel::getSpeed() const
     return mySpeed;
 }
 
-float EntityModel::getTime() const
-{
-    return myTime;
-}
-
 float EntityModel::getAngle() const
 {
 	return myAngle;
+}
+
+float EntityModel::getRotation() const
+{
+	return myRotation;
+}
+
+float EntityModel::getTime() const
+{
+    return myTime;
 }

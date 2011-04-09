@@ -4,10 +4,17 @@
 #include <set>
 #include <SFML/System/Vector2.hpp>
 
-#include "managers/GestureManager.h"
-#include "managers/VolumeRecorder.h"
-#include "managers/MultimodalListener.h"
+#include "input/GestureManager.h"
+#include "input/VolumeRecorder.h"
+#include "input/MultimodalListener.h"
 
+//////////////////////////////////////////////////
+/// Manage the multimodal events like the gestures
+/// and the voice input, using other managers
+///
+/// Make the eventual fusion to combine theses
+/// modalities
+//////////////////////////////////////////////////
 class MultimodalManager
 {
     public:

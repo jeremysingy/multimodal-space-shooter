@@ -1,6 +1,5 @@
-#include <iostream>
 #include "core/Game.h"
-#include <algorithm>
+#include <iostream>
 
 //////////////////////////////////////////////////
 /// Entry point of the application

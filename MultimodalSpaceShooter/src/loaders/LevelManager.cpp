@@ -1,61 +1,62 @@
 #include "loaders/LevelManager.h"
 #include "entities/Planet.h"
 #include "entities/Asteroid.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 #include <utils/tinyxml/tinyxml.h>
-#include <sstream>
 
 LevelManager::LevelManager()
 {
 
 }
 
-int LevelManager::load(const std::string& name)
+void LevelManager::load(const std::string& name)
 {
-    TiXmlDocument doc(name.c_str());
+    while(!myEntityModels.empty())
+        myEntityModels.pop();
 
-    if(!doc.LoadFile())
-    {
-        std::cerr << "Error while loading world" << std::endl;
-        std::cerr << "error #" << doc.ErrorId() << " : " << doc.ErrorDesc() << std::endl;
-        return 1;
-    }
+    TiXmlDocument document(name.c_str());
 
-    // Temp variables
-    float coordinate;
+    if(!document.LoadFile())
+        throw std::invalid_argument(name + ": couldn't load XML world: " + document.ErrorDesc());
+
+    // Get background element
+    TiXmlHandle handle(&document);
+    TiXmlElement* bgElement = handle.FirstChildElement().FirstChildElement("background").ToElement();
+
     float speed;
-    float time;
-	float angle;
+    bgElement->QueryFloatAttribute("speed", &speed);
 
-    // Get first node
-    TiXmlHandle hdl(&doc);
-    TiXmlElement* element = hdl.FirstChild("world").FirstChild("enemies").FirstChild("enemy").ToElement();
+    myBackground = std::shared_ptr<Background>(new Background(*imageManager().get(bgElement->Attribute("image")), speed));
 
+    // Get enemy element (planet or asteroid)
+    TiXmlElement* element = handle.FirstChildElement().FirstChildElement("enemies").FirstChild().ToElement();
+    
     // Get all elements in the file and add it to the priority queue
     while(element)
     {
-        std::istringstream issCoordinate(element->Attribute("xCoordinate"));
-        issCoordinate >> coordinate;
+        float coordinate = 0, speed = 0, angle = 0, rotation = 0, time = 0;
 
-        std::istringstream issSpeed(element->Attribute("speed"));
-        issSpeed >> speed;
-        
-        std::istringstream issTime(element->Attribute("time"));
-        issTime >> time;
+        element->QueryFloatAttribute("xCoordinate", &coordinate);
+        element->QueryFloatAttribute("speed", &speed);
+        element->QueryFloatAttribute("angle", &angle);
+        element->QueryFloatAttribute("time", &time);
 
-		std::istringstream issAngle(element->Attribute("angle"));
-		issAngle >> angle;
+        if(element->Attribute("rotationSpeed"))
+            element->QueryFloatAttribute("rotationSpeed", &rotation);
 
         // Load the image in memory if it is still not loaded
         imageManager().get(element->Attribute("image"));
 
         // Add the entity to the priority queue
-        myEntityModels.push(EntityModel(element->Attribute("type"), element->Attribute("image"), coordinate, speed, time, angle));
+        myEntityModels.push(EntityModel(element->Value(), element->Attribute("image"), coordinate, speed, angle, rotation, time));
 
         element = element->NextSiblingElement();
     }
+}
 
-    return 0;
+std::shared_ptr<Background> LevelManager::getBackground()
+{
+    return myBackground;
 }
 
 std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
@@ -71,13 +72,15 @@ std::shared_ptr<Entity> LevelManager::getNextEntity(float gameTime)
 				
             float initialPos = -static_cast<float>(image.GetHeight());
 
-			if(entityModel.getType()=="planet"){
-				std::shared_ptr<Entity> planet(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
-				return planet;
-			} else if(entityModel.getType()=="asteroid"){
-				std::shared_ptr<Entity> asteroid(new Asteroid(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed(), entityModel.getAngle()));
-				return asteroid;
-			}
+            std::shared_ptr<Entity> ptrEntity;
+
+			if(entityModel.getType() == "planet")
+				ptrEntity = std::shared_ptr<Entity>(new Planet(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed()));
+            else if(entityModel.getType() == "asteroid")
+                ptrEntity = std::shared_ptr<Entity>(new Asteroid(image, sf::Vector2f(entityModel.getXCoordinate(), initialPos), entityModel.getSpeed(),
+                                                    entityModel.getAngle(), entityModel.getRotation()));
+
+            return ptrEntity;
         }
     }
 

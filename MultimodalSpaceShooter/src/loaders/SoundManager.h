@@ -4,6 +4,10 @@
 #include "ResourceManager.h"
 #include <SFML/Audio.hpp>
 
+//////////////////////////////////////////////////
+/// Sound manager
+/// Manages the life cycle of these sound ressources
+//////////////////////////////////////////////////
 class SoundManager : public ResourceManager<sf::SoundBuffer>
 {
     public:

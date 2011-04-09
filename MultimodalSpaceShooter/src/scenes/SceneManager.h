@@ -6,8 +6,8 @@
 
 #include "entities/Entity.h"
 #include "scenes/IScene.h"
-#include "managers/EventListener.h"
-#include "managers/MultimodalListener.h"
+#include "input/EventListener.h"
+#include "input/MultimodalListener.h"
 
 #include <map>
 
@@ -24,6 +24,10 @@ namespace Scene
     };
 }
 
+//////////////////////////////////////////////////
+/// Managers of the scenes in game game
+/// Handles easy switching of the scenes
+//////////////////////////////////////////////////
 class SceneManager : public EventListener, public MultimodalListener
 {
     public:

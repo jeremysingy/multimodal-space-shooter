@@ -3,6 +3,9 @@
 
 const float PI = 3.14159265f;
 
+//////////////////////////////////////////////////
+/// Some utility funcitons as degres to radians conversion
+//////////////////////////////////////////////////
 namespace utils
 {
     template <typename T>

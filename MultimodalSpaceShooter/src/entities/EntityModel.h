@@ -3,24 +3,29 @@
 
 #include <string>
 
+//////////////////////////////////////////////////
+/// Model of entity loaded from the XML world file
+//////////////////////////////////////////////////
 class EntityModel
 {
     public:
-        EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float time, float angle);
+        EntityModel(const std::string& type, const std::string& imageFile, float xCoordinate, float speed, float angle, float rotation, float time);
         std::string getType() const;
         std::string getImageFile() const;
         float getXCoordinate() const;
         float getSpeed() const;
-        float getTime() const;
 		float getAngle() const;
+        float getRotation() const;
+        float getTime() const;
 
     private:
         std::string myType;
         std::string myImageFile;
         float myXCoordinate;
         float mySpeed;
-        float myTime;
 		float myAngle;
+        float myRotation;
+        float myTime;
 };
 
 struct CompareTime

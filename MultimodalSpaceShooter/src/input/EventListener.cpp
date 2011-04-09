@@ -1,5 +1,5 @@
-#include "managers/EventListener.h"
-#include "managers/Managers.h"
+#include "input/EventListener.h"
+#include "core/Managers.h"
 
 EventListener::EventListener()
 {

@@ -6,7 +6,6 @@
 
 #include "entities/Entity.h"
 #include "entities/PlayableEntity.h"
-#include <iostream>
 
 //////////////////////////////////////////////////
 /// Functor to get destroyed entities
@@ -19,6 +18,10 @@ struct CheckDestroyed
     } 
 };
 
+//////////////////////////////////////////////////
+/// Manage all the entities of the game like
+/// the spaceship, the planets, etc.
+//////////////////////////////////////////////////
 class EntityManager
 {
     public:
@@ -28,19 +31,17 @@ class EntityManager
         typedef std::shared_ptr<PlayableEntity> PlayablePtr;
         typedef std::vector<PlayablePtr>        PlayableVector;
 
-        EntityManager();
-        ~EntityManager();
-
+        void reset();
         void addEntity(std::shared_ptr<Entity> entity);
         void addPlayableEntity(std::shared_ptr<PlayableEntity> playableEntity);
-        //PlayableVector getPlayableEntities();
-        //void removeEntity(std::shared_ptr<Entity> entity);
+        EntityManager::PlayableVector getPlayableEntities();
         void onEvent(const sf::Event& event);
         void onMultimodalEvent(Multimodal::Event event);
 
         void updateEntities(float frameTime);
         void drawEntities(sf::RenderTarget& window);
         void checkDestroyedEntities();
+        bool hasEntityWithType(Object::Type type);
 
     private:
         void manageCollisions();

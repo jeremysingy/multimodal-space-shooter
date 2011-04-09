@@ -1,5 +1,5 @@
 #include "entities/Fire.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 
 Fire::Fire() :
 mySprite(*imageManager().get("fire.png"), 18, 37, 0.05f)

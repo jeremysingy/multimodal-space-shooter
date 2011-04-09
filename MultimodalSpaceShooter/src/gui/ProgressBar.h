@@ -6,11 +6,13 @@
 
 class ButtonListener;
 
+//////////////////////////////////////////////////
+/// Represents a progress bar
+//////////////////////////////////////////////////
 class ProgressBar : public Widget
 {
     public:
         ProgressBar(const sf::Vector2f& position, const sf::Color& color);
-        virtual ~ProgressBar();
 
         virtual void onEvent(const sf::Event& event);
         virtual void onMultimodalEvent(Multimodal::Event event);

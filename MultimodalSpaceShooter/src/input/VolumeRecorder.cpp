@@ -1,5 +1,4 @@
-#include "managers/VolumeRecorder.h"
-#include <iostream>
+#include "input/VolumeRecorder.h"
 
 VolumeRecorder::VolumeRecorder() :
 myVolume(0),

@@ -1,7 +1,7 @@
-#include "managers/EventManager.h"
+#include "input/EventManager.h"
 
 #include <SFML/Window.hpp>
-#include "managers/EventListener.h"
+#include "input/EventListener.h"
 #include "entities/Spaceship.h"
 
 EventManager::EventManager(const sf::Input& input) :

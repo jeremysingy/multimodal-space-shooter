@@ -6,6 +6,9 @@
 #include <string>
 #include <stdexcept>
 
+//////////////////////////////////////////////////
+/// Base class for every ressource managers (loaders)
+//////////////////////////////////////////////////
 template <typename ResType>
 class ResourceManager
 {

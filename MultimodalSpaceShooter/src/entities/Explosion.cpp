@@ -1,16 +1,13 @@
 #include "entities/Explosion.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
+
+const sf::Vector2f Explosion::FRAME_SIZE(320, 240);
 
 Explosion::Explosion(const sf::Vector2f& initialPos) :
-mySprite(*imageManager().get("explosion.png"), 320, 240, 0.05f)
+mySprite(*imageManager().get("explosion.png"), static_cast<int>(FRAME_SIZE.x), static_cast<int>(FRAME_SIZE.y), 0.05f)
 {
     mySprite.SetPosition(initialPos);
     audioEngine().playSound("boum.wav");
-}
-
-Explosion::~Explosion()
-{
-
 }
 
 void Explosion::update(float frameTime)
@@ -26,7 +23,7 @@ void Explosion::draw(sf::RenderTarget& window) const
     window.Draw(mySprite);
 }
 
-sf::FloatRect Explosion:: getBoundingRect() const
+sf::FloatRect Explosion::getBoundingRect() const
 {
-    return sf::FloatRect(mySprite.GetPosition(), sf::Vector2f(80, 80));
+    return sf::FloatRect(mySprite.GetPosition(), FRAME_SIZE);
 }

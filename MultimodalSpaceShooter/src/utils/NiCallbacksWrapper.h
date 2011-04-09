@@ -5,6 +5,11 @@
 
 class GestureManager;
 
+//////////////////////////////////////////////////
+/// Wrapper for OpenNI global callbacks functions
+/// Simplifies the use of OpenNI in the GestureManager
+/// class
+//////////////////////////////////////////////////
 class NiCallbacksWrapper
 {
     public:

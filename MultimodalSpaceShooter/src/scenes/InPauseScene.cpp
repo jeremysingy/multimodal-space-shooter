@@ -1,6 +1,6 @@
 #include "scenes/InPauseScene.h"
-#include "managers/SceneManager.h"
-#include "managers/Managers.h"
+#include "scenes/SceneManager.h"
+#include "core/Managers.h"
 #include "core/Game.h"
 
 #include <SFML/Graphics.hpp>
@@ -37,9 +37,6 @@ void InPauseScene::onEvent(const sf::Event& event)
     {
         if(event.Key.Code == sf::Key::Escape)
             mySceneManager.changeCurrentScene(Scene::InGame);
-
-        if(event.Key.Code == sf::Key::Q)
-            Game::instance().quit();
     }
 
     myMenu.onEvent(event);

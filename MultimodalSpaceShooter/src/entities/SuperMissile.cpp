@@ -1,11 +1,9 @@
 #include "entities/SuperMissile.h"
-#include <SFML/Graphics.hpp>
-#include <math.h>
 #include "core/Game.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 #include "utils/Utils.h"
-#include <iostream>
-#include <string.h>
+#include <SFML/Graphics.hpp>
+#include <cmath>
 
 const float SuperMissile::SPEED = 250.f;
 

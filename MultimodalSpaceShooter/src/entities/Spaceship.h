@@ -6,6 +6,9 @@
 #include "entities/Fire.h"
 #include <SFML/Graphics.hpp>
 
+//////////////////////////////////////////////////
+/// Main playable playable entity
+//////////////////////////////////////////////////
 class Spaceship : public PlayableEntity
 {
     public:
@@ -21,11 +24,7 @@ class Spaceship : public PlayableEntity
         virtual void onPlayerAction(const sf::Event& event);
         virtual void onMultimodalAction(Multimodal::Event event);
 
-        unsigned int getLife();
-
         static const float SPEED;
-        static const int DEFAULT_LIFE = 5;
-
         static const float MISSILE_LEFT_ANGLE;
         static const float MISSILE_UP_ANGLE;
         static const float MISSILE_RIGHT_ANGLE;
@@ -37,7 +36,6 @@ class Spaceship : public PlayableEntity
 
         AnimatedSprite mySprite;
         Fire           myFire;
-        unsigned int   myLife;
 };
 
 #endif // SPACESHIP_H

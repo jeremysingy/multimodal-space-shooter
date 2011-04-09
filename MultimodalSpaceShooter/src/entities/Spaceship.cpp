@@ -1,7 +1,7 @@
 #include "entities/Spaceship.h"
 #include "entities/Missile.h"
 #include "entities/SuperMissile.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 #include "core/Game.h"
 #include <SFML/Graphics.hpp>
 
@@ -11,11 +11,9 @@ const float Spaceship::MISSILE_UP_ANGLE    = 360.f - 90.f;
 const float Spaceship::MISSILE_RIGHT_ANGLE = 360.f - 125.f;
 
 Spaceship::Spaceship() :
-mySprite(*imageManager().get("spaceship.png"),150, 165, 0.05f), myFire(),
-myLife(DEFAULT_LIFE)
+mySprite(*imageManager().get("spaceship.png"),150, 165, 0.05f), myFire()
 {
     mySprite.Move(Game::instance().getScreenSize().x / 2.f, Game::instance().getScreenSize().y - 165.f);
-
     myFire.setPosition(mySprite.GetPosition().x + 66.f, mySprite.GetPosition().y);
 }
 
@@ -29,25 +27,21 @@ void Spaceship::onPlayerAction(const sf::Event& event)
     if(event.Type == sf::Event::KeyPressed)
     {
         if(event.Key.Code == sf::Key::Space)
-            fireMissile();
-
-        if(event.Key.Code == sf::Key::Y)
-            fireSuperMissiles();
+        {
+            if(eventManager().getInput().IsKeyDown(sf::Key::Up))
+                fireSuperMissiles();
+            else
+                fireMissile();
+        }
     }
 }
 
 void Spaceship::onMultimodalAction(Multimodal::Event event)
 {
-    if(event == Multimodal::VolumeChangedArmDown && multimodalManager().getMicroLevel() == Volume::Medium)
-        fireMissile();
-
-    else if(event == Multimodal::VolumeChangedArmUp && multimodalManager().getMicroLevel() == Volume::High)
+    if(event == Multimodal::VolumeChangedArmUp || eventManager().getInput().IsKeyDown(sf::Key::Up))
         fireSuperMissiles();
-}
-
-unsigned int Spaceship::getLife()
-{
-    return myLife;
+    else if(event == Multimodal::VolumeChangedArmDown)
+        fireMissile();
 }
 
 void Spaceship::update(float frameTime)

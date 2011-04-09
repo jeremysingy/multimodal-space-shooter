@@ -17,6 +17,10 @@ namespace Tracking
     };
 }
 
+//////////////////////////////////////////////////
+/// Manage the gestural events of the game with a
+/// Kinect using OpenNI
+//////////////////////////////////////////////////
 class GestureManager
 {
     public:

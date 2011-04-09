@@ -3,11 +3,11 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "managers/AudioEngine.h"
-#include "managers/EventManager.h"
-#include "managers/MultimodalManager.h"
-#include "managers/SceneManager.h"
-#include "managers/EntityManager.h"
+#include "core/AudioEngine.h"
+#include "input/EventManager.h"
+#include "input/MultimodalManager.h"
+#include "scenes/SceneManager.h"
+#include "entities/EntityManager.h"
 #include "loaders/ImageManager.h"
 #include "loaders/SoundManager.h"
 #include "loaders/LevelManager.h"

@@ -1,5 +1,5 @@
-#include "managers/MultimodalListener.h"
-#include "managers/Managers.h"
+#include "input/MultimodalListener.h"
+#include "core/Managers.h"
 
 MultimodalListener::MultimodalListener()
 {

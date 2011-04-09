@@ -1,13 +1,10 @@
-#include "managers/EntityManager.h"
+#include "entities/EntityManager.h"
 
-EntityManager::EntityManager()
+void EntityManager::reset()
 {
-
-}
-
-EntityManager::~EntityManager()
-{
-
+    myEntities.clear();
+    myNewEntities.clear();
+    myPlayableEntities.clear();
 }
 
 void EntityManager::addEntity(std::shared_ptr<Entity> entity)
@@ -20,15 +17,10 @@ void EntityManager::addPlayableEntity(std::shared_ptr<PlayableEntity> playableEn
     myPlayableEntities.push_back(playableEntity);
 }
 
-/*EntityManager::PlayableVector EntityManager::getPlayableEntities()
+EntityManager::PlayableVector EntityManager::getPlayableEntities()
 {
     return myPlayableEntities;
-}*/
-
-/*void EntityManager::removeEntity(std::shared_ptr<Entity> entity)
-{
-    myEntities.erase(entity);
-}*/
+}
 
 void EntityManager::updateEntities(float frameTime)
 {
@@ -52,9 +44,6 @@ void EntityManager::updateEntities(float frameTime)
 
 void EntityManager::drawEntities(sf::RenderTarget& window)
 {
-    // Draw the background
-    
-
     // Draw all the objects of the scene
     for(EntityVector::iterator i = myEntities.begin(); i != myEntities.end(); ++i)
     {
@@ -66,15 +55,20 @@ void EntityManager::drawEntities(sf::RenderTarget& window)
     {
         (*i)->draw(window);
     }
-
-    // Print current fps and volume indicator
-    //drawFps(window);
-    //drawVolumeIndicator(window);
 }
 
 void EntityManager::checkDestroyedEntities()
 {
     myEntities.erase(std::remove_if(myEntities.begin(), myEntities.end(), CheckDestroyed()), myEntities.end());
+}
+
+bool EntityManager::hasEntityWithType(Object::Type type)
+{
+    for(EntityVector::iterator i = myEntities.begin(); i != myEntities.end(); ++i)
+        if((*i)->getType() == type)
+            return true;
+
+    return false;
 }
 
 void EntityManager::addNewEntities()
@@ -105,7 +99,7 @@ void EntityManager::manageCollisions()
     // Playable entities with entities
     for(std::size_t i = 0; i < myPlayableEntities.size(); ++i)
     {
-        for(std::size_t j = i + 1; j < myEntities.size(); ++j)
+        for(std::size_t j = 0; j < myEntities.size(); ++j)
         {
             sf::FloatRect collisionArea;
             

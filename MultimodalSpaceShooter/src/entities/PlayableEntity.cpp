@@ -1,12 +1,15 @@
 #include "PlayableEntity.h"
 
+const int PlayableEntity::MAX_LIFE = 5;
+
 PlayableEntity::PlayableEntity() :
-Entity(Object::PLAYER)
+Entity(Object::PLAYER),
+myLife(MAX_LIFE)
 {
 
 }
 
-PlayableEntity::~PlayableEntity()
+unsigned int PlayableEntity::getLife()
 {
-
+    return myLife;
 }

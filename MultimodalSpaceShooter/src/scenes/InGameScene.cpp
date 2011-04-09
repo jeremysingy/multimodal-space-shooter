@@ -1,9 +1,9 @@
 #include "scenes/InGameScene.h"
-#include "managers/SceneManager.h"
+#include "scenes/SceneManager.h"
 #include "core/Game.h"
 #include "entities/Spaceship.h"
 #include "entities/Planet.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 
 #include <sstream>
 #include <iomanip>
@@ -12,13 +12,14 @@ InGameScene::InGameScene(SceneManager& sceneManager) :
 IScene(sceneManager),
 myGameClock(true),
 myFrameCount(0),
-myBackground(*imageManager().get("background.png"), 0.01f, 1985),
 myLifeBar(sf::Vector2f(10.f, 10.f), sf::Color::Green),
 myVolumeBar(sf::Vector2f(Game::instance().getScreenSize().x - 150.f, 10.f), sf::Color::Red),
 myFpsText("", sf::Font::GetDefaultFont(), 16),
-myEndTime(-1.f),
-mySpaceship(new Spaceship)
+myShowFps(false),
+myEndTime(-1.f)
 {
+    myFpsText.SetPosition(5.f, 20.f);
+
     // Preload images
     imageManager().get("background.png");
     imageManager().get("spaceship.png");
@@ -27,19 +28,21 @@ mySpaceship(new Spaceship)
     imageManager().get("superbullet.png");
     imageManager().get("fire.png");
 
-    // Load the world
-    myLevelManager.load("worlds/sample.xml");
-
-    // Create the playable spaceship
-    //std::shared_ptr<PlayableEntity> spaceship(mySpaceship);
-    entityManager().addPlayableEntity(mySpaceship);
-
-    myBackground.setImage(*imageManager().get("background.png"));
+    reset();
 }
 
-InGameScene::~InGameScene()
+void InGameScene::reset()
 {
+    myGameClock.reset();
+    entityManager().reset();
 
+    // Add the playable spaceship
+    std::shared_ptr<PlayableEntity> spaceship(new Spaceship);
+    entityManager().addPlayableEntity(spaceship);
+
+    // Load the world
+    myLevelManager.load("worlds/sample.xml");
+    myBackground = myLevelManager.getBackground();
 }
 
 void InGameScene::onShow()
@@ -62,27 +65,22 @@ void InGameScene::update(float frameTime)
         nextEntity = myLevelManager.getNextEntity(myGameClock.getElapsedTime());
     }
 
-    myBackground.update();
+    myBackground->update(frameTime);
     entityManager().updateEntities(frameTime);
     entityManager().checkDestroyedEntities();
 
-    myLifeBar.setLevel(mySpaceship->getLife() / static_cast<float>(Spaceship::DEFAULT_LIFE) * 100.f);
+    int spaceshipLife = entityManager().getPlayableEntities()[0]->getLife();
+
+    myLifeBar.setLevel(spaceshipLife / static_cast<float>(Spaceship::MAX_LIFE) * 100.f);
     myVolumeBar.setLevel(multimodalManager().getMicroVolume());
 
-    if(myLevelManager.isWorldEnded() && myEndTime < 0.f)
-        myEndTime = myGameClock.getElapsedTime();
-
-    if(myEndTime > 0.f && myGameClock.getElapsedTime() > myEndTime + 8.f)
-        mySceneManager.changeCurrentScene(Scene::EndGame);
-
-    if(mySpaceship->isDestroyed())
-        mySceneManager.changeCurrentScene(Scene::GameOver);
+    checkEndGame();
 }
 
 void InGameScene::draw(sf::RenderTarget& window) const
 {
     // Draw the background
-    myBackground.draw(window);
+    myBackground->draw(window);
 
     // Draw the objects of the scene
     entityManager().drawEntities(window);
@@ -90,7 +88,10 @@ void InGameScene::draw(sf::RenderTarget& window) const
     // Draw the UI controls
     myLifeBar.draw(window);
     myVolumeBar.draw(window);
-    drawFps(window);
+
+    // Draw the FPS
+    if(myShowFps)
+        drawFps(window);
 }
 
 void InGameScene::onEvent(const sf::Event& event)
@@ -102,6 +103,9 @@ void InGameScene::onEvent(const sf::Event& event)
 
         entityManager().onEvent(event);
     }
+
+    if(event.Type == sf::Event::KeyPressed && event.Key.Code == sf::Key::F)
+        myShowFps = !myShowFps;
 }
 
 void InGameScene::onMultimodalEvent(Multimodal::Event event)
@@ -128,4 +132,25 @@ void InGameScene::drawFps(sf::RenderTarget& window) const
     ++myFrameCount;
 
     window.Draw(myFpsText);
+}
+
+void InGameScene::checkEndGame()
+{
+    // If spaceship is destroyed, game over
+    if(entityManager().getPlayableEntities()[0]->isDestroyed())
+    {
+        mySceneManager.changeCurrentScene(Scene::GameOver);
+        reset();
+    }
+
+    // If no more destructive entities, will end game
+    if(myLevelManager.isWorldEnded() && !entityManager().hasEntityWithType(Object::DESTRUCTIVE) && myEndTime < 0.f)
+        myEndTime = myGameClock.getElapsedTime();
+    
+    // Really end game 2 seconds later
+    if(myEndTime > 0.f && myGameClock.getElapsedTime() > myEndTime + 2.f)
+    {
+        mySceneManager.changeCurrentScene(Scene::EndGame);
+        reset();
+    }
 }

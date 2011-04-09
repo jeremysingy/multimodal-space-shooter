@@ -1,10 +1,10 @@
 #ifndef MANAGERS_H
 #define MANAGERS_H
 
-#include "managers/AudioEngine.h"
-#include "managers/EventManager.h"
-#include "managers/MultimodalManager.h"
-#include "managers/EntityManager.h"
+#include "core/AudioEngine.h"
+#include "input/EventManager.h"
+#include "input/MultimodalManager.h"
+#include "entities/EntityManager.h"
 #include "loaders/ImageManager.h"
 #include "loaders/SoundManager.h"
 

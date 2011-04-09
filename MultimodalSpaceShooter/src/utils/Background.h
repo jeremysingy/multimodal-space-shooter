@@ -4,25 +4,24 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+//////////////////////////////////////////////////
+/// Background of the game representing the space
+//////////////////////////////////////////////////
 class Background
 {
     public:
-        Background(const sf::Image& image, float frameTime, float imageHeight);
+        Background(const sf::Image& image, float scrollingSpeed);
         
-        float getFrameTime() const;
-        void update();
-        virtual void draw(sf::RenderTarget& window) const;
-        void setImage(const sf::Image &image);
+        void update(float frameTime);
+        void draw(sf::RenderTarget& window) const;
+
     private:
-        sf::Clock                myClock;
-        float                    myFrameTime;
-        float                    myImageHeight;
-        sf::Sprite               firstSprite;
-        sf::Sprite               secondSprite;
-
         void setInitialPosition();
-        void moveSecondBackground(int oldPosition);
 
+        sf::Sprite myFirstSprite;
+        sf::Sprite mySecondSprite;
+
+        float myScrollingSpeed;
 };
 
 #endif // BACKGROUND_H

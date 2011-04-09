@@ -4,6 +4,9 @@
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
 
+//////////////////////////////////////////////////
+/// Super missiles launched by the spaceship
+//////////////////////////////////////////////////
 class SuperMissile : public Entity
 {
     public:

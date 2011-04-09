@@ -11,9 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\AudioEngine.h" />
     <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\core\Managers.h" />
     <ClInclude Include="src\entities\Asteroid.h" />
     <ClInclude Include="src\entities\Entity.h" />
+    <ClInclude Include="src\entities\EntityManager.h" />
     <ClInclude Include="src\entities\EntityModel.h" />
     <ClInclude Include="src\entities\Explosion.h" />
     <ClInclude Include="src\entities\Fire.h" />
@@ -27,26 +30,23 @@
     <ClInclude Include="src\gui\Menu.h" />
     <ClInclude Include="src\gui\ProgressBar.h" />
     <ClInclude Include="src\gui\Widget.h" />
+    <ClInclude Include="src\input\EventListener.h" />
+    <ClInclude Include="src\input\EventManager.h" />
+    <ClInclude Include="src\input\GestureManager.h" />
+    <ClInclude Include="src\input\MultimodalListener.h" />
+    <ClInclude Include="src\input\MultimodalManager.h" />
+    <ClInclude Include="src\input\VolumeRecorder.h" />
     <ClInclude Include="src\loaders\ImageManager.h" />
     <ClInclude Include="src\loaders\ResourceManager.h" />
     <ClInclude Include="src\loaders\SoundManager.h" />
     <ClInclude Include="src\loaders\LevelManager.h" />
-    <ClInclude Include="src\managers\AudioEngine.h" />
-    <ClInclude Include="src\managers\EntityManager.h" />
-    <ClInclude Include="src\managers\EventListener.h" />
-    <ClInclude Include="src\managers\EventManager.h" />
-    <ClInclude Include="src\managers\GestureManager.h" />
-    <ClInclude Include="src\managers\Managers.h" />
-    <ClInclude Include="src\managers\MultimodalListener.h" />
-    <ClInclude Include="src\managers\MultimodalManager.h" />
-    <ClInclude Include="src\managers\SceneManager.h" />
-    <ClInclude Include="src\managers\VolumeRecorder.h" />
     <ClInclude Include="src\scenes\EndGameScene.h" />
     <ClInclude Include="src\scenes\GameOverScene.h" />
     <ClInclude Include="src\scenes\InGameScene.h" />
     <ClInclude Include="src\scenes\InPauseScene.h" />
     <ClInclude Include="src\scenes\IntroScene.h" />
     <ClInclude Include="src\scenes\IScene.h" />
+    <ClInclude Include="src\scenes\SceneManager.h" />
     <ClInclude Include="src\scenes\TrackingScene.h" />
     <ClInclude Include="src\utils\AnimatedSprite.h" />
     <ClInclude Include="src\utils\Background.h" />
@@ -60,9 +60,12 @@
     <None Include="src\loaders\ResourceManager.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\AudioEngine.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\core\Managers.cpp" />
     <ClCompile Include="src\entities\Asteroid.cpp" />
     <ClCompile Include="src\entities\Entity.cpp" />
+    <ClCompile Include="src\entities\EntityManager.cpp" />
     <ClCompile Include="src\entities\EntityModel.cpp" />
     <ClCompile Include="src\entities\Explosion.cpp" />
     <ClCompile Include="src\entities\Fire.cpp" />
@@ -76,26 +79,23 @@
     <ClCompile Include="src\gui\Menu.cpp" />
     <ClCompile Include="src\gui\ProgressBar.cpp" />
     <ClCompile Include="src\gui\Widget.cpp" />
+    <ClCompile Include="src\input\EventListener.cpp" />
+    <ClCompile Include="src\input\EventManager.cpp" />
+    <ClCompile Include="src\input\GestureManager.cpp" />
+    <ClCompile Include="src\input\MultimodalListener.cpp" />
+    <ClCompile Include="src\input\MultimodalManager.cpp" />
+    <ClCompile Include="src\input\VolumeRecorder.cpp" />
     <ClCompile Include="src\loaders\ImageManager.cpp" />
     <ClCompile Include="src\loaders\SoundManager.cpp" />
     <ClCompile Include="src\loaders\LevelManager.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\managers\AudioEngine.cpp" />
-    <ClCompile Include="src\managers\EntityManager.cpp" />
-    <ClCompile Include="src\managers\EventListener.cpp" />
-    <ClCompile Include="src\managers\EventManager.cpp" />
-    <ClCompile Include="src\managers\GestureManager.cpp" />
-    <ClCompile Include="src\managers\Managers.cpp" />
-    <ClCompile Include="src\managers\MultimodalListener.cpp" />
-    <ClCompile Include="src\managers\MultimodalManager.cpp" />
-    <ClCompile Include="src\managers\SceneManager.cpp" />
-    <ClCompile Include="src\managers\VolumeRecorder.cpp" />
     <ClCompile Include="src\scenes\EndGameScene.cpp" />
     <ClCompile Include="src\scenes\GameOverScene.cpp" />
     <ClCompile Include="src\scenes\InGameScene.cpp" />
     <ClCompile Include="src\scenes\InPauseScene.cpp" />
     <ClCompile Include="src\scenes\IntroScene.cpp" />
     <ClCompile Include="src\scenes\IScene.cpp" />
+    <ClCompile Include="src\scenes\SceneManager.cpp" />
     <ClCompile Include="src\scenes\TrackingScene.cpp" />
     <ClCompile Include="src\utils\AnimatedSprite.cpp" />
     <ClCompile Include="src\utils\Background.cpp" />

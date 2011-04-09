@@ -3,11 +3,14 @@
 
 #include <SFML/Graphics/Text.hpp>
 #include "scenes/IScene.h"
-#include "managers/EventListener.h"
-#include "managers/MultimodalListener.h"
+#include "input/EventListener.h"
+#include "input/MultimodalListener.h"
 #include "gui/Menu.h"
 #include "gui/ButtonListener.h"
 
+//////////////////////////////////////////////////
+/// Scene when the game is in pause
+//////////////////////////////////////////////////
 class InPauseScene : public IScene, public ButtonListener
 {
     public:

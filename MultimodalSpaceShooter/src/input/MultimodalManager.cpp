@@ -1,5 +1,4 @@
-#include "managers/MultimodalManager.h"
-#include <iostream>
+#include "input/MultimodalManager.h"
 
 MultimodalManager::MultimodalManager() :
 myTrackingState(Tracking::NotInitialized)
@@ -48,7 +47,7 @@ void MultimodalManager::update()
     if(myVolumeRecorder.hasLevelIncreased())
     {
         Multimodal::Event event = Multimodal::VolumeChangedArmDown;
-        if(myGestureManager.getRightHandPosition().y > myGestureManager.getBodyPosition().y)
+        if(myGestureManager.getRightHandPosition().y < myGestureManager.getBodyPosition().y)
             event = Multimodal::VolumeChangedArmUp;
         
         // Send other multimodal event to the listeners

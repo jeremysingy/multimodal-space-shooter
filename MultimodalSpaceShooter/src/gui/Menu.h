@@ -1,11 +1,14 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "Widget.h"
-#include "Button.h"
+#include "gui/Widget.h"
+#include "gui/Button.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+//////////////////////////////////////////////////
+/// Menu element that holds buttons
+//////////////////////////////////////////////////
 class Menu : public Widget
 {
     public:

@@ -1,5 +1,5 @@
 #include "gui/ProgressBar.h"
-#include "managers/Managers.h"
+#include "core/Managers.h"
 
 const float ProgressBar::WIDTH  = 100.f;
 const float ProgressBar::HEIGHT = 5.f;
@@ -13,11 +13,6 @@ ProgressBar::ProgressBar(const sf::Vector2f& position, const sf::Color& color)
     myOutline.SetPosition(position);
 
     setLevel(0.f);
-}
-
-ProgressBar::~ProgressBar()
-{
-
 }
 
 void ProgressBar::onEvent(const sf::Event& event)

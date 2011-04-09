@@ -19,14 +19,8 @@
     <Filter Include="Header Files\loaders">
       <UniqueIdentifier>{94f6ca0e-9590-48a0-989f-f805063404b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\managers">
-      <UniqueIdentifier>{cf0ec571-2c49-44cc-8791-a72a6c91a912}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\entities">
       <UniqueIdentifier>{a3ec3d08-f9c6-429c-aff2-9ffa79f9c1c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\managers">
-      <UniqueIdentifier>{d49d54f4-7b80-4621-a9ab-eb0ae88f47ca}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\loaders">
       <UniqueIdentifier>{69161e93-c02e-4de9-9381-217840268087}</UniqueIdentifier>
@@ -61,6 +55,12 @@
     <Filter Include="Source Files\utils\tinyxml">
       <UniqueIdentifier>{457c5a99-7f93-4085-bb3c-75e7e5e41b88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{cf0ec571-2c49-44cc-8791-a72a6c91a912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{d49d54f4-7b80-4621-a9ab-eb0ae88f47ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entities\Entity.h">
@@ -89,36 +89,6 @@
     </ClInclude>
     <ClInclude Include="src\loaders\SoundManager.h">
       <Filter>Header Files\loaders</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\AudioEngine.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\EntityManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\EventListener.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\EventManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\GestureManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\Managers.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MultimodalListener.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\MultimodalManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\SceneManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\managers\VolumeRecorder.h">
-      <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\scenes\InGameScene.h">
       <Filter>Header Files\scenes</Filter>
@@ -195,6 +165,36 @@
     <ClInclude Include="src\entities\Asteroid.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\AudioEngine.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Managers.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\EntityManager.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scenes\SceneManager.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\EventListener.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\EventManager.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\GestureManager.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\MultimodalListener.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\MultimodalManager.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\VolumeRecorder.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\loaders\ResourceManager.inl">
@@ -228,36 +228,6 @@
     </ClCompile>
     <ClCompile Include="src\loaders\SoundManager.cpp">
       <Filter>Source Files\loaders</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\AudioEngine.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\EntityManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\EventListener.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\EventManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\GestureManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\Managers.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\MultimodalListener.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\MultimodalManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\SceneManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\managers\VolumeRecorder.cpp">
-      <Filter>Source Files\managers</Filter>
     </ClCompile>
     <ClCompile Include="src\scenes\InGameScene.cpp">
       <Filter>Source Files\scenes</Filter>
@@ -336,6 +306,36 @@
     </ClCompile>
     <ClCompile Include="src\entities\Asteroid.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\EntityManager.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\SceneManager.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\EventListener.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\EventManager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\GestureManager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\MultimodalListener.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\MultimodalManager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\VolumeRecorder.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\AudioEngine.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Managers.cpp">
+      <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
