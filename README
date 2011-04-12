@@ -2,10 +2,11 @@ Multimodal Space Shooter
 ------------------------
 
 Space shooter using a multimodal user interface
-The game uses this two modalities:
+The game uses these two modalities:
   - Gesture (using a Kinect)
   - Voice
 
 Developped for the course "Multimodal Interfaces"
+at the College of Engineering and Architecture of Fribourg, Switzerland
 
 The game uses the SFML library: http://www.sfml-dev.org/
